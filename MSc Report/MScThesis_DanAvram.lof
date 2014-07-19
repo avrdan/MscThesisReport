@@ -1,0 +1,24 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Physical setup of the prototype}}{2}
+\contentsline {figure}{\numberline {2}{\ignorespaces Projection on Holger the Dane. Courtesy of \cite {daalsgard11}}}{3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Interaction with Flexpad. Courtesy of \cite {steimle13}}}{4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Deformation model of Flexpad(left) and deformations it can express(right). Courtesy of \cite {steimle13}}}{4}
+\contentsline {figure}{\numberline {5}{\ignorespaces The Future Office. Courtesy of \cite {raskar98}}}{6}
+\contentsline {figure}{\numberline {6}{\ignorespaces The Deformable Workspace Setup. Courtesy of \cite {watanabe08}}}{7}
+\contentsline {figure}{\numberline {7}{\ignorespaces Compensation of image warp caused by screen deformation. Courtesy of \cite {watanabe08}}}{8}
+\contentsline {figure}{\numberline {8}{\ignorespaces a) Only a portion of the object can be magnified with a small fisheye lens; b) A large fisheye magnifies almost the entire object, but at the cost of added distortion for sorrounding objects; c) JellyLens - adapting the relevant information of the object, while preserving the surrounding areas. Courtesy of \cite {pindat12}}}{9}
+\contentsline {figure}{\numberline {9}{\ignorespaces Distortion Correction Pipeline}}{10}
+\contentsline {figure}{\numberline {10}{\ignorespaces A setup that needs projector-camera calibration}}{12}
+\contentsline {figure}{\numberline {11}{\ignorespaces The projection frustum. Courtesy of \cite {superbible}}}{12}
+\contentsline {figure}{\numberline {12}{\ignorespaces A 4x4 matrix that represents a position(column 4) and orientation(columns 1-3) in space. Courtesy of \cite {superbible}}}{13}
+\contentsline {figure}{\numberline {13}{\ignorespaces General Pinhole Camera Model}}{15}
+\contentsline {figure}{\numberline {14}{\ignorespaces Vertex Transformation Pipeline. Courtesy of \cite {superbible}}}{16}
+\contentsline {figure}{\numberline {15}{\ignorespaces 3D Graphics Pipeline}}{16}
+\contentsline {figure}{\numberline {16}{\ignorespaces An example point cloud, corresponding to the depth stream, updated in real-time.}}{17}
+\contentsline {figure}{\numberline {17}{\ignorespaces Perspective View of Some Terrain. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}}}{18}
+\contentsline {figure}{\numberline {18}{\ignorespaces Polyhedral(solid object with flat surfaces) Terrain. Smoothness will depend on point density. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}}}{18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Ordering of vertices in a triangle strip for a grid. Courtesy of \cite {triangleStrip}.}}{19}
+\contentsline {figure}{\numberline {20}{\ignorespaces a)Mountain ridge; b) Narrow valley. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}}}{20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Virtual Projector Transformation Pipeline. Courtesy of \cite {cassNvidia}}}{21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space. Courtesy of \cite {cassNvidia}}}{21}
+\contentsline {figure}{\numberline {23}{\ignorespaces Object Linear Texgen. Courtesy of \cite {cassNvidia}}}{22}
+\contentsline {figure}{\numberline {24}{\ignorespaces Eye Linear Texgen. Courtesy of \cite {cassNvidia}}}{22}

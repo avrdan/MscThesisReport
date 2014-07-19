@@ -1,0 +1,98 @@
+\begin{thebibliography}{10}
+
+\bibitem{daalsgard11}
+Daalsgard and Halskov.
+\newblock {\em 3D Projection on Physical Objects: Design Insights from Five
+  Real Life Cases}.
+\newblock CHI 2011, Aarhus University, Denmark.
+
+\bibitem{triangleStrip}
+dan.lecocq.
+\newblock {\em Triangle Strip for Grids - A Construction}.
+\newblock
+  http://dan.lecocq.us/wordpress/2009/12/25/triangle-strip-for-grids-a-construction/.
+
+\bibitem{lanman09}
+Gabriel~Taubin Douglas~Lanman.
+\newblock {\em Build Your Own 3D Scanner: 3D Photography for Beginners}.
+\newblock SIGGRAPH 2009 Course Notes.
+
+\bibitem{berg08}
+Berg et~al.
+\newblock {\em Computational Geometry: Algorithms and Applications, Third
+  Edition}.
+\newblock Springer, 2008.
+
+\bibitem{falcao08}
+Falcao et~al.
+\newblock {\em Plane-based calibration of a projector-camera system}.
+\newblock VIBOT Master 2008.
+
+\bibitem{pindat12}
+Pindat et~al.
+\newblock {\em JellyLens: Content-Aware Adaptive Lenses}.
+\newblock UIST - 25th Symposium on User Interface Software and Technology,
+  2012.
+
+\bibitem{radhwan11}
+Radhwan et~al.
+\newblock {\em KOSEI: A KINECT OBSERVATION SYSTEM BASED ON KINECT AND PROJECTOR
+  CALIBRATION}.
+\newblock QPSR of the numediart research program, Vol. 4, No. 4, December 2011.
+
+\bibitem{raskar98}
+Raskar et~al.
+\newblock {\em The Office of the Future: A Unified Approach to Image-Based
+  Modeling and Spatially Immersive Displays}.
+\newblock SIGGRAPH 98, Orlando, Florida, 2008.
+
+\bibitem{superbible}
+Richard S. Wright~Jr. et~al.
+\newblock {\em OpenGL SuperBible, Fifth Edition: Comprehensive Tutorial and
+  Reference}.
+\newblock Addison-Wesley, 2011.
+
+\bibitem{segal92}
+Segal et~al.
+\newblock {\em Fast Shadows and Lighting Effects Using Texture Mapping}.
+\newblock Computer Graphics 26, 2 July 1992.
+
+\bibitem{watanabe07}
+Watanabe et~al.
+\newblock {\em 955-fps Real-time Shape Measurement of a Moving/Deforming Object
+  using High-speed Vision for Numerous-point Analysis}.
+\newblock IEEE International Conference on Robotics and Automation, Roma,
+  Italy, 2007.
+
+\bibitem{watanabe08}
+Watanabe et~al.
+\newblock {\em The Deformable Workspace: a Membrane between Real and Virtual
+  Space}.
+\newblock IEEE International Workshop on Horizontal Interactive Computer
+  Systems, 2008.
+
+\bibitem{yamazaki11}
+Yamazaki et~al.
+\newblock {\em Simultaneous Self-Calibration of a Projector and a Camera using
+  Structured Light}.
+\newblock In Proceedings Projector Camera Systems 2011, National Institute of
+  Advanced Industrial Science and Technology, Japan, June, 2011.
+
+\bibitem{cassNvidia}
+Cass Everitt.
+\newblock {\em Projective Texture Mapping}.
+\newblock NVIDIA.
+
+\bibitem{jordt12}
+Andreas Jordt and Reinhard Koch.
+\newblock {\em Direct Model Based Tracking of 3D Object Deformations in Depth
+  and Color Video}.
+\newblock Int J Comput Vis, September, 2012.
+
+\bibitem{steimle13}
+Flexpad Steimle~et al.
+\newblock {\em Highly Flexible Bending Interactions for Projected Handheld
+  Displays}.
+\newblock CHI 2013, Paris, France.
+
+\end{thebibliography}
