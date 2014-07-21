@@ -1,5 +1,15 @@
 \begin{thebibliography}{10}
 
+\bibitem{bourke1994}
+Paul Bourke.
+\newblock Polygonising a scalar field.
+\newblock May 2013.
+
+\bibitem{crassin2007}
+Cyril Crassin.
+\newblock Opengl geometry shader marching cubes.
+\newblock January 2007.
+
 \bibitem{daalsgard11}
 Daalsgard and Halskov.
 \newblock {\em 3D Projection on Physical Objects: Design Insights from Five
@@ -16,6 +26,11 @@ dan.lecocq.
 Gabriel~Taubin Douglas~Lanman.
 \newblock {\em Build Your Own 3D Scanner: 3D Photography for Beginners}.
 \newblock SIGGRAPH 2009 Course Notes.
+
+\bibitem{dyken2007}
+Cristopher Dyken and Gernot Ziegler.
+\newblock High-speed marching cubes using histogram pyramids.
+\newblock 2007.
 
 \bibitem{berg08}
 Berg et~al.
@@ -88,6 +103,21 @@ Andreas Jordt and Reinhard Koch.
 \newblock {\em Direct Model Based Tracking of 3D Object Deformations in Depth
   and Color Video}.
 \newblock Int J Comput Vis, September, 2012.
+
+\bibitem{william87}
+William~E. Lorensen and Harvey~E. Cline.
+\newblock Marching cubes: a high resolution 3d surface construction algorithm.
+\newblock July 1987.
+
+\bibitem{navpreet2013}
+Jon~Macey Navpreet Kaur~Pawar.
+\newblock Surface reconstruction from point clouds.
+\newblock August 2013.
+
+\bibitem{max2013}
+Max Roth.
+\newblock Metaballs - rendering a scalar field with marching cubes.
+\newblock May 2013.
 
 \bibitem{steimle13}
 Flexpad Steimle~et al.

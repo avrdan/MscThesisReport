@@ -3,53 +3,57 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: MScThesis_DanAvram.aux
 The style file: plain.bst
 Database file #1: bibliography.bib
-Warning--I didn't find a database entry for "wanatabe08"
-Warning--I didn't find a database entry for "bar"
+Warning--empty journal in bourke1994
+Warning--empty journal in crassin2007
 Warning--empty year in daalsgard11
 Warning--empty year in triangleStrip
 Warning--empty year in lanman09
+Warning--empty journal in dyken2007
 Warning--empty year in falcao08
 Warning--empty year in cassNvidia
+Warning--empty journal in william87
+Warning--empty journal in navpreet2013
+Warning--empty journal in max2013
 Warning--empty year in steimle13
-You've used 16 entries,
+You've used 22 entries,
             2118 wiz_defined-function locations,
-            577 strings with 6233 characters,
-and the built_in function-call counts, 3564 in all, are:
-= -- 309
-> -- 124
+            603 strings with 7102 characters,
+and the built_in function-call counts, 4854 in all, are:
+= -- 429
+> -- 178
 < -- 0
-+ -- 54
-- -- 36
-* -- 155
-:= -- 630
-add.period$ -- 48
-call.type$ -- 16
-change.case$ -- 50
++ -- 76
+- -- 52
+* -- 211
+:= -- 870
+add.period$ -- 66
+call.type$ -- 22
+change.case$ -- 76
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 192
-empty$ -- 353
-format.name$ -- 36
-if$ -- 750
+cite$ -- 34
+duplicate$ -- 252
+empty$ -- 455
+format.name$ -- 52
+if$ -- 1004
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 32
-newline$ -- 83
-num.names$ -- 32
-pop$ -- 137
+int.to.str$ -- 22
+missing$ -- 38
+newline$ -- 113
+num.names$ -- 44
+pop$ -- 175
 preamble$ -- 1
-purify$ -- 50
+purify$ -- 70
 quote$ -- 0
-skip$ -- 91
+skip$ -- 135
 stack$ -- 0
-substring$ -- 82
+substring$ -- 112
 swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
-warning$ -- 6
-while$ -- 32
-width$ -- 18
-write$ -- 161
-(There were 8 warnings)
+type$ -- 56
+warning$ -- 12
+while$ -- 44
+width$ -- 24
+write$ -- 215
+(There were 12 warnings)

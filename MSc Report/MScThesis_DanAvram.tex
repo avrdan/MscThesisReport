@@ -158,7 +158,7 @@ As a final note, we can observe that the techniques used to project onto irregul
 
 \subsection{Interaction Techniques with Deformable Surfaces}
 
-\section{Prototype I Design}
+\section{Prototype Design}
 
 Both the projector and the depth camera will be fixed in place relative to the deformable screen. Further, the projected visuals will be interactive applications that need to be rendered continuously. Finally, due to the fact that the projected image will be warped (distorted) according to the screen deformation, an algorithm is needed to shift the projected image pixels corresponding to the display surface’s depth data. 
 
@@ -200,7 +200,7 @@ For this project, a solution similar to that employed in \cite{watanabe08} has b
     \label{fig:Pipeline}
 \end{figure}
 
-\section{Prototype I Development}
+\section{Prototype Development}
 
 Considering our system pipeline, I will explain briefly, how the whole components work and why they are needed, in this section. The first process is calibration. Note that the order in which components are explained does not represent the flow in the pipeline, since it will be easier to see, for example, why calibration is needed once some of the other steps have been explained.\\
 
@@ -365,7 +365,7 @@ In order to obtain a full 3D model of an object, we would, anyway, need to rotat
 Although the naive approach has been implemented and used in this project, some more sophisticated alternatives will also be described and contrasted, as this approach was not the first one attempted.
 
 \subsubsection{Connect a Grid of Points with a Triangle Strip}
-
+\label{sec:TriangleStripTriangulation}
 Since the depth data captured via a depth camera is ordered, the easiest way is to consider the point cloud as a grid of points. Then, one can connect the vertices together using triangle strips. Triangle strip representation is a method of drawing triangles that can save some of the memory bandwidth, by connecting a new triangle to an existing strip with each new point. This means, that, for example, if we want to draw two triangles, we only use 4 points, instead of 6, which we would normally need. An important thing to keep in mind is that triangle winding(the combination of order and direction in which the vertices are specified) is important. By default, OpenGL considers counterclockwise winding to represent front faces, and clockwise winding to represent backfaces. This enables the use of back-face culling for optimisation(we do not need to render triangles which are not visible), and are also important for normal calculation, and thus lighting. Although we are not concerned with lightning in this project, it is always good practice to keep the winding consistent. For more information about triangle strips and other OpenGL methods of drawing primtives please consult \cite[Chapter~3]{superbible}.
 
 Coming back to the current problem, an internet article which explains how a triangle strip can be constructed from a grid of points is \cite{triangleStrip}. Figure \ref{fig:TriangleStrip} provides an overview, on how we can connect the vertices. Note that each point in the figure, numbered from 0-15 is a 3D vertex with coordinates $(x,y,z)$. 
@@ -396,7 +396,82 @@ However, for a dense set of points, such that obtained from the depth data, a na
 \end{figure}
 
 
-\subsubsection{Marching cubes on GPU}
+\subsubsection{Marching Cubes on GPU}
+
+One of the classic computer algorithms for surface reconstruction is the \textit{Marching Cubes}  algorithm. An attempt was made to implement this algorithm. In order to run it on a GPU, one can use a \textit{geometry shader} or\textit{ histogram pyramids} with a regular vertex and fragment shader. The attempt consisted of porting an existing implementation of the geometry shader for fixed-pipeline OpenGL to modern OpenGL. Unfortunately, I did not get any geometry as output after running the algorithm, but there were also no errors. The problem is that I could not debug the shaders, since the tools I have tried did not work - some because of no support for modern OpenGL(3.0+) like \textit{glslDevil}, and others did not work on my laptop because it uses the \textit{nVidia Optimus} technology, as is the case for the \textit{nVidia nSight} debugging tool for \textit{Microsoft Visual Studio}. As this was taking too much time, I decided to go for a simpler approach, that should still prove appropriate for the real-time 3D reconstruction of the cloth, described in section \ref{sec:TriangleStripTriangulation}. Nevertheless I will briefly describe the algorithm in the following section, as well as how it can be implemented on a GPU. This may be useful to look into, as an extension to the current project, if a higher quality mesh is desired(this method works well for 3D objects in general, and is not restricted to 2.5D, as is the case for the currently used method).
+
+\paragraph{The Marching Cubes Algorithm}\mbox{}\\
+
+It was originally designed to create triangle models  from 3D medical data - usually volumetric data, using voxels for representation(voxels are similar to pixels, only they exist in 3D space and can be represented as a cube). The algorithm also needs each vertex of the dataset to have a scalar value, that usually represents a property of the underlying data set. An example of such a voxel set is shown in figure \ref{fig:VoxelSet}. This value will be used to construct an isosurface, by comparing where vertices of the voxel edges intersect the surface(given a constant user-defined threshold or isovalue).
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/Voxels.PNG}
+    \caption{Voxel data representation. Courtesy of \cite{navpreet2013}}
+    \label{fig:VoxelSet}
+\end{figure}
+
+
+ The authors of the original paper on the topic state in \cite{william87} that two primary steps were used in their approach:
+\begin{itemize}
+\item Locating the surface corresponding to a user-specified value(isolevel) and creating triangles.
+\item Calculating normals to the surface at each vertex of each triangle, in order to ensure a high quality image.
+\end{itemize}
+
+Since only the 3D mesh coordinates are required in order to capture the distortion of the cloth, the issue of calculating normals will not be described further, and we shall focus on the first part of the algorithm(although it should be mentioned that a fully shaded, reconstructed model could be useful for some calibration approaches, since, at the time of this writing there are no reconstruction libraries for the depth camera used in this project).
+
+The algorithm uses a divide-and-conquer approach by using logical cubes of eight pixels to locate the surface. How the surface intersects every such cube needs to be determined. In order to do this, a value of one is assigned to a cube's vertex, if the data value at that vertex exceeds the value of the surface we are constructing(if the scalar value is above a threshold called the isolevel). These vertices are inside the surface. Conversely, a zero value is assigned to values below, and thus outside, the surface. The surface intersects the cube edges where one vertex is inside and the other outside.
+
+Moreover, there are eight vertices in each cube and two states(inside and outside) so we have a total of $2^{8} = 256$ cases for intersection with such a cube. However, by eliminating symmetries, like complementary cases and rotational symmetry, the number of distinct cases of triangulation can be reduced to 14 patterns.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/MarchingCubesTriagulationCases.PNG}
+    \caption{Marching Cubes - The 14 Patterns of Triangulated Cubes. Courtesy of \cite{william87}}
+    \label{fig:MarchingCubesTrianglatedCubes}
+\end{figure}
+
+As an example, the cube for pattern one in figure \ref{fig:MarchingCubesTrianglatedCubes} contains one  of the surface vertices(the lower-left vertex of the front face) and results in one triangle defined by three edge intersections. An eight bit index is created for each case, and it corresponds to the cube's vertex states(see figure \ref{fig:MarchingCubesLabeling}). This index points to an edge tables that retrieves all of the edge intersections for the given cube configuration. The triangles are calculated using linear interpolation of the scalar values along the vertices of the respective edges(to determine the exact location of the triangle vertices on the cube edges). As described in \cite{navpreet2013}, if $P1$ and $P2$ are the vertices of an intersected edge and $V1$ and $V2$ are the scalar values of each vertex, the intersection point $P$ is calculated as following:  
+	$$P = P_{1} + (isovalue - V_{1})(P_{2} - P_{1}) / (V_{2} - V_{1})$$
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/MarchingCubesNumbering.PNG}
+    \caption{Marching Cubes - Cube Numbering. Courtesy of \cite{william87}}
+    \label{fig:MarchingCubesLabeling}
+\end{figure}
+
+\paragraph{GPU Implementation}\mbox{}\\
+
+\subparagraph{Geometry Shader}\mbox{}\\
+
+Many aspects from a classical implementation of marching cubes can also be used for a GPU implementation. This is the case with the basic look-up tables used to store edges and triangles. A version of these tables used in several implementations is available in an on-line article(see \cite{bourke1994}), where the full source code is also available. Although, there is no version implemented in a programmable shader on the GPU available, an implementation using a geometry shader is described in another on-line article(see \cite{crassin2007}). A geometry shader is simply a shader program that can be used to manipulate geometry directly - it allows the GPU to create geometry. This shader takes a single primitive as input(e.g.: a vertex) and outputs zero or more primitives(e.g.: zero or more triangles). 
+This implementation is based on \cite{bourke1994}, with the main marching cubes logic inside the geometry shader. However, this implementation also uses deprecated OpenGL functionality. The main idea is that data can be stored inside 2D and 3D textures and can then be passed to the geometry shader as uniforms:
+
+\begin{verbatim}
+//Volume data field texture
+uniform sampler3D dataFieldTex;
+//Edge table texture
+uniform isampler2D edgeTableTex;
+//Triangles table texture
+uniform isampler2D triTableTex;
+//Global iso level
+uniform float isolevel;
+//Marching cubes vertices decal
+uniform vec3 vertDecals[8];
+\end{verbatim}
+
+In this code fragment  the $dataFieldTex$ contains the 3D voxel scalar field data, the $edgeTableTex$ contains which edges intersect the current cube index, and the $triTableTex$ contains all the triangle indices needed, corresponding to each case. Next, the cube index is calculated by comparing the value in the grid(retrieved from $dataFieldTex$) with the $isolevel$ uniform. The position is retrieved by adding to the current vertex(to move the vertex at the appropriate position in the cube), the value in $vertDecals$. This adds the required offset in the $x,y$ or $z$ directions by an amount of $cubeStep$, which is defined initially. Having the cube vertex positions and scalar values, the interpolated values can now be calculated, for each edge. The final triangle vertices are retrieved by using the indices in $triTableTex$, for the previously computed interpolated values.
+
+\subparagraph{Histogram Pyramids}\mbox{}\\
+
+Another approach is to use histogram pyramids, as described in \cite{dyken2007}. The authors state that their algorithm outperforms the known geometry shader approaches and it does not take much more effort to implement. The hierarchical data structured called the \textit{HistoPyramid}, used for data expansion and compaction of 2D textures, is the focus of the previously mentioned paper. The term texel was used to denote single data elements, and the 3D array of voxels has been mapped to a 2D domain.
+
+
+\paragraph{Implicit Surface Generation}\mbox{}\\
+
+As stated before, in order to use the marching cubes algorithm, one also needs to obtain a scalar value at each point in the data set, and, since we only have a point cloud, a function is needed to provide this - such a dataset is called an implicit surface. These functions were not a focus for this project, as the marching cubes algorithms was not successfully run on datasets that already represented implicit surfaces. However, in \cite{navpreet2013} the Hermite Radial Basis Function(HRBF) is mentioned as a workable method, please consult this resource for more information on the topic. Another function that can determine the scalar field is the Newtonian gravity field equation, please consult \cite{max2013} for further information.
+
 \subsubsection{Greedy Triangulation}
 \subsubsection{Kinect Fusion and Kinfu}
 
@@ -448,12 +523,7 @@ The object linear texgen can be represented as shown in figure \ref{fig:EyeLinea
 
 \subsection{Capturing Dynamic Contents}
 
-\section{Prototype I Implementation}
-\section{Prototype I Testing }
-\section{Prototype II Design }
-\section{Prototype II Development}
-\section{Prototype II Implementation}
-\section{Prototype II Testing}
+\section{Prototype Implementation}
 \section{Conclusions}
 \section{Future Work}
 
