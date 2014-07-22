@@ -15,13 +15,14 @@
 \contentsline {figure}{\numberline {15}{\ignorespaces 3D Graphics Pipeline}}{16}
 \contentsline {figure}{\numberline {16}{\ignorespaces An example point cloud, corresponding to the depth stream, updated in real-time.}}{17}
 \contentsline {figure}{\numberline {17}{\ignorespaces Perspective View of Some Terrain. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}}}{18}
-\contentsline {figure}{\numberline {18}{\ignorespaces Polyhedral(solid object with flat surfaces) Terrain. Smoothness will depend on point density. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}}}{18}
+\contentsline {figure}{\numberline {18}{\ignorespaces Polyhedral(solid object with flat surfaces) Terrain. Smoothness will depend on point density. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}}}{19}
 \contentsline {figure}{\numberline {19}{\ignorespaces Ordering of vertices in a triangle strip for a grid. Courtesy of \cite {triangleStrip}.}}{19}
 \contentsline {figure}{\numberline {20}{\ignorespaces a)Mountain ridge; b) Narrow valley. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}}}{20}
 \contentsline {figure}{\numberline {21}{\ignorespaces Voxel data representation. Courtesy of \cite {navpreet2013}}}{21}
 \contentsline {figure}{\numberline {22}{\ignorespaces Marching Cubes - The 14 Patterns of Triangulated Cubes. Courtesy of \cite {william87}}}{22}
 \contentsline {figure}{\numberline {23}{\ignorespaces Marching Cubes - Cube Numbering. Courtesy of \cite {william87}}}{23}
-\contentsline {figure}{\numberline {24}{\ignorespaces Virtual Projector Transformation Pipeline. Courtesy of \cite {cassNvidia}}}{25}
-\contentsline {figure}{\numberline {25}{\ignorespaces Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space. Courtesy of \cite {cassNvidia}}}{25}
-\contentsline {figure}{\numberline {26}{\ignorespaces Object Linear Texgen. Courtesy of \cite {cassNvidia}}}{26}
-\contentsline {figure}{\numberline {27}{\ignorespaces Eye Linear Texgen. Courtesy of \cite {cassNvidia}}}{26}
+\contentsline {figure}{\numberline {24}{\ignorespaces Mesh from point cloud reconstruction of a bunny.}}{25}
+\contentsline {figure}{\numberline {25}{\ignorespaces Virtual Projector Transformation Pipeline. Courtesy of \cite {cassNvidia}}}{26}
+\contentsline {figure}{\numberline {26}{\ignorespaces Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space. Courtesy of \cite {cassNvidia}}}{27}
+\contentsline {figure}{\numberline {27}{\ignorespaces Object Linear Texgen. Courtesy of \cite {cassNvidia}}}{27}
+\contentsline {figure}{\numberline {28}{\ignorespaces Eye Linear Texgen. Courtesy of \cite {cassNvidia}}}{28}

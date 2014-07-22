@@ -98,6 +98,11 @@ Cass Everitt.
 \newblock {\em Projective Texture Mapping}.
 \newblock NVIDIA.
 
+\bibitem{Jordt2011}
+Andreas Jordt and Reinhard Koch.
+\newblock Fast tracking of deformable objects in depth and colour video.
+\newblock BMVC 2011.
+
 \bibitem{jordt12}
 Andreas Jordt and Reinhard Koch.
 \newblock {\em Direct Model Based Tracking of 3D Object Deformations in Depth
@@ -109,10 +114,21 @@ William~E. Lorensen and Harvey~E. Cline.
 \newblock Marching cubes: a high resolution 3d surface construction algorithm.
 \newblock July 1987.
 
+\bibitem{Marton09ICRA}
+Zoltan~Csaba Marton, Radu~Bogdan Rusu, and Michael Beetz.
+\newblock {On Fast Surface Reconstruction Methods for Large and Noisy
+  Datasets}.
+\newblock In {\em Proceedings of the IEEE International Conference on Robotics
+  and Automation (ICRA)}, Kobe, Japan, May 12-17 2009.
+
 \bibitem{navpreet2013}
 Jon~Macey Navpreet Kaur~Pawar.
 \newblock Surface reconstruction from point clouds.
 \newblock August 2013.
+
+\bibitem{PCLGreedy}
+PCL.
+\newblock Fast triangulation of unordered point clouds.
 
 \bibitem{max2013}
 Max Roth.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  21 JUL 2014 16:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  22 JUL 2014 01:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -486,114 +486,122 @@ m/n/10 =\OML/cmm/m/it/10 > Projection[] \OT1/cmr/m/n/10 =\OML/cmm/m/it/10 > Mod
 elView[] \OT1/cmr/m/n/10 =\OML/cmm/m/it/10 > PointInWorldSpace
  []
 
-<figures/PerspectiveTerrain.PNG, id=114, 282.45525pt x 134.904pt>
+[17 <./figures/PointCloud.PNG>]
+<figures/PerspectiveTerrain.PNG, id=120, 282.45525pt x 134.904pt>
 File: figures/PerspectiveTerrain.PNG Graphic file (type png)
 
 <use figures/PerspectiveTerrain.PNG>
-Package pdftex.def Info: figures/PerspectiveTerrain.PNG used on input line 349.
+Package pdftex.def Info: figures/PerspectiveTerrain.PNG used on input line 351.
 
 (pdftex.def)             Requested size: 137.9979pt x 65.90797pt.
- [17 <./figures/PointCloud.PNG>]
+
 <figures/PolyhedralTerrain.PNG, id=121, 218.61674pt x 110.21175pt>
 File: figures/PolyhedralTerrain.PNG Graphic file (type png)
 
 <use figures/PolyhedralTerrain.PNG>
-Package pdftex.def Info: figures/PolyhedralTerrain.PNG used on input line 360.
+Package pdftex.def Info: figures/PolyhedralTerrain.PNG used on input line 362.
 (pdftex.def)             Requested size: 137.9979pt x 69.56998pt.
- [18 <./figures/PerspectiveTerrain.PNG> <./figures/PolyhedralTerrain.PNG>]
-<figures/TriangleStripOrdering.PNG, id=127, 181.27725pt x 138.5175pt>
+ [18 <./figures/PerspectiveTerrain.PNG>]
+<figures/TriangleStripOrdering.PNG, id=126, 181.27725pt x 138.5175pt>
 File: figures/TriangleStripOrdering.PNG Graphic file (type png)
 
 <use figures/TriangleStripOrdering.PNG>
 Package pdftex.def Info: figures/TriangleStripOrdering.PNG used on input line 3
-75.
+77.
 (pdftex.def)             Requested size: 207.0021pt x 158.18211pt.
- [19 <./figures/TriangleStripOrdering.PNG>] <figures/MountainRidgeNarrowValley.
-PNG, id=133, 292.09125pt x 118.64325pt>
+ [19 <./figures/PolyhedralTerrain.PNG> <./figures/TriangleStripOrdering.PNG>]
+<figures/MountainRidgeNarrowValley.PNG, id=133, 292.09125pt x 118.64325pt>
 File: figures/MountainRidgeNarrowValley.PNG Graphic file (type png)
 
 <use figures/MountainRidgeNarrowValley.PNG>
 Package pdftex.def Info: figures/MountainRidgeNarrowValley.PNG used on input li
-ne 393.
+ne 395.
 (pdftex.def)             Requested size: 137.9979pt x 56.05379pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+ [20 <./figures/MountainRidgeNarrowValley.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
 
  []
 
-[20 <./figures/MountainRidgeNarrowValley.PNG>]
 <figures/Voxels.PNG, id=138, 378.213pt x 171.039pt>
 File: figures/Voxels.PNG Graphic file (type png)
  <use figures/Voxels.PNG>
-Package pdftex.def Info: figures/Voxels.PNG used on input line 409.
+Package pdftex.def Info: figures/Voxels.PNG used on input line 411.
 (pdftex.def)             Requested size: 137.9979pt x 62.40652pt.
 
-<figures/MarchingCubesTriagulationCases.PNG, id=139, 316.18124pt x 443.85825pt>
+[21 <./figures/Voxels.PNG>]
+<figures/MarchingCubesTriagulationCases.PNG, id=143, 316.18124pt x 443.85825pt>
 File: figures/MarchingCubesTriagulationCases.PNG Graphic file (type png)
 <use figures/MarchingCubesTriagulationCases.PNG>
 Package pdftex.def Info: figures/MarchingCubesTriagulationCases.PNG used on inp
-ut line 429.
+ut line 431.
 (pdftex.def)             Requested size: 137.9979pt x 193.72694pt.
- [21 <./figures/Voxels.PNG>]
-<figures/MarchingCubesNumbering.PNG, id=144, 317.988pt x 305.34074pt>
+ [22 <./figures/MarchingCubesTriagulationCases.PNG>]
+<figures/MarchingCubesNumbering.PNG, id=148, 317.988pt x 305.34074pt>
 File: figures/MarchingCubesNumbering.PNG Graphic file (type png)
 
 <use figures/MarchingCubesNumbering.PNG>
 Package pdftex.def Info: figures/MarchingCubesNumbering.PNG used on input line 
-439.
+441.
 (pdftex.def)             Requested size: 137.9979pt x 132.50998pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 444--445
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 446--447
 
  []
 
-[22 <./figures/MarchingCubesTriagulationCases.PNG>] [23 <./figures/MarchingCube
-sNumbering.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 466--467
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--449
+
+ []
+
+[23 <./figures/MarchingCubesNumbering.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
+Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
-<figures/VirtualProjectorPipeline.PNG, id=154, 230.0595pt x 340.27126pt>
+[24] <figures/reconstructedBunny.png, id=157, 1927.2pt x 1084.05pt>
+File: figures/reconstructedBunny.png Graphic file (type png)
+
+<use figures/reconstructedBunny.png>
+Package pdftex.def Info: figures/reconstructedBunny.png used on input line 485.
+
+(pdftex.def)             Requested size: 137.9979pt x 77.61154pt.
+ [25 <./figures/reconstructedBunny.png>]
+<figures/VirtualProjectorPipeline.PNG, id=163, 230.0595pt x 340.27126pt>
 File: figures/VirtualProjectorPipeline.PNG Graphic file (type png)
 
 <use figures/VirtualProjectorPipeline.PNG>
 Package pdftex.def Info: figures/VirtualProjectorPipeline.PNG used on input lin
-e 486.
+e 501.
 (pdftex.def)             Requested size: 137.9979pt x 204.1124pt.
- [24]
-<figures/PTMCoordinates.PNG, id=158, 527.571pt x 136.1085pt>
+
+<figures/PTMCoordinates.PNG, id=164, 527.571pt x 136.1085pt>
 File: figures/PTMCoordinates.PNG Graphic file (type png)
 
 <use figures/PTMCoordinates.PNG>
-Package pdftex.def Info: figures/PTMCoordinates.PNG used on input line 495.
+Package pdftex.def Info: figures/PTMCoordinates.PNG used on input line 510.
 (pdftex.def)             Requested size: 345.0pt x 89.00737pt.
-
-<figures/ObjectLinearTexgen.PNG, id=159, 393.26926pt x 162.6075pt>
+ [26 <./figures/VirtualProjectorPipeline.PNG>]
+<figures/ObjectLinearTexgen.PNG, id=169, 393.26926pt x 162.6075pt>
 File: figures/ObjectLinearTexgen.PNG Graphic file (type png)
 
 <use figures/ObjectLinearTexgen.PNG>
-Package pdftex.def Info: figures/ObjectLinearTexgen.PNG used on input line 508.
+Package pdftex.def Info: figures/ObjectLinearTexgen.PNG used on input line 523.
 
 (pdftex.def)             Requested size: 207.0021pt x 85.58855pt.
- [25 <./figures/VirtualProjectorPipeline.PNG> <./figures/PTMCoordinates.PNG>]
-<figures/EyeLinearTexgen.PNG, id=166, 279.444pt x 196.93575pt>
+
+<figures/EyeLinearTexgen.PNG, id=170, 279.444pt x 196.93575pt>
 File: figures/EyeLinearTexgen.PNG Graphic file (type png)
 
 <use figures/EyeLinearTexgen.PNG>
-Package pdftex.def Info: figures/EyeLinearTexgen.PNG used on input line 519.
+Package pdftex.def Info: figures/EyeLinearTexgen.PNG used on input line 534.
 (pdftex.def)             Requested size: 137.9979pt x 97.2536pt.
- [26 <./figures/ObjectLinearTexgen.PNG> <./figures/EyeLinearTexgen.PNG>] (./MSc
-Thesis_DanAvram.bbl
+ [27 <./figures/PTMCoordinates.PNG> <./figures/ObjectLinearTexgen.PNG>] (./MScT
+hesis_DanAvram.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 20--24
 []\OT1/cmr/m/n/10 dan.lecocq.  \OT1/cmr/m/it/10 Tri-an-gle Strip for Grids - A 
 Con-struc-tion\OT1/cmr/m/n/10 .
@@ -605,38 +613,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--24
 ids-a-
  []
 
-
+[28 <./figures/EyeLinearTexgen.PNG>]
 Underfull \hbox (badness 1033) in paragraph at lines 76--81
 []\OT1/cmr/m/n/10 Watanabe et al.  \OT1/cmr/m/it/10 955-fps Real-time Shape Mea
 -sure-ment of a Mov-
  []
 
-[27]) [28] (./MScThesis_DanAvram.aux) ) 
+) [29] (./MScThesis_DanAvram.aux) ) 
 Here is how much of TeX's memory you used:
- 2857 strings out of 493308
- 43305 string characters out of 6139147
- 105565 words of memory out of 5000000
- 6249 multiletter control sequences out of 15000+600000
+ 2866 strings out of 493308
+ 43526 string characters out of 6139147
+ 105587 words of memory out of 5000000
+ 6257 multiletter control sequences out of 15000+600000
  10451 words of font info for 38 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,6n,23p,1539b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
-<d:/Work/texlive/2013/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmbx10.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx12.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmbx9.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi7.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-12.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
-b><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/
-Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Work
-/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Work/texl
-ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/Work/texlive/
-2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on MScThesis_DanAvram.pdf (34 pages, 4642879 bytes).
+ 38i,6n,23p,1628b,244s stack positions out of 5000i,500n,10000p,200000b,80000s
+<d:/Work/texlive/2013/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmbx10.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmbx12.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx9.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi7.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d
+:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/Work
+/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Work/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Work/texlive/
+2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/Work/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on MScThesis_DanAvram.pdf (35 pages, 5961443 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
+ 226 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
