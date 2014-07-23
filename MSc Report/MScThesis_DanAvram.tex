@@ -2,6 +2,8 @@
 
 \usepackage{graphicx}
 \usepackage{mathtools}
+\usepackage{url}
+\usepackage{subcaption}
 
 %opening
 \title{\textbf{Master's Thesis} \\ Correct Projection Mapping on - and Interaction Techniques with - Cloth-based Deformable Surfaces}
@@ -334,12 +336,17 @@ Unfortunately, unless the point cloud is of sub-pixel density(which would also r
     \label{fig:PointCloud}
 \end{figure}
 
- However, before we proceed, we must also unproject the points to world coordinates(we just had pixel positions and depth values, but we need to obtain the coordinates in regular metric space, so that the distances between the points are correct). This operation requires knowledge about camera parameters, since we need to know the projection and view matrices, in order to unproject them:
+ However, before we proceed, we must also unproject the points to world coordinates(we just had pixel positions and depth values, but we need to obtain the coordinates in regular metric space, so that the distances between the points are correct). This operation requires knowledge about intrinsic camera parameters, since we need to know the projection matrix, in order to unproject the points:
 
 $$point => Viewport^{-1} => Projection^{-1} => ModelView^{-1} => PointInWorldSpace$$
 
+The modelview matrix should be the identity matrix at this point, since we have not manipulated the points.
+More information about the unprojecting process is available in \cite{sung2013}, although the authors unproject a 2D mesh with a set of sparse depth points. Nevertheless, the authors explain that unprojecting is the inverse process of how normal images are obtained, by projecting rays into a camera. In order to compute the rays, one needs to know the focal length and image center(intrinsic parameters), as well as the distance of the unprojection(ray length, which, in our case, corresponds to the depth for that pixel). They explain that the 3D position for a vertex $v(x,y)$ can be denoted by $p(v)$ and is determined as:
+$$p(v) = t(v) *\vec{r}(v),$$
+where $t(v)$ represents the ray length and $\vec{r}(v)$ represents the ray direction and is equal to $$\vec{r}(v) = (\frac{x - x_{c}}{f},\frac{y-y_{c}}{f},1)^T,$$ where $(x_{c}, y_{c})$ is the principal point or image center and f represents the focal distance.
 
-
+ However, the official library for the depth camera used in this project provides a very useful method that computes the unprojection given the array and number of points. So in the end, that is all we really need to know in order to un project the points, if we are using the \textit{Creative Senz3D} depth camera.
+ 
 \subsection{Object Reconstruction by Mesh Triangulation}
 
 Before delving into the different methods of object reconstruction, it should be mentioned that there is an alternative to the full reconstruction approach. In \cite{Jordt2011}, a method of tracking deformable objects using depth and color streams is described. The authors of this paper have used a NURBS(Non-uniform rational b-spline - common in computer graphics; can be used to approximate curved surfaces) based deformation function to decouple the geometrical object complexity from the complexity of the deformation. They deform the mesh using a number of control points(low dimensional space when compared to the number of vertices) on the NURBS surface to which the object is mapped. However, it is still needed to have an initial mesh and one way to obtain it is to define a 3D object from the initial frame of the video streams. The desired object can first be segmented out of the frame, and then the 3D vertices can be unprojected to 3D space and connected according to their adjacencies in the depth image(actually, in section \ref{sec:TriangleStripTriangulation} a similar method is used, but it is running on the GPU and updates the mesh every frame). This mesh can be subsequently deformed using the control points, so that it matches the depth and/or color data. The mesh is also mapped to the color image to retrieve the colors of the vertices, but this is not needed for the deformable display, since a texture will be projected onto the mesh, completely replacing any color and lighting information.
@@ -539,6 +546,213 @@ The object linear texgen can be represented as shown in figure \ref{fig:EyeLinea
 \subsection{Capturing Dynamic Contents}
 
 \section{Prototype Implementation}
+
+\subsection{Tools and Technologies Used}
+
+The prototype has been implemented in C++ using \textit{OpenGL v3.3}, which uses the programmable OpenGL pipeline(the vertex and fragment shaders must be programmed to suit the problem's specific needs). This means that shaders must be used to render graphics on the screen. This choice was made because of performance improvements over the OpenGL immediate mode, as well as allowing the code to take advantage of the latest OpenGL features, in possible future extensions.
+
+The development environment used was the \textit{Microsoft Visual Studio IDE}. Initially, development started on the 2013 version of the IDE, but due to incompatibilities with some of libraries used, the toolchain was switched to that of \textit{Visual Studio 2012}(while still using the 2013 IDE - in order to do this, both versions need to be installed). Note that the professional edition of \textit{Visual Studio} is needed in order to be able to install the plug-in for syntax highlighting of shader files.
+
+Further, several libraries were used to create a simple graphics engine that can be used to render objects, import meshes, move around a virtual world etc. The \textit{GLEW}(see \cite{glew}) library was used for importing the OpenGL functions and extensions into the project, while the \textit{GLFW}(available at \cite{glfw}) library was used for managing the window context, as well as for managing keyboard and mouse input.
+
+Another useful feature is to be able to import textures and apply them to objects in the 3D world. The \textit{FreeImage} library(available at \cite{freeimage}) has been used for reading in images and checking if the format is correct. Further, objects can be imported from standard graphics programs through ASSIMP(details at \cite{assimp}), using well-known file formats like \textit{WaveFront OBJ} and \textit{Autodesk 3DS}. This feature was useful when debugging different aspects of the graphics engine and it was also used to test projective texture mapping on a physical ball, by using an imported mesh of the interior half of a sphere.
+
+Another important library is \textit{GLM}(available at \cite{GLM}), which contains very useful math functions, like the ability to work with matrices and vectors, calculating the inverse of a matrix etc. In addition, this library uses the same syntax as that of GLSL(OpenGL Shading Language), which means that there is more consistency in the code and there is no need to learn a third-party syntax.
+
+Further, the \textit{Point Cloud Library}(PCL, available at \cite{PCL}) was used for trying out some reconstructions techniques, like the greedy projection triangulation. However, this library has not been used in the final implementation, as the mesh was triangulated by connecting a triangle strip, using the fact that the point cloud was ordered, to connect adjacent points.
+
+Finally, the only other library used was the \textit{Intel Perceptual Computing SDK}(details at \cite{PCSDK}) which can be used to retrieve the depth and color streams, and do some basic processing on the respective stream. For this project, only the depth stream was used. The data was quite noisy, so in order to reduce noise, some depth smoothing functions were applied. These will be described in one of the future sections. Otherwise, the library allows one to easily convert the data from the depth camera to a point cloud, as well as to unproject it to 3D space, as described in the following sections.
+
+\subsection{Virtual World Setup}
+
+
+The process to set up the virtual world will not be described in detail here. The structure of the code was inspired by the OpenGL tutorials available at \cite{OpenGLTuts}, as well as several other on-line articles/tutorials describing OpenGL functionality. Basic functionality is contained in a class, or cpp file - for example, all texture related processing is the responsibility of the \textit{Texture} class, shader programs are compiled and linked by the \textit{LoadShader} method defined in \textit{loadShader}.h/.cpp, etc. Next, the 3D world is created as a scene(indeed, several such scenes were creating during development, for testing purposes). Each scene must implement three different methods, inheriting from a \textit{SimpleScene} class:
+\begin{itemize}
+\item $initScene(GLFWwindow *window)$ - used to initialize everything that is needed before rendering, for example, the compilation and linking of shader programs is done at this stage
+\item $renderScene(GLFWwindow *window)$ - this method loops continuously; it is called every frame, and it is responsible for the actual rendering that can be observed on the screen
+\item $releaseScene()$ - this is mainly used for memory deallocation and is called before the application exits
+\end{itemize}
+
+This template can be used to create new scenes, and all basic functionality such as texture and object importing, camera movement, shader compilation and linking, shaded/unshaded rendering by using different vertex and fragment shader programs, are already available and can be easily reused.
+
+% %\subsection{Rendering}
+\subsection{Point Cloud Generation}
+
+The \textit{RawDepthPipeline} class is responsible for retrieving video frames from the depth stream. A method has been added, $renderFrame(..)$ that simply acquires the current frame so that the data can be converted to a point cloud, and subsequently a mesh. If the frame data is valid, a call is made to $createPointCloudMappedToWorld$ which is the function responsible for converting the raw data into a 3D point cloud, in world coordinates.
+
+An array is needed to store the point cloud:
+
+
+\begin{verbatim}pcPos = (PXCPoint3DF32*)new PXCPoint3DF32[nPoints].\end{verbatim} 
+
+
+The data type is from the Intel Perceptual Computing library and represents 3D points with $x,y,z$ coordinates and floating point values. Further, the number of points, namely \verb|nPoints|, is set tot the maximum number of elements we could have in the cloud, which is equal to \verb|depthCamWidth*depthCamHeight|, where the previous two variables represent the width and height of the depth frame, respectively. Then, we just need to iterate over all the depth values and retrieve the depth value:
+
+ \begin{verbatim}pxcU16 depthValue = ((pxcU16*)ddepth.planes[0])[y * depthStride + x],\end{verbatim} 
+ 
+ 
+where \verb|ddepth.planes[0]| is an array containing the depth data, and  \verb|x| and \verb|y| represent the current index on the height, and width of the image, respectively. The \verb|depthStride| is used to properly access a two-dimensional array using one index, and it represents the width of the row. Finally, we check if the depth value is in a certain range, and, if so, it is stored in our \verb|pcPos| array:
+\begin{verbatim}
+if (depthValue > 10 && depthValue < 2000)
+	{
+		pcPos[n].x = (pxcF32)x;
+		pcPos[n].y = (pxcF32)y;
+		pcPos[n].z = (pxcF32)depthValue;	
+	}
+n++;
+\end{verbatim}
+The elements in the array for which we do not have valid depth values remain uninitialized($n$ is incremented irrespective of the depth value). This is required, because when we send the array later to an \textit{OpenGL VBO(Vertex Buffer Object)}, all valid elements are rendered. This means that initializing the values with, for example \verb|(0, 0 ,0)|, would mean that a lot of points would be connected to the origin point \verb|(0, 0 ,0)|, which is not desired.
+
+The last thing that needs to be done at this stage is to unproject the points to 3D space. In order to do this, one needs to know the depth camera's intrinsic calibration parameters(these parameters relate to the field of view of the camera, distortion coefficients, principal point etc.). However, the Intel Perceptual Computing SDK provides a very handy method that does the necessary computation for us:
+
+\begin{verbatim}projection->ProjectImageToRealWorld(nPoints, &pcPos[0], worldPos.data()).\end{verbatim}
+
+The $worldPos$ vector array will contain the final points that will be rendered on screen. If we were to render the image now, we would get a 3D point cloud representation of our depth stream. Therefore, the final issue which remains is to connect the points in order to form a mesh, so that the texture will be projected on a polygonal surface. This process will be described in he following section. 
+
+\subsection{Mesh Rendering}
+
+\subsubsection{Rendering Process}
+
+In order to render a mesh that changes every frame at an acceptable speed, the use of OpenGL VBOs has been employed. This object is nothing more than a contiguous untyped block of memory(untyped means it does not have a particular structure; the structure is defined by the user as we shall see shortly), which can be used to store several vertex arrays and upload them to the GPU. A vertex array is usually used to store a specific vertex property, such as position, color etc. For an example of an interleaved vertex array with two attributes(position and color), please consult figure \ref{fig:VertexArrays}. Note that we are only interested in position for our mesh, since we will only use one full color of the mesh for debugging purposes and, the user will only see the color of the texture.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/VertexArrays.PNG}
+    \caption{Vertex array layout with two vertex attributes. Courtesy of \cite{kilgard2009}}
+    \label{fig:VertexArrays}
+\end{figure}
+
+A good resource that explains how to properly use VBOs in OpenGL and why they are needed is \cite{kilgard2009}. The author explains that the GPU doesn't have arbitrary access to conventional system memory(so called client memory). With VBOs one can point the GPU at the vertex arrays and let it read the vertex attributes from the arrays contained inside it(the arrays are stored in spatially negotiated regions of memory, maintained as buffer objects, that both the application and the OpenGL implementation can access). An example of how the VBO data is transferred to the GPU via DMA(direct memory access) transfers is shown in figure \ref{fig:VBOClientMemory}. As you can see from the figure, there is no communication between the data and the CPU, all transfers are made using DMA transfers directly to the GPU. This means that the performance can be greatly improved by avoiding unnecessary communication with the CPU. This is in stark contrast with the OpenGL immediate mode, where each call to \verb|glBegin()| and \verb|glEnd()| had to be sent first to the CPU, in addition to a full list of commands for drawing(now we just draw the VBO with one call to \verb|glDrawArrays| or \verb|glDrawElements|).
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/VBOClientMemory.PNG}
+    \caption{Transfers of vertex array object data using DMA.}
+    \label{fig:VBOClientMemory}
+\end{figure}
+
+We need to define the type of data and how much of it needs to be stored in a VBO. In order to do this we use a vertex attribute pointer:
+\begin{verbatim}
+// vertex positions start at index 0
+// the distance between two consecutive vertices is
+// sizeof whole vertex data
+glEnableVertexAttribArray(0);
+glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(PXCPoint3DF32), 0);
+\end{verbatim}
+The signature of the vertex attribute pointer method is as follows:
+
+\begin{verbatim}
+void glVertexAttribPointer(GLuint index​, GLint size​, GLenum type,
+ GLboolean normalized​, GLsizei stride​, const GLvoid * pointer​)
+\end{verbatim}
+
+In the previous code we enable the vertex array with index 0. The \textit{glVertexAttribPointer} is also set to  index 0(first parameter), since it is the one and only attribute(for example, we could interleave data, if we also had texture coordinates; then the index would be 1 since 0 would have already been used by the position attribute). In it we can store data with 3 components: $x,y,z$ and we specify the size of $PXCPoint3DF32$. The size will be used as an offset to store the next vertex(stride). We only store the point cloud elements in this VBO and, therefore, we can just set the pointer to 0, as there is no other data stored in the VBO.
+
+Before a VBO has to be used, it must be bound, so that it is made the active VBO. The custom class \textit{VertexBufferObject} provides methods so that we can easily create and bind VBOs, like so:
+\begin{verbatim}
+// create and bind VBO
+vboSceneObjects.createVBO();
+vboSceneObjects.bindVBO();
+\end{verbatim}
+
+Now that our VBO is bound, we need to add the actual data:
+
+\begin{verbatim}
+glBufferData(GL_ARRAY_BUFFER, rdp->nPoints * sizeof(PXCPoint3DF32), 
+NULL, GL_STREAM_DRAW);
+\end{verbatim}
+
+This line stores an array buffer of n points of the Intel Perceptual Computing type. Further, the hint \verb|GL_STREAM_DRAW| indicates that our data will be constantly updating(every frame). This makes OpenGL optimize the VBO for dynamic contents. Another flag, \verb|GL_DYNAMIC_DRAW| is available, but this is actually for dynamic data that does not change every frame, only at specific moments. So, in this case, the first flag is the appropriate one, since the mesh will be updated every frame.
+
+OpenGL also has another data type, namely the VAO(Vertex Array Object) which can store multiple VBOs. These VAOs are mainly used to avoid setting the vertex attribute pointers each time we bind the VBO. We just bind the VAO, and we do not have to do anything else. Now, if we were to render our memory contents now, using $glDrawArrays$ we would need to draw the type \verb|GL_POINTS|. This is because we have not triangulated the point cloud yet.
+
+\subsubsection{Triangulation}
+
+As described in section \ref{sec:TriangleStripTriangulation} a triangle strip has been used to triangulate the point cloud. In order to do so, an \textit{IBO(Index Buffer Object)} has been used to store a \verb|GL_ELEMENT_ARRAY_BUFFER|. This object is very similar to a VBO, the only difference is that we do not store vertex attributes in the element array, but actual element indices. In other words, we need to compute an array of indices, that defines how the triangle strip should be connected, and then just simply bind the data to the IBO:
+\begin{verbatim}
+ibo.addData(&(rdp->indices[0]), rdp->indices.size() * sizeof(unsigned int));
+ibo.uploadDataToGPU(GL_STATIC_DRAW);
+\end{verbatim}
+
+We add an array of \verb|int|s into the buffer object of the size of the depth camera's resolution, in pixels(\verb|width*height|). Note that the index computation can only be done once! We always have the same indices, for the same grid, since the x and y values are fixed for a vertex - the indices are computed for all points, even for invalid ones, this means we do not have to recompute the indices if the state of the points changes(since the VBO data for those invalid points is not initialized, they will not be drawn). This means the flag for data optimization has been set to \verb|GL_STATIC_DRAW|. Further, the \verb|uploadDataToGPU| method internally calls  \verb|glBufferData| with the previously added element array data. Finally, the IBO is bound and setup similarly to a VBO.
+
+The drawing command in order to render a mesh from the indices(connected using a triangle strip), is:
+\begin{verbatim}
+glDrawElements(
+	GL_TRIANGLE_STRIP,      // mode
+	rdp->indices.size(),    // count
+	GL_UNSIGNED_INT,   // type
+	(void*)0           // element array buffer offset
+	);
+\end{verbatim}
+
+The parameters are briefly explained in the comments, but to detail briefly:
+\begin{itemize}
+\item the first parameter is the type of primitive OpenGL will use for rendering
+\item the second parameter represents the number of elements required to draw the mesh
+\item the third parameter defines the type of the elements 
+\item finally, the last parameter is simply a pointer that defines an offset, but since we only have the mesh data to render with indices, this can be set to 0
+\end{itemize}
+ 
+ The only thing left to be is explained is how the index array has been populated. In order to understand how the code works, it is useful to review figure \ref{fig:TriangleStrip}. The logic is contained in the \verb|addIndexData| method from the \textit{RawDepthPipeline} class. 
+
+\subsection{Depth Smoothing}
+
+The depth data is quite noisy and, due to this, the final textured image is shimmering(vertices are moving around between frames, which creates a distracting effect). The effect is similar to aliasing(the "staircase effect").
+
+In order to reduce this noise, smoothing of the depth data can be applied. A whitepaper from Canesta(see \cite{gokturk}) discusses aliasing issues, as well as artefacts for time-of-flight cameras. The authors describe how the noise can be reduced through \textit{spatial} and \textit{temporal averaging}. 
+
+Further, they suggest the use of a median filter for improving resolution, as a solution for spatial averaging. They applied a 5x5 median filter and noticed a two-fold increase in resolution. 
+
+Next, they present a case where 10 frames were averaged over time. Their results indicate that this technique of temporal averaging made the image much clearer and considerably increased the resolution.
+
+In the following sections the implementations for spatial and temporal averaging employed in this project will be described.
+
+\subsubsection{Spatial Averaging}
+\subsubsection{Temporal Averaging}
+\subsubsection{Results}
+
+The averaging techniques have been tested on the deformable display, by judging the quality of a texture with a grid on it. This makes it easier to notice noise around the grid's lines. In figure \ref{fig:GridNoiseReduction}, the difference between the grid texture with no averaging applied, and with both averaging techniques applied, is shown(the image is zoomed in so that the differences are easier to spot).
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/NoSmoothingC.png}
+  \caption{Grid Before Averaging}
+  \label{fig:GridNoAveraging}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/BothAveragingTechniquesC.png}
+  \caption{Grid With Both Averaging Techniques}
+  \label{fig:GridWithAveraging}
+\end{subfigure}
+\caption{A grid texture whch shows the noise reduction obtained by averaging.}
+\label{fig:GridNoiseReduction}
+\end{figure}
+
+Note that it is easier to see the differences in the thesis' video, although it is still possible to see a significant difference in the figures. A downside of averaging is the reduction of frame rate. A 3x3 median filter was used in the final implementation, and a 10 frame moving weighted average was used as a temporal averaging technique. In table \ref{tabel:FrameRateReductionDueToAveraging} some data about the frame rate is presented, when turning on and off different averaging techniques. The frame rate was printed out for a certain number of frames, every second. The tests were also repeated 2-3 times and the results seemed consistent. We can see that the temporal averaging technique only slightly reduced the frame rate, while the median filter drastically reduced it, almost halving it when a 3x3 filter was applied, and almost halving it again, when a 5x5 filter was applied.
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{ | l | l |}
+    \hline
+    Averaging & Frame Rate \\ \hline
+    None & ~[55 - 60] \\ \hline
+    Temporal & ~[50 - 57] \\ \hline
+    Both(3x3 MF) & ~[30 - 40] \\ \hline
+    Both(5x5 MF) & ~[12 - 21] \\
+    \hline
+    \end{tabular}    
+    
+\end{center}
+\caption{Frame Rate Comparison When Using Noise Reduction Techniques}
+\label{tabel:FrameRateReductionDueToAveraging}
+\end{table}
+
+Of course, all averaging techniques can also reduce detail, for example, they could make the distortion correction less pronounced. This issue has not been thoroughly tested, and needs to be determined as future work. In order to properly analyze the previous issue, the calibration of the system should also be corrected, because then it would be easier to compare with the expected result. A further issue may be that the system was not calibrated, so the distance and field of view of the virtual camera were set by trial and error. This is important because distance affects both the noise amount, as well as the degree to which the distortion correction can be seen(it needs to be \verb|just right|, and the correct parameters can only be obtained through calibration).
+
+\section{Empirical Study}
 \section{Conclusions}
 \section{Future Work}
 

@@ -1,5 +1,38 @@
 \begin{thebibliography}{10}
 
+\bibitem{assimp}
+Assimp: Open asset import library.
+\newblock \url{http://assimp.sourceforge.net/}.
+
+\bibitem{glew}
+Glew: The opengl extension wrangler library.
+\newblock \url{http://glew.sourceforge.net/}.
+
+\bibitem{glfw}
+Glfw.
+\newblock \url{http://www.glfw.org/}.
+
+\bibitem{GLM}
+Glm: Opengl mathematics.
+\newblock \url{http://glm.g-truc.net/0.9.5/index.html}.
+
+\bibitem{PCSDK}
+Intel® perceptual computing sdk.
+\newblock
+  \url{https://software.intel.com/en-us/vcsource/tools/perceptual-computing-sdk/home}.
+
+\bibitem{freeimage}
+Open asset import library.
+\newblock \url{http://freeimage.sourceforge.net/}.
+
+\bibitem{OpenGLTuts}
+Opengl tutorials.
+\newblock \url{http://www.mbsoftworks.sk/index.php?page=tutorials&series=1}.
+
+\bibitem{PCL}
+Point cloud library.
+\newblock \url{http://pointclouds.org/}.
+
 \bibitem{bourke1994}
 Paul Bourke.
 \newblock Polygonising a scalar field.
@@ -43,6 +76,12 @@ Falcao et~al.
 \newblock {\em Plane-based calibration of a projector-camera system}.
 \newblock VIBOT Master 2008.
 
+\bibitem{sung2013}
+M.~Sung et~al.
+\newblock Image unprojection for 3d surface reconstruction: A
+  triangulation-based approach.
+\newblock 2013.
+
 \bibitem{pindat12}
 Pindat et~al.
 \newblock {\em JellyLens: Content-Aware Adaptive Lenses}.
@@ -66,6 +105,11 @@ Richard S. Wright~Jr. et~al.
 \newblock {\em OpenGL SuperBible, Fifth Edition: Comprehensive Tutorial and
   Reference}.
 \newblock Addison-Wesley, 2011.
+
+\bibitem{gokturk}
+S.~Burak~Gokturk et~al.
+\newblock A time-of-flight depth sensor - system description, issues and
+  solutions.
 
 \bibitem{segal92}
 Segal et~al.
@@ -108,6 +152,11 @@ Andreas Jordt and Reinhard Koch.
 \newblock {\em Direct Model Based Tracking of 3D Object Deformations in Depth
   and Color Video}.
 \newblock Int J Comput Vis, September, 2012.
+
+\bibitem{kilgard2009}
+Mark~J. Kilgard.
+\newblock Modern opengl usage: Using vertex buffer objects well.
+\newblock September 2009.
 
 \bibitem{william87}
 William~E. Lorensen and Harvey~E. Cline.
