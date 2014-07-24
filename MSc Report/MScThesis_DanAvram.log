@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  24 JUL 2014 22:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  25 JUL 2014 01:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -689,21 +689,22 @@ Overfull \hbox (53.99652pt too wide) in paragraph at lines 674--674
 (unsigned int));[] 
  []
 
-[34] [35] [36] <figures/NoSmoothingC.png, id=209, 380.01974pt x 165.61874pt>
+[34] [35] [36] [37] [38]
+<figures/NoSmoothingC.png, id=216, 380.01974pt x 165.61874pt>
 File: figures/NoSmoothingC.png Graphic file (type png)
 
 <use figures/NoSmoothingC.png>
-Package pdftex.def Info: figures/NoSmoothingC.png used on input line 743.
+Package pdftex.def Info: figures/NoSmoothingC.png used on input line 813.
 (pdftex.def)             Requested size: 155.24895pt x 67.65898pt.
 
-<figures/BothAveragingTechniquesC.png, id=210, 380.01974pt x 160.1985pt>
+<figures/BothAveragingTechniquesC.png, id=217, 380.01974pt x 160.1985pt>
 File: figures/BothAveragingTechniquesC.png Graphic file (type png)
 
 <use figures/BothAveragingTechniquesC.png>
 Package pdftex.def Info: figures/BothAveragingTechniquesC.png used on input lin
-e 749.
+e 819.
 (pdftex.def)             Requested size: 155.24895pt x 65.44469pt.
- [37 <./figures/NoSmoothingC.png> <./figures/BothAveragingTechniquesC.png>] [38
+ [39 <./figures/NoSmoothingC.png> <./figures/BothAveragingTechniquesC.png>] [40
 ] (./MScThesis_DanAvram.bbl
 Missing character: There is no Â in font cmr10!
 Missing character: There is no ® in font cmr10!
@@ -725,13 +726,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--57
 ids-a-
  []
 
-[39]
+[41]
 Underfull \hbox (badness 1033) in paragraph at lines 120--125
 []\OT1/cmr/m/n/10 Watanabe et al.  \OT1/cmr/m/it/10 955-fps Real-time Shape Mea
 -sure-ment of a Mov-
  []
 
-[40]) [41] (./MScThesis_DanAvram.aux) ) 
+[42]) [43] (./MScThesis_DanAvram.aux) ) 
 Here is how much of TeX's memory you used:
  4078 strings out of 493308
  65145 string characters out of 6139147
@@ -754,10 +755,10 @@ exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Work/texli
 ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Work/texlive/20
 13/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/Work/texlive/2013/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on MScThesis_DanAvram.pdf (47 pages, 6432560 bytes).
+Output written on MScThesis_DanAvram.pdf (49 pages, 6439171 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
- 149 compressed objects within 2 object streams
+ 285 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

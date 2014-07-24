@@ -34,9 +34,11 @@
 \contentsline {subsubsection}{\numberline {5.4.1}Rendering Process}{32}
 \contentsline {subsubsection}{\numberline {5.4.2}Triangulation}{34}
 \contentsline {subsection}{\numberline {5.5}Depth Smoothing}{36}
-\contentsline {subsubsection}{\numberline {5.5.1}Spatial Averaging}{37}
-\contentsline {subsubsection}{\numberline {5.5.2}Temporal Averaging}{37}
-\contentsline {subsubsection}{\numberline {5.5.3}Results}{37}
-\contentsline {section}{\numberline {6}Empirical Study}{38}
-\contentsline {section}{\numberline {7}Conclusions}{38}
-\contentsline {section}{\numberline {8}Future Work}{38}
+\contentsline {subsubsection}{\numberline {5.5.1}Spatial Averaging}{36}
+\contentsline {subsubsection}{\numberline {5.5.2}Temporal Averaging}{38}
+\contentsline {subsubsection}{\numberline {5.5.3}Results}{39}
+\contentsline {subsection}{\numberline {5.6}Projective Texture Mapping}{40}
+\contentsline {subsection}{\numberline {5.7}Manual Hardware Alignment (Calibration Not Used)}{40}
+\contentsline {section}{\numberline {6}Empirical Study}{40}
+\contentsline {section}{\numberline {7}Conclusions}{40}
+\contentsline {section}{\numberline {8}Future Work}{40}

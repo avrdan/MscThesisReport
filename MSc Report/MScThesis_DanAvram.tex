@@ -724,14 +724,84 @@ The depth data is quite noisy and, due to this, the final textured image is shim
 
 In order to reduce this noise, smoothing of the depth data can be applied. A whitepaper from Canesta(see \cite{gokturk}) discusses aliasing issues, as well as artefacts for time-of-flight cameras. The authors describe how the noise can be reduced through \textit{spatial} and \textit{temporal averaging}. 
 
-Further, they suggest the use of a median filter for improving resolution, as a solution for spatial averaging. They applied a 5x5 median filter and noticed a two-fold increase in resolution. 
+Further, they suggest the use of a median filter for improving resolution, as a solution for spatial averaging. They applied a $5 \times 5$ median filter and noticed a two-fold increase in resolution. 
 
 Next, they present a case where 10 frames were averaged over time. Their results indicate that this technique of temporal averaging made the image much clearer and considerably increased the resolution.
 
 In the following sections the implementations for spatial and temporal averaging employed in this project will be described.
 
 \subsubsection{Spatial Averaging}
+
+A median filter is used as a means for spatial averaging. The basic idea is to form a window of size $N \times N$, where $N$ is an odd number(greater than 1, otherwise we would have just one element in the window). Typical values for $N$ are $3$, $5$ or $7$. We traverse with such a window through the whole image, with the current pixel(or vertex) being in the center of the window, and the other elements being the immediate neighbors. Further, we need to obtain the \verb|median| of the window. The median is the center element of a sorted array. Therefore, we also need to apply a sorting algorithm. Insertion sort is typically used for median filter implementations, since it is efficient for small data sets.
+
+The median filter can bet turned off and on by the press of a key, using a boolean variable. The size of the window must be specified before, since it is represented as a constant. The \textit{medianFilter} method in the \textit{RawDepthPipeline} computes the result for every frame, based on the specified \verb|windowSize|. In order to do this, the fact that both index digits of the center element in the window are: \verb|midIndex = (size - 1) / 2| is used(here \verb|size| is equal to the \verb|N| mentioned above). To compute the window elements, we traverse it using \verb|for| loops and then assign the values like so:
+\begin{verbatim}
+window[index] = pcPos[(y - midIndex + i) * depthCamWidth 
+			  + (x - midIndex + j)].z;
+index++;
+\end{verbatim}
+
+We simply need to subtract \verb|midIndex| from the current position, in order to get the neighbor elements. For example, \verb|midIndex| would be equal to $1$, for a $3 \times 3$ window. Then \verb|window[0] = pcPos[(y-1)* depthCamWidth  + (x-1)]|, ..., \verb|window[8] = pcPos[(y+1)* depthCamWidth  +(x+1)]| .
+
+Once we have the elements, we need to sort them, in order to find the median. Insertion sort was used to accomplish this: \verb|insertionSort(window)|. Now we simply need to assign the median as the new depth value for the current point, and continue to iterate through the rest of the points.
+
+Additionally, we must only apply the algorithm if all the neighbors of the current point have valid depth values(since certain areas of the image do not contain depth information), so this must also be checked.
+
+The sorting method works by iterating through each element of the array, storing it(\verb|temp = window[i]|) and then comparing it against the size of all elements to the left of \verb|temp|. The left side represents the sorted part of the array(we start with the left-most element). If the current element is less than another one from the left of the list, the larger element is shifted one place to the right.
+\begin{verbatim}
+for (j = i - 1; j >= 0 && temp < window[j]; j--){
+		window[j + 1] = window[j];
+}
+window[j + 1] = temp;
+\end{verbatim}
+
+The last line places the current element in its proper place. If it is the largest element in the left side of the list, \verb|j| will not be decremented and it remains on its current position. Otherwise, it is moved to the left, depending on how many elements are less than the current value. 		
+
+
 \subsubsection{Temporal Averaging}
+
+A WMA(Weighted Moving Average) algorithm has been used for temporal averaging. The main purpose of this is to average the depth information over the last $N$ frames. We assign weights or priorities to the frames, with the last frame having the highest priority when averaging.
+
+The frame data is stored in a list from which we can push and pop elements(individual frame data arrays):
+\begin{verbatim}
+// push array to the back of the list
+averageList.push_back(pcPos);
+\end{verbatim}
+
+Once we push a new frame in the list, we also need to check if the size of the list is greater than the number of frames we need to average over(we call \textit{checkForDequeue}). If so, we remove the extra frames from the list.
+\begin{verbatim}
+if (averageList.size() > averageFrameCount)
+	{
+		delete[] averageList.front();
+		averageList.pop_front();
+		checkForDequeue();
+	}
+\end{verbatim}
+
+Next, we iterate through all of the arrays in the list, and compute the sum of the depth data for each element, with a weight that is 1 for the oldest frame, and $N$(currently 10) for the newest:
+\begin{verbatim}
+// count denotes the weight
+sumDepthArray[index] += (pxcF32)item[index].z * count;
+\end{verbatim}
+
+Further, we also store a denominator we will use to compute the average: \verb|denominator += count|(we count how many times in total we add depth values from frames). Note that we need to finish this pass through all frames, in order to obtain all the sum values and the denominator.
+
+Finally, we must iterate through the sum values and compute the average:
+\begin{verbatim}
+averagedDepthArray[index].z = 
+	(pxcF32)(sumDepthArray[index] / denominator);
+\end{verbatim}
+
+In order to speed up the process, we can use a \verb|parallel_for| loop, so that the rows are processed in parallel. This is possible because the calculations are independent.
+\begin{verbatim}
+// Process each row in parallel
+Concurrency::parallel_for(0, depthCamHeight,
+		[&](int depthArrayRowIndex)
+{
+	...
+}
+\end{verbatim}
+
 \subsubsection{Results}
 
 The averaging techniques have been tested on the deformable display, by judging the quality of a texture with a grid on it. This makes it easier to notice noise around the grid's lines. In figure \ref{fig:GridNoiseReduction}, the difference between the grid texture with no averaging applied, and with both averaging techniques applied, is shown(the image is zoomed in so that the differences are easier to spot).
@@ -754,7 +824,7 @@ The averaging techniques have been tested on the deformable display, by judging 
 \label{fig:GridNoiseReduction}
 \end{figure}
 
-Note that it is easier to see the differences in the thesis' video, although it is still possible to see a significant difference in the figures. A downside of averaging is the reduction of frame rate. A 3x3 median filter was used in the final implementation, and a 10 frame moving weighted average was used as a temporal averaging technique. In table \ref{tabel:FrameRateReductionDueToAveraging} some data about the frame rate is presented, when turning on and off different averaging techniques. The frame rate was printed out for a certain number of frames, every second. The tests were also repeated 2-3 times and the results seemed consistent. We can see that the temporal averaging technique only slightly reduced the frame rate, while the median filter drastically reduced it, almost halving it when a 3x3 filter was applied, and almost halving it again, when a 5x5 filter was applied.
+Note that it is easier to see the differences in the thesis' video, although it is still possible to see a significant difference in the figures. A downside of averaging is the reduction of frame rate. A $3 \times 3$ median filter was used in the final implementation, and a 10 frame moving weighted average was used as a temporal averaging technique. In table \ref{tabel:FrameRateReductionDueToAveraging} some data about the frame rate is presented, when turning on and off different averaging techniques. The frame rate was printed out for a certain number of frames, every second. The tests were also repeated 2-3 times and the results seemed consistent. We can see that the temporal averaging technique only slightly reduced the frame rate, while the median filter drastically reduced it, almost halving it when a 3x3 filter was applied, and almost halving it again, when a $5 \times 5$ filter was applied.
 
 \begin{table}
 \begin{center}
@@ -776,6 +846,10 @@ Note that it is easier to see the differences in the thesis' video, although it 
 In order to improve the performance, the median filter could be applied on the GPU, by using shaders. One such method  is described in \cite{park}. They only briefly describe the method, but provide source code and a reference where the full algorithm is explain.
 
 Finally, all averaging techniques can also reduce detail, for example, they could make the distortion correction less pronounced. This issue has not been thoroughly tested, and needs to be determined as future work. In order to properly analyze the previous issue, the calibration of the system should also be corrected, because then it would be easier to compare with the expected result. A further issue may be that the system was not calibrated, so the distance and field of view of the virtual camera were set by trial and error. This is important because distance affects both the noise amount, as well as the degree to which the distortion correction can be seen(it needs to be \verb|just right|, and the correct parameters can only be obtained through calibration).
+
+\subsection{Projective Texture Mapping}
+\subsection{Manual Hardware Alignment (Calibration Not Used)}
+
 
 \section{Empirical Study}
 \section{Conclusions}
