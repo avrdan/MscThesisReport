@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  23 JUL 2014 02:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  24 JUL 2014 22:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -565,8 +565,8 @@ File: figures/MarchingCubesTriagulationCases.PNG Graphic file (type png)
 Package pdftex.def Info: figures/MarchingCubesTriagulationCases.PNG used on inp
 ut line 438.
 (pdftex.def)             Requested size: 137.9979pt x 193.72694pt.
-
-<figures/MarchingCubesNumbering.PNG, id=147, 317.988pt x 305.34074pt>
+ [23 <./figures/MarchingCubesTriagulationCases.PNG>]
+<figures/MarchingCubesNumbering.PNG, id=151, 317.988pt x 305.34074pt>
 File: figures/MarchingCubesNumbering.PNG Graphic file (type png)
 
 <use figures/MarchingCubesNumbering.PNG>
@@ -578,7 +578,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 453--454
 
  []
 
-[23 <./figures/MarchingCubesTriagulationCases.PNG>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
@@ -615,8 +615,8 @@ File: figures/PTMCoordinates.PNG Graphic file (type png)
 <use figures/PTMCoordinates.PNG>
 Package pdftex.def Info: figures/PTMCoordinates.PNG used on input line 517.
 (pdftex.def)             Requested size: 345.0pt x 89.00737pt.
- [27 <./figures/VirtualProjectorPipeline.PNG> <./figures/PTMCoordinates.PNG>]
-<figures/ObjectLinearTexgen.PNG, id=173, 393.26926pt x 162.6075pt>
+ [27 <./figures/VirtualProjectorPipeline.PNG>]
+<figures/ObjectLinearTexgen.PNG, id=172, 393.26926pt x 162.6075pt>
 File: figures/ObjectLinearTexgen.PNG Graphic file (type png)
 
 <use figures/ObjectLinearTexgen.PNG>
@@ -624,31 +624,32 @@ Package pdftex.def Info: figures/ObjectLinearTexgen.PNG used on input line 530.
 
 (pdftex.def)             Requested size: 207.0021pt x 85.58855pt.
 
-<figures/EyeLinearTexgen.PNG, id=174, 279.444pt x 196.93575pt>
+<figures/EyeLinearTexgen.PNG, id=173, 279.444pt x 196.93575pt>
 File: figures/EyeLinearTexgen.PNG Graphic file (type png)
 
 <use figures/EyeLinearTexgen.PNG>
 Package pdftex.def Info: figures/EyeLinearTexgen.PNG used on input line 541.
 (pdftex.def)             Requested size: 137.9979pt x 97.2536pt.
- [28 <./figures/ObjectLinearTexgen.PNG> <./figures/EyeLinearTexgen.PNG>] [29]
+ [28 <./figures/PTMCoordinates.PNG> <./figures/ObjectLinearTexgen.PNG>] [29 <./
+figures/EyeLinearTexgen.PNG>] [30]
 Overfull \hbox (17.24684pt too wide) in paragraph at lines 591--591
 []\OT1/cmtt/m/n/10 pxcU16 depthValue = ((pxcU16*)ddepth.planes[0])[y * depthStr
 ide + x], 
  []
 
-[30]
+
 Overfull \hbox (38.24666pt too wide) in paragraph at lines 608--608
 []\OT1/cmtt/m/n/10 projection->ProjectImageToRealWorld(nPoints, &pcPos[0], worl
 dPos.data()). 
  []
 
-<figures/VertexArrays.PNG, id=186, 344.487pt x 328.22626pt>
+[31] <figures/VertexArrays.PNG, id=190, 344.487pt x 328.22626pt>
 File: figures/VertexArrays.PNG Graphic file (type png)
 
 <use figures/VertexArrays.PNG>
 Package pdftex.def Info: figures/VertexArrays.PNG used on input line 620.
 (pdftex.def)             Requested size: 241.49895pt x 230.09737pt.
- [31]
+
 <figures/VBOClientMemory.PNG, id=191, 438.438pt x 354.123pt>
 File: figures/VBOClientMemory.PNG Graphic file (type png)
 
@@ -688,21 +689,21 @@ Overfull \hbox (53.99652pt too wide) in paragraph at lines 674--674
 (unsigned int));[] 
  []
 
-[34] [35] <figures/NoSmoothingC.png, id=206, 380.01974pt x 165.61874pt>
+[34] [35] [36] <figures/NoSmoothingC.png, id=209, 380.01974pt x 165.61874pt>
 File: figures/NoSmoothingC.png Graphic file (type png)
 
 <use figures/NoSmoothingC.png>
-Package pdftex.def Info: figures/NoSmoothingC.png used on input line 720.
+Package pdftex.def Info: figures/NoSmoothingC.png used on input line 743.
 (pdftex.def)             Requested size: 155.24895pt x 67.65898pt.
 
-<figures/BothAveragingTechniquesC.png, id=207, 380.01974pt x 160.1985pt>
+<figures/BothAveragingTechniquesC.png, id=210, 380.01974pt x 160.1985pt>
 File: figures/BothAveragingTechniquesC.png Graphic file (type png)
 
 <use figures/BothAveragingTechniquesC.png>
 Package pdftex.def Info: figures/BothAveragingTechniquesC.png used on input lin
-e 726.
+e 749.
 (pdftex.def)             Requested size: 155.24895pt x 65.44469pt.
- [36 <./figures/NoSmoothingC.png> <./figures/BothAveragingTechniquesC.png>] [37
+ [37 <./figures/NoSmoothingC.png> <./figures/BothAveragingTechniquesC.png>] [38
 ] (./MScThesis_DanAvram.bbl
 Missing character: There is no Â in font cmr10!
 Missing character: There is no ® in font cmr10!
@@ -724,18 +725,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--57
 ids-a-
  []
 
-[38]
+[39]
 Underfull \hbox (badness 1033) in paragraph at lines 120--125
 []\OT1/cmr/m/n/10 Watanabe et al.  \OT1/cmr/m/it/10 955-fps Real-time Shape Mea
 -sure-ment of a Mov-
  []
 
-[39]) [40] (./MScThesis_DanAvram.aux) ) 
+[40]) [41] (./MScThesis_DanAvram.aux) ) 
 Here is how much of TeX's memory you used:
- 4077 strings out of 493308
- 65139 string characters out of 6139147
- 128328 words of memory out of 5000000
- 7451 multiletter control sequences out of 15000+600000
+ 4078 strings out of 493308
+ 65145 string characters out of 6139147
+ 128332 words of memory out of 5000000
+ 7452 multiletter control sequences out of 15000+600000
  10451 words of font info for 38 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  42i,7n,40p,1628b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -753,10 +754,10 @@ exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Work/texli
 ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Work/texlive/20
 13/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/Work/texlive/2013/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on MScThesis_DanAvram.pdf (46 pages, 6429122 bytes).
+Output written on MScThesis_DanAvram.pdf (47 pages, 6432560 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
+ 278 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

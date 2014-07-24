@@ -375,7 +375,7 @@ Although the naive approach has been implemented and used in this project, some 
 
 \subsubsection{Connect a Grid of Points with a Triangle Strip}
 \label{sec:TriangleStripTriangulation}
-Since the depth data captured via a depth camera is ordered, the easiest way is to consider the point cloud as a grid of points. Then, one can connect the vertices together using triangle strips. Triangle strip representation is a method of drawing triangles that can save some of the memory bandwidth, by connecting a new triangle to an existing strip with each new point. This means, that, for example, if we want to draw two triangles, we only use 4 points, instead of 6, which we would normally need. An important thing to keep in mind is that triangle winding(the combination of order and direction in which the vertices are specified) is important. By default, OpenGL considers counterclockwise winding to represent front faces, and clockwise winding to represent backfaces. This enables the use of back-face culling for optimisation(we do not need to render triangles which are not visible), and are also important for normal calculation, and thus lighting. Although we are not concerned with lightning in this project, it is always good practice to keep the winding consistent. For more information about triangle strips and other OpenGL methods of drawing primtives please consult \cite[Chapter~3]{superbible}.
+Since the depth data captured via a depth camera is ordered, the easiest way is to consider the point cloud as a grid of points. Then, one can connect the vertices together using triangle strips. Triangle strip representation is a method of drawing triangles that can save some of the memory bandwidth, by connecting a new triangle to an existing strip with each new point. This means, that, for example, if we want to draw two triangles, we only use 4 points, instead of 6, which we would normally need. An important thing to keep in mind is triangle winding(the combination of order and direction in which the vertices are specified). By default, OpenGL considers counterclockwise winding to represent front faces, and clockwise winding to represent backfaces. This enables the use of back-face culling for optimisation(we do not need to render triangles which are not visible), and are also important for normal calculation, and thus lighting. Although we are not concerned with lightning in this project, it is always good practice to keep the winding consistent. For more information about triangle strips and other OpenGL methods of drawing primtives please consult \cite[Chapter~3]{superbible}.
 
 Coming back to the current problem, an internet article which explains how a triangle strip can be constructed from a grid of points is \cite{triangleStrip}. Figure \ref{fig:TriangleStrip} provides an overview, on how we can connect the vertices. Note that each point in the figure, numbered from 0-15 is a 3D vertex with coordinates $(x,y,z)$. 
 
@@ -389,7 +389,7 @@ Coming back to the current problem, an internet article which explains how a tri
 In this example, we can observe that on our path, we alternatively add 4 and subtract 3 for computing the next index, on the first row. On the next row, we still add 4, but subtract 5. The number 4 represents the number of vertices in the row or column, depending on how we advance($n + 1$ vertices, where n = number of divisions).
 The numbers 3 and 5, correspond to $m = (n+1) + 1$ or $m = (n+1) - 1$ and represent changes between adjacent columns. The number alternates, depending on the order of traversal on that particular row.
 
-This approach provides a decent reconstruction, for a 2.5D object using data from a single depth camera. Normals can also be computed after we have the geometry(at an additional computational cost), however, there is no need for lighting in our 3D scene, since we will be using textures as our final images. For improving the visual quality of the mesh, one could also look at more sophisticated methods of triangulation such as \textit{Delaunay Triangulation}, or use standard 3D reconstruction techniques, like the \textit{Marching Cubes} algorithm.
+This approach provides a decent reconstruction, for a 2.5D object using data from a single depth camera. Normals can also be computed after we have the geometry(at an additional computational cost), however, there is no need for lighting in our 3D scene, since we will be applying textures(which represent the desired image contents) on the mesh before rendering. For improving the visual quality of the mesh, one could also look at more sophisticated methods of triangulation such as \textit{Delaunay Triangulation}, or use standard 3D reconstruction techniques, like the \textit{Marching Cubes} algorithm.
 
 \subsubsection{Other Methods for 2.5D Triangulation}
 
@@ -693,7 +693,30 @@ The parameters are briefly explained in the comments, but to detail briefly:
 \item finally, the last parameter is simply a pointer that defines an offset, but since we only have the mesh data to render with indices, this can be set to 0
 \end{itemize}
  
- The only thing left to be is explained is how the index array has been populated. In order to understand how the code works, it is useful to review figure \ref{fig:TriangleStrip}. The logic is contained in the \verb|addIndexData| method from the \textit{RawDepthPipeline} class. 
+ The only thing left to be is explained is how the index array has been populated. In order to understand how the code works, it is useful to review figure \ref{fig:TriangleStrip}. The logic is contained in the \verb|addIndexData| method from the \textit{RawDepthPipeline} class. We traverse the two-dimesional grid with one index(in the same manner as we have traversed the depth frame before):
+
+ \begin{verbatim}t = c + r * colSteps,\end{verbatim}
+ 
+ where \verb|t| will represent our current position in the grid. As we can see from the previously mentioned figure, the indices are connected by using elements from adjacent rows, alternatively.We can then simply check if this position is divisble by 2 or not, so we know if we need to move to the other row. We first push index 0, and then we need to add the width of the grid to our current index(since it is divisble by 2):
+ \begin{verbatim}
+if (t % 2 == 0) {
+	n += width;
+}
+ \end{verbatim}
+In the next iteration, we go in the \verb|else| loop and check if the index of the row is divisible by 2. This is required, since we traverse the grid from both directions and we need to subtract \verb|width-1| or \verb|width+1|, in order to traverse up with one row, depending on whether we are traversing the current row from left to right, or right to left, respectively:
+\begin{verbatim}
+(r % 2 == 0) ? n -= (width - 1) : n -= (width + 1);
+\end{verbatim}
+Then, the process is simply repeated. Note that, since we pass through two rows in one direction, \verb|colSteps| is set to \verb|width * 2|(for example, the last element in the second row in the figure is $7$, which is element number 4*2 = 8, since our width is 4 in that example). Further, we stop one row before the last, since we traverse through the last one, when we start on the one right before it, so \verb|rowSteps = height - 1|.
+
+Finally, we need to remember to add the degenerate triangle by adding the last index twice(once as shown below, and again at the start of the next loop, as \verb|r| is incremented):
+\begin{verbatim}
+if (c == colSteps - 1) {
+	indices.push_back(n);
+}
+\end{verbatim}
+
+At the end of this process, the \verb|indices| vector will contain all of the triangle strip indices and in the right order. Therefore, it can be added to the index buffer object, so that the data is available for rendering later(degenerate triangles will simply be discarded by the GPU, they will not introduce artifacts).
 
 \subsection{Depth Smoothing}
 
@@ -750,7 +773,9 @@ Note that it is easier to see the differences in the thesis' video, although it 
 \label{tabel:FrameRateReductionDueToAveraging}
 \end{table}
 
-Of course, all averaging techniques can also reduce detail, for example, they could make the distortion correction less pronounced. This issue has not been thoroughly tested, and needs to be determined as future work. In order to properly analyze the previous issue, the calibration of the system should also be corrected, because then it would be easier to compare with the expected result. A further issue may be that the system was not calibrated, so the distance and field of view of the virtual camera were set by trial and error. This is important because distance affects both the noise amount, as well as the degree to which the distortion correction can be seen(it needs to be \verb|just right|, and the correct parameters can only be obtained through calibration).
+In order to improve the performance, the median filter could be applied on the GPU, by using shaders. One such method  is described in \cite{park}. They only briefly describe the method, but provide source code and a reference where the full algorithm is explain.
+
+Finally, all averaging techniques can also reduce detail, for example, they could make the distortion correction less pronounced. This issue has not been thoroughly tested, and needs to be determined as future work. In order to properly analyze the previous issue, the calibration of the system should also be corrected, because then it would be easier to compare with the expected result. A further issue may be that the system was not calibrated, so the distance and field of view of the virtual camera were set by trial and error. This is important because distance affects both the noise amount, as well as the degree to which the distortion correction can be seen(it needs to be \verb|just right|, and the correct parameters can only be obtained through calibration).
 
 \section{Empirical Study}
 \section{Conclusions}

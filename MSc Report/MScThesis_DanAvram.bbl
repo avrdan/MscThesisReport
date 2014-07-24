@@ -175,6 +175,10 @@ Jon~Macey Navpreet Kaur~Pawar.
 \newblock Surface reconstruction from point clouds.
 \newblock August 2013.
 
+\bibitem{park}
+Jongtae Park.
+\newblock A fast, smal-radius gpu median filter.
+
 \bibitem{PCLGreedy}
 PCL.
 \newblock Fast triangulation of unordered point clouds.

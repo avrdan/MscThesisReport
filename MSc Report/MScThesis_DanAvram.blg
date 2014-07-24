@@ -3,6 +3,10 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: MScThesis_DanAvram.aux
 The style file: plain.bst
 Database file #1: bibliography.bib
+Repeated entry---line 487 of file bibliography.bib
+ : @article{gokturk
+ :                 ,
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in glew
 Warning--to sort, need author or key in glfw
 Warning--to sort, need author or key in freeimage
@@ -26,49 +30,51 @@ Warning--empty journal in Jordt2011
 Warning--empty journal in kilgard2009
 Warning--empty journal in william87
 Warning--empty journal in navpreet2013
+Warning--empty journal in park
+Warning--empty year in park
 Warning--empty journal in PCLGreedy
 Warning--empty year in PCLGreedy
 Warning--empty journal in max2013
 Warning--empty year in steimle13
-You've used 36 entries,
+You've used 37 entries,
             2118 wiz_defined-function locations,
-            662 strings with 8651 characters,
-and the built_in function-call counts, 7481 in all, are:
-= -- 671
-> -- 245
+            666 strings with 8763 characters,
+and the built_in function-call counts, 7682 in all, are:
+= -- 688
+> -- 252
 < -- 0
-+ -- 109
-- -- 70
-* -- 324
-:= -- 1251
-add.period$ -- 98
-call.type$ -- 36
-change.case$ -- 127
++ -- 113
+- -- 72
+* -- 335
+:= -- 1287
+add.period$ -- 100
+call.type$ -- 37
+change.case$ -- 131
 chr.to.int$ -- 0
-cite$ -- 63
-duplicate$ -- 372
-empty$ -- 750
-format.name$ -- 70
-if$ -- 1592
+cite$ -- 66
+duplicate$ -- 382
+empty$ -- 767
+format.name$ -- 72
+if$ -- 1630
 int.to.chr$ -- 0
-int.to.str$ -- 36
-missing$ -- 44
-newline$ -- 173
-num.names$ -- 56
-pop$ -- 284
+int.to.str$ -- 37
+missing$ -- 45
+newline$ -- 177
+num.names$ -- 58
+pop$ -- 292
 preamble$ -- 1
-purify$ -- 107
+purify$ -- 110
 quote$ -- 0
-skip$ -- 238
+skip$ -- 244
 stack$ -- 0
-substring$ -- 183
+substring$ -- 189
 swap$ -- 25
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 112
-warning$ -- 27
-while$ -- 56
-width$ -- 38
-write$ -- 323
-(There were 27 warnings)
+type$ -- 116
+warning$ -- 29
+while$ -- 58
+width$ -- 39
+write$ -- 330
+(There was 1 error message)
