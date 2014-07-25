@@ -21,6 +21,7 @@
 \citation{cassNvidia}
 \citation{cassNvidia}
 \citation{kilgard2009}
+\citation{cassNvidia}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Problem Description}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Hardware Setup}{1}}
@@ -172,6 +173,7 @@
 \citation{cassNvidia}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5}Kinect Fusion and Kinfu}{27}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Projective Texture Mapping}{27}}
+\newlabel{sec:ptm}{{4.4}{27}}
 \@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Virtual Projector Transformation Pipeline. Courtesy of \cite  {cassNvidia}\relax }}{27}}
 \newlabel{fig:VirtualProjectorPipeline}{{25}{27}}
 \citation{cassNvidia}
@@ -224,10 +226,19 @@
 \newlabel{tabel:FrameRateReductionDueToAveraging}{{1}{39}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.3}Results}{39}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Projective Texture Mapping}{40}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Manual Hardware Alignment (Calibration Not Used)}{40}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Empirical Study}{40}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{40}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Future Work}{40}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.1}Setting Uniforms and Computing the Texture Coordinates in the Vertex Shader}{40}}
+\citation{cassNvidia}
+\citation{cassNvidia}
+\citation{cassNvidia}
+\citation{avram2014}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.2}Applying the Texture in the Fragment Shader}{42}}
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces Reverse projection after applying PTM. Courtesy of \cite  {cassNvidia}\relax }}{43}}
+\newlabel{fig:ReverseProjection}{{32}{43}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.6.3}Results}{43}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Manual Hardware Alignment (Calibration Not Used)}{43}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Empirical Study}{43}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{43}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Future Work}{43}}
 \bibdata{bibliography}
 \bibcite{assimp}{1}
 \bibcite{glew}{2}
@@ -237,33 +248,36 @@
 \bibcite{freeimage}{6}
 \bibcite{OpenGLTuts}{7}
 \bibcite{PCL}{8}
-\bibcite{bourke1994}{9}
-\bibcite{crassin2007}{10}
-\bibcite{daalsgard11}{11}
-\bibcite{triangleStrip}{12}
-\bibcite{lanman09}{13}
-\bibcite{dyken2007}{14}
-\bibcite{berg08}{15}
-\bibcite{falcao08}{16}
-\bibcite{sung2013}{17}
-\bibcite{pindat12}{18}
-\bibcite{radhwan11}{19}
-\bibcite{raskar98}{20}
-\bibcite{superbible}{21}
-\bibcite{gokturk}{22}
-\bibcite{segal92}{23}
-\bibcite{watanabe07}{24}
-\bibcite{watanabe08}{25}
-\bibcite{yamazaki11}{26}
-\bibcite{cassNvidia}{27}
-\bibcite{Jordt2011}{28}
-\bibcite{jordt12}{29}
-\bibcite{kilgard2009}{30}
-\bibcite{william87}{31}
-\bibcite{Marton09ICRA}{32}
-\bibcite{navpreet2013}{33}
-\bibcite{park}{34}
-\bibcite{PCLGreedy}{35}
-\bibcite{max2013}{36}
-\bibcite{steimle13}{37}
+\bibcite{avram2014}{9}
+\bibcite{bourke1994}{10}
+\bibcite{crassin2007}{11}
+\bibcite{daalsgard11}{12}
+\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces PTM applied on a Suzanne monkey head from Blender, and on a floor with a small cube. The frustum represents the virtual projector.\relax }}{44}}
+\newlabel{fig:PTMTest}{{33}{44}}
+\bibcite{triangleStrip}{13}
+\bibcite{lanman09}{14}
+\bibcite{dyken2007}{15}
+\bibcite{berg08}{16}
+\bibcite{falcao08}{17}
+\bibcite{sung2013}{18}
+\bibcite{pindat12}{19}
+\bibcite{radhwan11}{20}
+\bibcite{raskar98}{21}
+\bibcite{superbible}{22}
+\bibcite{gokturk}{23}
+\bibcite{segal92}{24}
+\bibcite{watanabe07}{25}
+\bibcite{watanabe08}{26}
+\bibcite{yamazaki11}{27}
+\bibcite{cassNvidia}{28}
+\bibcite{Jordt2011}{29}
+\bibcite{jordt12}{30}
+\bibcite{kilgard2009}{31}
+\bibcite{william87}{32}
+\bibcite{Marton09ICRA}{33}
+\bibcite{navpreet2013}{34}
+\bibcite{park}{35}
+\bibcite{PCLGreedy}{36}
+\bibcite{max2013}{37}
+\bibcite{steimle13}{38}
 \bibstyle{plain}

@@ -498,6 +498,7 @@ An implementation is available in the PCL library, and a description on how to u
 \subsubsection{Kinect Fusion and Kinfu}
 
 \subsection{Projective Texture Mapping}
+\label{sec:ptm}
 
 An article by NVIDIA which also references \cite{segal92}, describes projective texture mapping and how it can be implemented using OpenGL (see \cite{cassNvidia}). A short summary of this is presented below.
 
@@ -534,7 +535,7 @@ The object linear texgen can be represented as shown in figure \ref{fig:ObjectLi
 
 \subsubsection{Eye Linear Texgen}
 
-The object linear texgen can be represented as shown in figure \ref{fig:EyeLinearTexgen}, where the same notations are used as in the previous section, but instead of multiplying with the model matrix $M$ in the end, we multiply with $V^{-1}_{e}$ which is the inverse of the eye(or camera) view matrix.
+The eye linear texgen can be represented as shown in figure \ref{fig:EyeLinearTexgen}, where the same notations are used as in the previous section, but instead of multiplying with the model matrix $M$ in the end, we multiply with $V^{-1}_{e}$ which is the inverse of the eye(or camera) view matrix.
 
 \begin{figure}[hbtp]
     \centering
@@ -848,10 +849,146 @@ In order to improve the performance, the median filter could be applied on the G
 Finally, all averaging techniques can also reduce detail, for example, they could make the distortion correction less pronounced. This issue has not been thoroughly tested, and needs to be determined as future work. In order to properly analyze the previous issue, the calibration of the system should also be corrected, because then it would be easier to compare with the expected result. A further issue may be that the system was not calibrated, so the distance and field of view of the virtual camera were set by trial and error. This is important because distance affects both the noise amount, as well as the degree to which the distortion correction can be seen(it needs to be \verb|just right|, and the correct parameters can only be obtained through calibration).
 
 \subsection{Projective Texture Mapping}
+
+In order to get a final image rendered with the distortion compensation, by using a mesh of the deformable surface, one can apply projective texture mapping(\textbf{PTM}), as described in section \ref{sec:ptm}. This method was implemented using GLSL shaders. 
+
+\subsubsection{Setting Uniforms and Computing the Texture Coordinates in the Vertex Shader}
+
+Since the programmable OpenGL pipeline was used, there is no predefined \verb|Texgen| matrix. Instead, we can just use any $4 \times 4$ matrix. This matrix is defined as a uniform in the vertex shader(OpenGL server side code):
+\begin{verbatim}
+uniform mat4 TexGenMat;
+uniform mat4 InvViewMat;
+\end{verbatim}
+
+The matrices are set from the OpenGL client code(the actual C++ application). The inverse view matrix is needed in order to convert from eye to world coordinates. In addition to these PTM specific matrices, we also need the usual projection and modelview matrix, as well as the position of the vertices:
+\begin{verbatim}
+uniform mat4 P;
+uniform mat4 MV;
+layout (location = 0) in vec3 inPosition;
+\end{verbatim}
+
+We need to compute the texture coordinates for the projected texture and pass them to the fragment shader:
+\begin{verbatim}
+out vec4 projCoords;
+vec4 posEye    = MV * vec4(inPosition, 1.0);
+vec4 posWorld  = InvViewMat * posEye;
+projCoords     = TexGenMat * posWorld;
+\end{verbatim}
+
+The \verb|TexGenMat| has been constructed as described in section \ref{sec:ptm}, in the object linear texgen equation, except the final multiplication with \verb|M|:
+\begin{verbatim}
+texGenMatrix = biasMatrix * projectorP * projectorV;
+invViewMatrix = glm::inverse(mModelView);
+\end{verbatim} 
+
+Actually, by the time we compute the inverse, in the second line of the code above, \verb|mModelView| only contains the view matrix. The modelview matrix uniform is instead stored from another variable, called \verb|mCurrent|:
+\begin{verbatim}
+glUniformMatrix4fv(iPTMModelViewLoc, 1, GL_FALSE, glm::value_ptr(mCurrent));
+\end{verbatim}
+
+The \verb|glUniformMatrix4fv| method binds the given matrix to the location of the modelview matrix in the shader. The 4 in the name, means OpenGL is expecting a $4 \times 4$ matrix, and the $v$ at the end denotes a vector or pointer array, which we will need to pass in as the data - in this case, \verb|glm::value_ptr(mCurrent)|. The proper location can be retrieved from the shader program ID and a string which corresponds to the name of the variable:
+\begin{verbatim}
+int iPTMModelViewLoc = glGetUniformLocation(programID, "MV")
+\end{verbatim}
+The other uniforms are set in a similar way(if we just need to bind an integer we use \verb|glUniform1i|):
+\begin{verbatim}
+glUniformMatrix4fv(iPTMProjectionLoc, 1, GL_FALSE, 
+    glm::value_ptr(*pipeline->getProjectionMatrix()));
+glUniformMatrix4fv(iTexGenMatLoc, 1, GL_FALSE, 
+    glm::value_ptr(texGenMatrix));
+glUniformMatrix4fv(iInvViewMatrix, 1, GL_FALSE, 
+    glm::value_ptr(invViewMatrix));
+glUniform1i(iSamplerPTMLoc, 0);
+glUniform1i(iProjSamplerLoc, 1);
+//black
+glUniform4fv(iColorLoc, 1, glm::value_ptr(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f)));
+// update debug state
+glUniform1i(iDebugLoc, bFragmentShaderDebug);
+\end{verbatim}
+We set the projection matrix, the texgen matrix, the inverse view matrix, and finally sampler locations, color locations and a debug uniform. The samplers, colors and debug uniforms are only used in the fragment shader, while the others are needed in the vertex shader. 
+
+
+Finally we need to apply the model matrix, in order to get world coordinates. First, the eye coordinates are computed(multiplying with the modelview matrix). Then, in order to get the world coordinates, we need to remove the effect of the view matrix. We can do this by multiplying with its inverse(this is equivalent of just multiplying with \verb|M|, but in order to be consistent with other shaders, the modelview matrix is passed as one matrix, denoted \verb|MV|):
+\begin{verbatim}
+vec4 posEye    = MV * vec4(inPosition, 1.0);
+vec4 posWorld  = InvViewMat * posEye;
+projCoords     = TexGenMat * posWorld;
+\end{verbatim}
+
+Finally, the position is computed as usual, by applying the Model View Projection(MVP) matrix to the input vertex:
+\begin{verbatim}
+gl_Position = P * MV * vec4(inPosition, 1.0);
+\end{verbatim}
+
+\subsubsection{Applying the Texture in the Fragment Shader}
+
+Next, the fragment shader computes the final texture coordinates for the vertex and extracts the color from the sampler:
+\begin{verbatim}
+vec2 finalCoords	= projCoords.st / projCoords.q;
+vec4 vProjTexColor  = texture(projMap, finalCoords);
+\end{verbatim}
+
+Samplers are used to access the texture data. In this case, we have two \verb|sampler2D| types, since the object may have its own texture, on which we may then apply the projected texture:
+\begin{verbatim}
+uniform sampler2D projMap;
+uniform sampler2D gSampler;
+\end{verbatim}
+
+However, for the deformable cloth mesh we do not need to use an additional texture. A constant color value was used for the mesh, in the areas in which it is not covered by the virtual texture projector. Therefore, if the texture coordinates are valid and we do not have a reverse projection the output color is set to the one retrieved from the texture, otherwise it is set to an input color:
+\begin{verbatim}
+// supress the reverse projection
+if (projCoords.q > 0.0)
+{
+    // CLAMP PROJECTIVE TEXTURE (for some reason gl_clamp did not work...)
+    if(projCoords.s > 0 && projCoords.t > 0 && 
+    finalCoords.s < 1 && finalCoords.t < 1)
+    {
+	    outputColor = vProjTexColor;
+    }
+    else
+        outputColor = vColor;
+}
+else
+    outputColor = vColor;
+\end{verbatim}
+
+The texture was clamped in the shader, so that it does not repeat. This was needed, due to the fact that the normal texture parameters(that can be used to specify the \verb|GL_CLAMP| flag for a particular coordinate) did not work:
+\begin{verbatim}
+glTexParameteri( GL_TEXTURE_2D, 
+GL_TEXTURE_WRAP_S, GL_CLAMP ); 
+\end{verbatim}
+
+Finally, as mentioned in \cite{cassNvidia}, one of the problems of projective texture mapping is that it also produces a reverse projection when the sign of \verb|q| becomes negative(see figure \ref{fig:ReverseProjection}). However, it is easy to correct this in the shader by just checking that \verb|q| is positive, as we have seen in the code snippet above.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/ReverseProjecton.PNG}
+    \caption{Reverse projection after applying PTM. Courtesy of \cite{cassNvidia}}
+    \label{fig:ReverseProjection}
+\end{figure}
+
+\subsubsection{Results}
+
+In addition to what has been described, a frustum has also been created for debugging purposes, so that we can see the virtual projector in the scene. The full code of the projective texture mapping shaders(for shaded scenes), is available in a \textit{stackoverflow} discussion(available at \cite{avram2014}). I originally started it, while I was stuck on this problem. The previous resource may also describe some aspects in greater detail. The algorithm has been applied on several objects in figure \ref{fig:PTMTest}. Further, in the accompanying thesis video, there is another example of the projected texture being moved, by transforming the virtual slide projector.
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/PTMTest.png}
+    \caption{PTM applied on a Suzanne monkey head from Blender, and on a floor with a small cube. The frustum represents the virtual projector.}
+    \label{fig:PTMTest}
+\end{figure}
+
+Further, the \verb|debug| flag was used later on in order to change the color of the vertices, if they are within a certain depth range. More on this, in the following sections.
+
+
 \subsection{Manual Hardware Alignment (Calibration Not Used)}
 
 
 \section{Empirical Study}
+
+Despite the fact that the system was not calibrated, it did seem to correct the distortions in certain areas or for certain cases. However, this correction is not perfect, and to find out how well it performs a user study has been run. Further, the users were also asked if they prefer the correcting method over a normal image projection.
+
+
 \section{Conclusions}
 \section{Future Work}
 

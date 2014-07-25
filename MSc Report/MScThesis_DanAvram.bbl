@@ -33,6 +33,12 @@ Opengl tutorials.
 Point cloud library.
 \newblock \url{http://pointclouds.org/}.
 
+\bibitem{avram2014}
+Dan Avram.
+\newblock Projective texture mapping via shaders.
+\newblock
+  \url{http://stackoverflow.com/questions/22732717/opengl-projective-texture-mapping-via-shaders}.
+
 \bibitem{bourke1994}
 Paul Bourke.
 \newblock Polygonising a scalar field.

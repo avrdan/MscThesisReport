@@ -29,3 +29,5 @@
 \contentsline {figure}{\numberline {29}{\ignorespaces Vertex array layout with two vertex attributes. Courtesy of \cite {kilgard2009}\relax }}{32}
 \contentsline {figure}{\numberline {30}{\ignorespaces Transfers of vertex array object data using DMA.\relax }}{33}
 \contentsline {figure}{\numberline {31}{\ignorespaces A grid texture whch shows the noise reduction obtained by averaging.\relax }}{39}
+\contentsline {figure}{\numberline {32}{\ignorespaces Reverse projection after applying PTM. Courtesy of \cite {cassNvidia}\relax }}{43}
+\contentsline {figure}{\numberline {33}{\ignorespaces PTM applied on a Suzanne monkey head from Blender, and on a floor with a small cube. The frustum represents the virtual projector.\relax }}{44}

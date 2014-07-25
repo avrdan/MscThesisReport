@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  25 JUL 2014 01:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  25 JUL 2014 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -257,11 +257,11 @@ Overfull \hbox (3.22017pt too wide) in paragraph at lines 15--15
 [1
 
 {d:/Work/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-[3] (./MScThesis_DanAvram.toc)
+[3] (./MScThesis_DanAvram.toc [1])
 \tf@toc=\write3
 \openout3 = `MScThesis_DanAvram.toc'.
 
- [1] (./MScThesis_DanAvram.lof
+ [2] (./MScThesis_DanAvram.lof
 Overfull \hbox (2.29695pt too wide) in paragraph at lines 7--7
  [][] []\OT1/cmr/m/n/10 Compensation of im-age warp caused by screen de-for-ma-
 tion. Cour- 
@@ -271,11 +271,11 @@ tion. Cour-
 \tf@lof=\write4
 \openout4 = `MScThesis_DanAvram.lof'.
 
- [2] (./MScThesis_DanAvram.lot)
+ [3] [4] (./MScThesis_DanAvram.lot)
 \tf@lot=\write5
 \openout5 = `MScThesis_DanAvram.lot'.
 
- [3]
+ [5]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 67.
 
 (d:/Work/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
@@ -287,7 +287,7 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
-<figures/thesis_setup_illustration_ui.png, id=27, 1056.94875pt x 747.79375pt>
+<figures/thesis_setup_illustration_ui.png, id=34, 1056.94875pt x 747.79375pt>
 File: figures/thesis_setup_illustration_ui.png Graphic file (type png)
 
 <use figures/thesis_setup_illustration_ui.png>
@@ -300,7 +300,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
  []
 
 [2 <./figures/thesis_setup_illustration_ui.png>]
-<figures/HolgerTheDane.PNG, id=38, 481.8pt x 268.6035pt>
+<figures/HolgerTheDane.PNG, id=44, 481.8pt x 268.6035pt>
 File: figures/HolgerTheDane.PNG Graphic file (type png)
 
 <use figures/HolgerTheDane.PNG>
@@ -314,14 +314,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
-<figures/Flexpad.PNG, id=39, 678.73575pt x 223.43475pt>
+<figures/Flexpad.PNG, id=45, 678.73575pt x 223.43475pt>
 File: figures/Flexpad.PNG Graphic file (type png)
 
 <use figures/Flexpad.PNG>
 Package pdftex.def Info: figures/Flexpad.PNG used on input line 110.
 (pdftex.def)             Requested size: 276.00105pt x 90.85878pt.
 
-<figures/FlexpadDeformationModel.PNG, id=40, 344.487pt x 206.57175pt>
+<figures/FlexpadDeformationModel.PNG, id=46, 344.487pt x 206.57175pt>
 File: figures/FlexpadDeformationModel.PNG Graphic file (type png)
 
 <use figures/FlexpadDeformationModel.PNG>
@@ -339,7 +339,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
  []
 
-[5] <figures/FutureOffice.PNG, id=53, 447.47176pt x 277.63725pt>
+[5] <figures/FutureOffice.PNG, id=60, 447.47176pt x 277.63725pt>
 File: figures/FutureOffice.PNG Graphic file (type png)
 
 <use figures/FutureOffice.PNG>
@@ -351,7 +351,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 144--145
  []
 
 [6 <./figures/FutureOffice.PNG>]
-<figures/TheDeformableWorkspace.PNG, id=58, 344.487pt x 272.81924pt>
+<figures/TheDeformableWorkspace.PNG, id=65, 344.487pt x 272.81924pt>
 File: figures/TheDeformableWorkspace.PNG Graphic file (type png)
 
 <use figures/TheDeformableWorkspace.PNG>
@@ -371,7 +371,7 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
-<figures/PointProjection.PNG, id=64, 341.47575pt x 229.45724pt>
+<figures/PointProjection.PNG, id=70, 341.47575pt x 229.45724pt>
 File: figures/PointProjection.PNG Graphic file (type png)
 
 <use figures/PointProjection.PNG>
@@ -388,7 +388,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--177
  []
 
 [8 <./figures/PointProjection.PNG>]
-<figures/JellyLens.PNG, id=71, 914.81775pt x 303.534pt>
+<figures/JellyLens.PNG, id=77, 914.81775pt x 303.534pt>
 File: figures/JellyLens.PNG Graphic file (type png)
 
 <use figures/JellyLens.PNG>
@@ -399,7 +399,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
-<figures/DeformableDisplayPipeline.PNG, id=72, 628.749pt x 483.60675pt>
+<figures/DeformableDisplayPipeline.PNG, id=78, 628.749pt x 483.60675pt>
 File: figures/DeformableDisplayPipeline.PNG Graphic file (type png)
 
 <use figures/DeformableDisplayPipeline.PNG>
@@ -426,7 +426,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--226
 
  []
 
-<figures/Projector-Camera_Calibration.PNG, id=82, 502.87875pt x 407.72325pt>
+<figures/Projector-Camera_Calibration.PNG, id=88, 502.87875pt x 407.72325pt>
 File: figures/Projector-Camera_Calibration.PNG Graphic file (type png)
 
 <use figures/Projector-Camera_Calibration.PNG>
@@ -434,7 +434,7 @@ Package pdftex.def Info: figures/Projector-Camera_Calibration.PNG used on input
  line 232.
 (pdftex.def)             Requested size: 276.00105pt x 223.77565pt.
 
-<figures/Frustum.PNG, id=83, 304.7385pt x 240.9pt>
+<figures/Frustum.PNG, id=89, 304.7385pt x 240.9pt>
 File: figures/Frustum.PNG Graphic file (type png)
  <use figures/Frustum.PNG>
 Package pdftex.def Info: figures/Frustum.PNG used on input line 240.
@@ -446,7 +446,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 245--247
  []
 
 [12 <./figures/Projector-Camera_Calibration.PNG>]
-<figures/MVMatrixOGLSB.PNG, id=91, 84.91725pt x 130.086pt>
+<figures/MVMatrixOGLSB.PNG, id=98, 84.91725pt x 130.086pt>
 File: figures/MVMatrixOGLSB.PNG Graphic file (type png)
 
 <use figures/MVMatrixOGLSB.PNG>
@@ -477,7 +477,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 281--283
 
  []
 
-<figures/GeneralPinholeModel.PNG, id=101, 550.4565pt x 178.86826pt>
+<figures/GeneralPinholeModel.PNG, id=107, 550.4565pt x 178.86826pt>
 File: figures/GeneralPinholeModel.PNG Graphic file (type png)
 
 <use figures/GeneralPinholeModel.PNG>
@@ -485,7 +485,7 @@ Package pdftex.def Info: figures/GeneralPinholeModel.PNG used on input line 287
 .
 (pdftex.def)             Requested size: 276.00105pt x 89.68773pt.
  [15 <./figures/GeneralPinholeModel.PNG>]
-<figures/TransformationPipeline.PNG, id=106, 355.3275pt x 184.2885pt>
+<figures/TransformationPipeline.PNG, id=112, 355.3275pt x 184.2885pt>
 File: figures/TransformationPipeline.PNG Graphic file (type png)
 
 <use figures/TransformationPipeline.PNG>
@@ -493,7 +493,7 @@ Package pdftex.def Info: figures/TransformationPipeline.PNG used on input line
 308.
 (pdftex.def)             Requested size: 276.00105pt x 143.15111pt.
 
-<figures/Graphics3D_Pipe.png, id=107, 531.1845pt x 204.16275pt>
+<figures/Graphics3D_Pipe.png, id=113, 531.1845pt x 204.16275pt>
 File: figures/Graphics3D_Pipe.png Graphic file (type png)
 
 <use figures/Graphics3D_Pipe.png>
@@ -504,7 +504,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 325--327
 
  []
 
-<figures/PointCloud.PNG, id=113, 423.38174pt x 242.1045pt>
+<figures/PointCloud.PNG, id=119, 423.38174pt x 242.1045pt>
 File: figures/PointCloud.PNG Graphic file (type png)
 
 <use figures/PointCloud.PNG>
@@ -517,7 +517,7 @@ m/n/10 =\OML/cmm/m/it/10 > Projection[] \OT1/cmr/m/n/10 =\OML/cmm/m/it/10 > Mod
 elView[] \OT1/cmr/m/n/10 =\OML/cmm/m/it/10 > PointInWorldSpace
  []
 
-[18] <figures/PerspectiveTerrain.PNG, id=123, 282.45525pt x 134.904pt>
+[18] <figures/PerspectiveTerrain.PNG, id=130, 282.45525pt x 134.904pt>
 File: figures/PerspectiveTerrain.PNG Graphic file (type png)
 
 <use figures/PerspectiveTerrain.PNG>
@@ -525,14 +525,14 @@ Package pdftex.def Info: figures/PerspectiveTerrain.PNG used on input line 358.
 
 (pdftex.def)             Requested size: 137.9979pt x 65.90797pt.
 
-<figures/PolyhedralTerrain.PNG, id=124, 218.61674pt x 110.21175pt>
+<figures/PolyhedralTerrain.PNG, id=131, 218.61674pt x 110.21175pt>
 File: figures/PolyhedralTerrain.PNG Graphic file (type png)
 
 <use figures/PolyhedralTerrain.PNG>
 Package pdftex.def Info: figures/PolyhedralTerrain.PNG used on input line 369.
 (pdftex.def)             Requested size: 137.9979pt x 69.56998pt.
  [19 <./figures/PerspectiveTerrain.PNG> <./figures/PolyhedralTerrain.PNG>]
-<figures/TriangleStripOrdering.PNG, id=131, 181.27725pt x 138.5175pt>
+<figures/TriangleStripOrdering.PNG, id=137, 181.27725pt x 138.5175pt>
 File: figures/TriangleStripOrdering.PNG Graphic file (type png)
 
 <use figures/TriangleStripOrdering.PNG>
@@ -540,7 +540,7 @@ Package pdftex.def Info: figures/TriangleStripOrdering.PNG used on input line 3
 84.
 (pdftex.def)             Requested size: 207.0021pt x 158.18211pt.
  [20 <./figures/TriangleStripOrdering.PNG>] <figures/MountainRidgeNarrowValley.
-PNG, id=136, 292.09125pt x 118.64325pt>
+PNG, id=142, 292.09125pt x 118.64325pt>
 File: figures/MountainRidgeNarrowValley.PNG Graphic file (type png)
 
 <use figures/MountainRidgeNarrowValley.PNG>
@@ -552,21 +552,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 412--413
 
  []
 
-<figures/Voxels.PNG, id=141, 378.213pt x 171.039pt>
+<figures/Voxels.PNG, id=147, 378.213pt x 171.039pt>
 File: figures/Voxels.PNG Graphic file (type png)
  <use figures/Voxels.PNG>
 Package pdftex.def Info: figures/Voxels.PNG used on input line 418.
 (pdftex.def)             Requested size: 137.9979pt x 62.40652pt.
 
 [22 <./figures/Voxels.PNG>]
-<figures/MarchingCubesTriagulationCases.PNG, id=146, 316.18124pt x 443.85825pt>
+<figures/MarchingCubesTriagulationCases.PNG, id=152, 316.18124pt x 443.85825pt>
 File: figures/MarchingCubesTriagulationCases.PNG Graphic file (type png)
 <use figures/MarchingCubesTriagulationCases.PNG>
 Package pdftex.def Info: figures/MarchingCubesTriagulationCases.PNG used on inp
 ut line 438.
 (pdftex.def)             Requested size: 137.9979pt x 193.72694pt.
  [23 <./figures/MarchingCubesTriagulationCases.PNG>]
-<figures/MarchingCubesNumbering.PNG, id=151, 317.988pt x 305.34074pt>
+<figures/MarchingCubesNumbering.PNG, id=158, 317.988pt x 305.34074pt>
 File: figures/MarchingCubesNumbering.PNG Graphic file (type png)
 
 <use figures/MarchingCubesNumbering.PNG>
@@ -593,7 +593,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 480--481
 
  []
 
-[25] <figures/reconstructedBunny.png, id=161, 1927.2pt x 1084.05pt>
+[25] <figures/reconstructedBunny.png, id=167, 1927.2pt x 1084.05pt>
 File: figures/reconstructedBunny.png Graphic file (type png)
 
 <use figures/reconstructedBunny.png>
@@ -601,63 +601,63 @@ Package pdftex.def Info: figures/reconstructedBunny.png used on input line 492.
 
 (pdftex.def)             Requested size: 137.9979pt x 77.61154pt.
  [26 <./figures/reconstructedBunny.png>]
-<figures/VirtualProjectorPipeline.PNG, id=166, 230.0595pt x 340.27126pt>
+<figures/VirtualProjectorPipeline.PNG, id=172, 230.0595pt x 340.27126pt>
 File: figures/VirtualProjectorPipeline.PNG Graphic file (type png)
 
 <use figures/VirtualProjectorPipeline.PNG>
 Package pdftex.def Info: figures/VirtualProjectorPipeline.PNG used on input lin
-e 508.
+e 509.
 (pdftex.def)             Requested size: 137.9979pt x 204.1124pt.
 
-<figures/PTMCoordinates.PNG, id=167, 527.571pt x 136.1085pt>
+<figures/PTMCoordinates.PNG, id=173, 527.571pt x 136.1085pt>
 File: figures/PTMCoordinates.PNG Graphic file (type png)
 
 <use figures/PTMCoordinates.PNG>
-Package pdftex.def Info: figures/PTMCoordinates.PNG used on input line 517.
+Package pdftex.def Info: figures/PTMCoordinates.PNG used on input line 518.
 (pdftex.def)             Requested size: 345.0pt x 89.00737pt.
  [27 <./figures/VirtualProjectorPipeline.PNG>]
-<figures/ObjectLinearTexgen.PNG, id=172, 393.26926pt x 162.6075pt>
+<figures/ObjectLinearTexgen.PNG, id=178, 393.26926pt x 162.6075pt>
 File: figures/ObjectLinearTexgen.PNG Graphic file (type png)
 
 <use figures/ObjectLinearTexgen.PNG>
-Package pdftex.def Info: figures/ObjectLinearTexgen.PNG used on input line 530.
+Package pdftex.def Info: figures/ObjectLinearTexgen.PNG used on input line 531.
 
 (pdftex.def)             Requested size: 207.0021pt x 85.58855pt.
 
-<figures/EyeLinearTexgen.PNG, id=173, 279.444pt x 196.93575pt>
+<figures/EyeLinearTexgen.PNG, id=179, 279.444pt x 196.93575pt>
 File: figures/EyeLinearTexgen.PNG Graphic file (type png)
 
 <use figures/EyeLinearTexgen.PNG>
-Package pdftex.def Info: figures/EyeLinearTexgen.PNG used on input line 541.
+Package pdftex.def Info: figures/EyeLinearTexgen.PNG used on input line 542.
 (pdftex.def)             Requested size: 137.9979pt x 97.2536pt.
  [28 <./figures/PTMCoordinates.PNG> <./figures/ObjectLinearTexgen.PNG>] [29 <./
 figures/EyeLinearTexgen.PNG>] [30]
-Overfull \hbox (17.24684pt too wide) in paragraph at lines 591--591
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 592--592
 []\OT1/cmtt/m/n/10 pxcU16 depthValue = ((pxcU16*)ddepth.planes[0])[y * depthStr
 ide + x], 
  []
 
 
-Overfull \hbox (38.24666pt too wide) in paragraph at lines 608--608
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 609--609
 []\OT1/cmtt/m/n/10 projection->ProjectImageToRealWorld(nPoints, &pcPos[0], worl
 dPos.data()). 
  []
 
-[31] <figures/VertexArrays.PNG, id=190, 344.487pt x 328.22626pt>
+[31] <figures/VertexArrays.PNG, id=196, 344.487pt x 328.22626pt>
 File: figures/VertexArrays.PNG Graphic file (type png)
 
 <use figures/VertexArrays.PNG>
-Package pdftex.def Info: figures/VertexArrays.PNG used on input line 620.
+Package pdftex.def Info: figures/VertexArrays.PNG used on input line 621.
 (pdftex.def)             Requested size: 241.49895pt x 230.09737pt.
 
-<figures/VBOClientMemory.PNG, id=191, 438.438pt x 354.123pt>
+<figures/VBOClientMemory.PNG, id=197, 438.438pt x 354.123pt>
 File: figures/VBOClientMemory.PNG Graphic file (type png)
 
 <use figures/VBOClientMemory.PNG>
-Package pdftex.def Info: figures/VBOClientMemory.PNG used on input line 628.
+Package pdftex.def Info: figures/VBOClientMemory.PNG used on input line 629.
 (pdftex.def)             Requested size: 293.2521pt x 236.87212pt.
  [32 <./figures/VertexArrays.PNG>]
-Overfull \hbox (43.49661pt too wide) in paragraph at lines 640--640
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 641--641
 []\OT1/cmtt/m/n/10 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(PXCPo
 int3DF32), 0);[] 
  []
@@ -678,34 +678,71 @@ Missing character: There is no â in font cmtt10!
 Missing character: There is no € in font cmtt10!
 Missing character: There is no ‹ in font cmtt10!
 [33 <./figures/VBOClientMemory.PNG>]
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 662--662
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 663--663
 []\OT1/cmtt/m/n/10 glBufferData(GL_ARRAY_BUFFER, rdp->nPoints * sizeof(PXCPoint
 3DF32),[] 
  []
 
 
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 674--674
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 675--675
 []\OT1/cmtt/m/n/10 ibo.addData(&(rdp->indices[0]), rdp->indices.size() * sizeof
 (unsigned int));[] 
  []
 
 [34] [35] [36] [37] [38]
-<figures/NoSmoothingC.png, id=216, 380.01974pt x 165.61874pt>
+<figures/NoSmoothingC.png, id=222, 380.01974pt x 165.61874pt>
 File: figures/NoSmoothingC.png Graphic file (type png)
 
 <use figures/NoSmoothingC.png>
-Package pdftex.def Info: figures/NoSmoothingC.png used on input line 813.
+Package pdftex.def Info: figures/NoSmoothingC.png used on input line 814.
 (pdftex.def)             Requested size: 155.24895pt x 67.65898pt.
 
-<figures/BothAveragingTechniquesC.png, id=217, 380.01974pt x 160.1985pt>
+<figures/BothAveragingTechniquesC.png, id=223, 380.01974pt x 160.1985pt>
 File: figures/BothAveragingTechniquesC.png Graphic file (type png)
 
 <use figures/BothAveragingTechniquesC.png>
 Package pdftex.def Info: figures/BothAveragingTechniquesC.png used on input lin
-e 819.
+e 820.
 (pdftex.def)             Requested size: 155.24895pt x 65.44469pt.
- [39 <./figures/NoSmoothingC.png> <./figures/BothAveragingTechniquesC.png>] [40
-] (./MScThesis_DanAvram.bbl
+ [39 <./figures/NoSmoothingC.png> <./figures/BothAveragingTechniquesC.png>]
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 887--887
+[]\OT1/cmtt/m/n/10 glUniformMatrix4fv(iPTMModelViewLoc, 1, GL_FALSE, glm::value
+_ptr(mCurrent));[] 
+ []
+
+
+Overfull \hbox (13.72137pt too wide) in paragraph at lines 889--890
+\OT1/cmr/m/n/10 which we will need to pass in as the data - in this case, []\OT
+1/cmtt/m/n/10 glm::value_ptr(mCurrent)\OT1/cmr/m/n/10 .
+ []
+
+[40]
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 907--907
+[]\OT1/cmtt/m/n/10 glUniform4fv(iColorLoc, 1, glm::value_ptr(glm::vec4(0.0f, 0.
+0f, 0.0f, 1.0f)));[] 
+ []
+
+[41]
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 953--953
+[]    \OT1/cmtt/m/n/10 // CLAMP PROJECTIVE TEXTURE (for some reason gl_clamp di
+d not work...)[] 
+ []
+
+<figures/ReverseProjecton.PNG, id=237, 734.745pt x 346.896pt>
+File: figures/ReverseProjecton.PNG Graphic file (type png)
+
+<use figures/ReverseProjecton.PNG>
+Package pdftex.def Info: figures/ReverseProjecton.PNG used on input line 965.
+(pdftex.def)             Requested size: 293.2521pt x 138.45422pt.
+ [42]
+<figures/PTMTest.png, id=242, 619.113pt x 461.92575pt>
+File: figures/PTMTest.png Graphic file (type png)
+
+<use figures/PTMTest.png>
+Package pdftex.def Info: figures/PTMTest.png used on input line 976.
+(pdftex.def)             Requested size: 293.2521pt x 218.8038pt.
+ [43 <./figures/ReverseProjecton.PNG>]
+(./MScThesis_DanAvram.bbl
 Missing character: There is no Â in font cmr10!
 Missing character: There is no ® in font cmr10!
 
@@ -715,29 +752,40 @@ ftworks . sk / index . php ? page =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--57
+Underfull \hbox (badness 10000) in paragraph at lines 37--41
+[]\OT1/cmr/m/n/10 Dan Avram.  Pro-jec-tive tex-ture map-ping via
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--41
+\OT1/cmr/m/n/10 shaders.  $\OT1/cmtt/m/n/10 http : / / stackoverflow . com / qu
+estions / 22732717 /
+ []
+
+[44 <./figures/PTMTest.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 59--63
 []\OT1/cmr/m/n/10 dan.lecocq.  \OT1/cmr/m/it/10 Tri-an-gle Strip for Grids - A 
 Con-struc-tion\OT1/cmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--57
+Underfull \hbox (badness 10000) in paragraph at lines 59--63
 \OT1/cmr/m/n/10 http://dan.lecocq.us/wordpress/2009/12/25/triangle-strip-for-gr
 ids-a-
  []
 
-[41]
-Underfull \hbox (badness 1033) in paragraph at lines 120--125
+
+Underfull \hbox (badness 1033) in paragraph at lines 126--131
 []\OT1/cmr/m/n/10 Watanabe et al.  \OT1/cmr/m/it/10 955-fps Real-time Shape Mea
 -sure-ment of a Mov-
  []
 
-[42]) [43] (./MScThesis_DanAvram.aux) ) 
+[45]) [46] (./MScThesis_DanAvram.aux) ) 
 Here is how much of TeX's memory you used:
- 4078 strings out of 493308
- 65145 string characters out of 6139147
- 128332 words of memory out of 5000000
- 7452 multiletter control sequences out of 15000+600000
+ 4092 strings out of 493308
+ 65458 string characters out of 6139147
+ 129367 words of memory out of 5000000
+ 7464 multiletter control sequences out of 15000+600000
  10451 words of font info for 38 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  42i,7n,40p,1628b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -755,10 +803,10 @@ exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Work/texli
 ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Work/texlive/20
 13/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/Work/texlive/2013/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on MScThesis_DanAvram.pdf (49 pages, 6439171 bytes).
+Output written on MScThesis_DanAvram.pdf (54 pages, 8071326 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
+ 304 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 

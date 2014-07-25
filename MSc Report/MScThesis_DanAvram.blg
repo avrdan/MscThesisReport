@@ -36,45 +36,45 @@ Warning--empty journal in PCLGreedy
 Warning--empty year in PCLGreedy
 Warning--empty journal in max2013
 Warning--empty year in steimle13
-You've used 37 entries,
+You've used 38 entries,
             2118 wiz_defined-function locations,
-            666 strings with 8763 characters,
-and the built_in function-call counts, 7682 in all, are:
-= -- 688
-> -- 252
+            670 strings with 8914 characters,
+and the built_in function-call counts, 7886 in all, are:
+= -- 707
+> -- 259
 < -- 0
-+ -- 113
-- -- 72
-* -- 335
-:= -- 1287
-add.period$ -- 100
-call.type$ -- 37
-change.case$ -- 131
++ -- 116
+- -- 74
+* -- 340
+:= -- 1321
+add.period$ -- 103
+call.type$ -- 38
+change.case$ -- 135
 chr.to.int$ -- 0
-cite$ -- 66
-duplicate$ -- 382
-empty$ -- 767
-format.name$ -- 72
-if$ -- 1630
+cite$ -- 67
+duplicate$ -- 389
+empty$ -- 789
+format.name$ -- 74
+if$ -- 1675
 int.to.chr$ -- 0
-int.to.str$ -- 37
+int.to.str$ -- 38
 missing$ -- 45
-newline$ -- 177
-num.names$ -- 58
-pop$ -- 292
+newline$ -- 182
+num.names$ -- 60
+pop$ -- 300
 preamble$ -- 1
-purify$ -- 110
+purify$ -- 113
 quote$ -- 0
-skip$ -- 244
+skip$ -- 252
 stack$ -- 0
-substring$ -- 189
-swap$ -- 25
+substring$ -- 194
+swap$ -- 26
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 116
+type$ -- 120
 warning$ -- 29
-while$ -- 58
-width$ -- 39
-write$ -- 330
+while$ -- 60
+width$ -- 40
+write$ -- 339
 (There was 1 error message)
