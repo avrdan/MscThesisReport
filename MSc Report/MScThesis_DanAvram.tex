@@ -4,6 +4,8 @@
 \usepackage{mathtools}
 \usepackage{url}
 \usepackage{subcaption}
+\usepackage{cleveref}
+\usepackage{appendix}
 
 %opening
 \title{\textbf{Master's Thesis} \\ Correct Projection Mapping on - and Interaction Techniques with - Cloth-based Deformable Surfaces}
@@ -75,7 +77,7 @@ The deformable display prototype(see figure \ref{fig:hardware_setup}) consists o
     \caption{Physical setup of the prototype}
     \label{fig:hardware_setup}
 \end{figure}
-
+\newpage
 \section{Related Work}
 
 In this chapter, relevant research and related works are highlighted, mainly in relation to deformable user interfaces, tracking and projection techniques on deformable surfaces, interaction techniques with deformable displays, 3D projection and the design of affordances in order to convey information or suggest particular interaction methods. Investigating related research will help in finding solutions to projection issues with deformable surfaces. Moreover, this will also be useful in order to analyze, compare and contrast different approaches to tracking as well as correcting the projection distortion. Further, existing research on interaction techniques and affordances with deformable surfaces will provide a starting point to test, design and implement relevant interaction scenarios for the prototype. Finally, work related to stereoscopic and autostereoscopic projections will be consulted, in order to arrive at a sensible projection technique that can be used in the present case.
@@ -159,7 +161,7 @@ In [5] they also provide a method to compensate for projection distortion, given
 As a final note, we can observe that the techniques used to project onto irregular objects and of correcting the visuals are similar in \cite{watanabe08} and \cite{raskar98}: both extract depth information and form a polygonal model of the target object, they use the same rendering technique(projective texture mapping) and require the same calibration parameters. 
 
 \subsection{Interaction Techniques with Deformable Surfaces}
-
+\newpage
 \section{Prototype Design}
 
 Both the projector and the depth camera will be fixed in place relative to the deformable screen. Further, the projected visuals will be interactive applications that need to be rendered continuously. Finally, due to the fact that the projected image will be warped (distorted) according to the screen deformation, an algorithm is needed to shift the projected image pixels corresponding to the display surface’s depth data. 
@@ -201,7 +203,7 @@ For this project, a solution similar to that employed in \cite{watanabe08} has b
     \caption{Distortion Correction Pipeline}
     \label{fig:Pipeline}
 \end{figure}
-
+\newpage
 \section{Prototype Development}
 
 Considering our system pipeline, I will explain briefly, how the whole components work and why they are needed, in this section. The first process is calibration. Note that the order in which components are explained does not represent the flow in the pipeline, since it will be easier to see, for example, why calibration is needed once some of the other steps have been explained.\\
@@ -340,7 +342,7 @@ Unfortunately, unless the point cloud is of sub-pixel density(which would also r
 
 $$point => Viewport^{-1} => Projection^{-1} => ModelView^{-1} => PointInWorldSpace$$
 
-The modelview matrix should be the identity matrix at this point, since we have not manipulated the points.
+The  matrix should be the identity matrix at this point, since we have not manipulated the points.
 More information about the unprojecting process is available in \cite{sung2013}, although the authors unproject a 2D mesh with a set of sparse depth points. Nevertheless, the authors explain that unprojecting is the inverse process of how normal images are obtained, by projecting rays into a camera. In order to compute the rays, one needs to know the focal length and image center(intrinsic parameters), as well as the distance of the unprojection(ray length, which, in our case, corresponds to the depth for that pixel). They explain that the 3D position for a vertex $v(x,y)$ can be denoted by $p(v)$ and is determined as:
 $$p(v) = t(v) *\vec{r}(v),$$
 where $t(v)$ represents the ray length and $\vec{r}(v)$ represents the ray direction and is equal to $$\vec{r}(v) = (\frac{x - x_{c}}{f},\frac{y-y_{c}}{f},1)^T,$$ where $(x_{c}, y_{c})$ is the principal point or image center and f represents the focal distance.
@@ -545,7 +547,7 @@ The eye linear texgen can be represented as shown in figure \ref{fig:EyeLinearTe
 \end{figure}
 
 \subsection{Capturing Dynamic Contents}
-
+\newpage
 \section{Prototype Implementation}
 
 \subsection{Tools and Technologies Used}
@@ -981,19 +983,215 @@ In addition to what has been described, a frustum has also been created for debu
 Further, the \verb|debug| flag was used later on in order to change the color of the vertices, if they are within a certain depth range. More on this, in the following sections.
 
 
-\subsection{Manual Hardware Alignment (Calibration Not Used)}
+\subsection{Manual System Alignment (Calibration Not Used)}
+
+I have run out of time to implement a proper calibration solution, I have implemented a manual process. The results are not as precise as with regular calibration, and an extension to this project would be to correctly calibrate the projector-depthcam system. In this section I will outline the main steps and tests needed in order to make sure that the alignment is acceptable(or at least that there is a difference when applying the compensation; tests will be required in order to find out if the compensation works, and to what degree, for the current setup).
+
+\subsubsection{Physical Projector Alignment to the Physical Screen(Cloth area)}
+
+This step consisted of physically moving the display, positioning it, changing lens shift amounts, using keystone correction etc. In order to test this step, I have created a texture with a grid(see figure \ref{fig:CalibrationGrid}), four colored corners and a red border. The grid and the corners were used to roughly position the projector so that the cloth display is correctly in view. The border was used for some fine tuning. 
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/CalibrationGrid.jpg}
+    \caption{A grid with four corners and a red border, used to test the physical alignment of the projector to the cloth.}
+    \label{fig:CalibrationGrid}
+\end{figure}
+
+Some photo shots were taken, in order to show how well figure \ref{fig:CalibrationGrid} fits the cloth area. The whole image is shown in figure \ref{fig:ProjectedCalibrationGrid}. In this figure, we can see that the image very closely matches the surface, and that the four cyan squares in the corners roughly correspond to those of the visible cloth area. However, it is hard to see how well the red border is aligned(it is not very visible in this figure). 
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/ProjectedCalibrationGridC2.jpg}
+    \caption{The alignment grid texture projected on the cloth.}
+    \label{fig:ProjectedCalibrationGrid}
+\end{figure}
+
+Some shots of the corners of the frame were taken, so that we can more clearly see how well the grid texture is mapped to the surface. These images are shown in figure \ref{fig:CornerAlignment}.
+\begin{figure}[hbtp] 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/TopLeft2.JPG} 
+    \caption{Top Left Alignment} 
+    \label{fig:TLA} 
+    \vspace{4ex}
+  \end{subfigure}%% 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/TopRight.JPG} 
+    \caption{Top Right Alignment} 
+    \label{fig:TRA} 
+    \vspace{4ex}
+  \end{subfigure} 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/BottomRight.JPG} 
+    \caption{Bottom Right Alignment} 
+    \label{fig7:BRA} 
+  \end{subfigure}%%
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/BottomLeft2.JPG} 
+    \caption{Bottom Left Alignment} 
+    \label{fig7:BLA} 
+  \end{subfigure} 
+  \caption{Illustration of alignments in the four corners of the frame.}
+  \label{fig:CornerAlignment} 
+\end{figure}
+
+ From these images, we can see that the texture is reasonably well aligned, but the red borders are not very visible on the sides, and the image is slightly skewed towards the upper left, making the border disappear completely in that part of the image. Some space is also present in the upper central area. This may be due to the cloth not being perfectly flat. Some of these visual cues may be hard to spot on these figures, so they will be also displayed in appendix \ref{appendix:B}, in a larger size.
+
+\subsubsection{Physical Depth Camera Alignment to the Physical Screen (Cloth area)}
+
+The depth camera was also aligned to the cloth manually, by trial and error. The objective was to position the camera as orthogonal as possible onto the cloth display. In order to do this physically, I used a tripod with the camera attached upside down, to an inverse tripod column(see the setup in figure \ref{fig:Tripod}). 
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/tripodCamSetup.jpg}
+    \caption{The depth camera is setup on a tripod. By reversing the column we can get the center of the depth camera to roughly correspond to the center of the projected image.}
+    \label{fig:Tripod}
+\end{figure}
+
+This setup allowed to position the camera fairly close to the screen and fairly straight on. This has been tested by displaying a pattern on the projector and touching the center, while observing the corresponding changes in the depth stream. As you can see in figure \ref{fig:CenterPointAlignment}, the point is roughly in the middle of both images.
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/DepthStreamCenterPoint.jpg}
+  \caption{Depth Stream Center Point}
+  \label{fig:DepthStreamCenterPoint}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/CenterPointPattern.JPG}
+  \caption{Projection Pattern Center Point}
+  \label{fig:CenterPointPattern}
+\end{subfigure}
+\caption{A comparison which shows that pushing in the center roughly modifies the same area of both the depth stream and physical image.}
+\label{fig:CenterPointAlignment}
+\end{figure}
+
+ However, this figure only provides information about the alignment of the image's center area. In order to test the sides, we can check the depth values of four points, in different areas of the screen, where the depth of the captured object is the same(we can use the wooden frame for this).
+ 
+ \textbf{[TO DO]}
 
 
+Note that if calibration is used, the offset introduced from incorrect orientation and positioning is applied to the virtual camera view. Therefore, as long as the projector would be physically aligned to the cloth and the cloth would be fully in view of the depth camera, the setup would work fine. It would not be necessary to have the camera aligned perfectly in the physical world.
+
+\subsubsection{Virtual projector alignment to the cloth area}
+
+The virtual “slide projector” displays a texture onto the mesh of the cloth display. When looking at the display's mesh in wireframe mode(see figure \ref{fig:TextureAlignmentToMeshArea}), we can distinguish what roughly represents the cloth area, because of depth variations with respect to the frame. 
+
+\begin{figure}[!hbtp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/TextureAlignmentToMeshArea.png}
+    \caption{Texture Aligned to Cloth Surface. The area inside the red rectangle shows an offset.}
+    \label{fig:TextureAlignmentToMeshArea}
+\end{figure}
+
+Due to the fact that the cloth mesh is rotated, the texture can not be aligned perfectly(in order to do this, proper calibration is required; see figure \ref{fig:MisalignmentArea}). Otherwise, a texture with 4 red corners and a grid has been used to test if the grid looks fairly straight and the corners roughly correspond to the edges of the cloth. 
+
+The offset is not easy to see in the previously mentioned figure, but an arrow points to the line which separates the wooden frame from the cloth. The line is a bit thicker and we can think of it like a delimiter. If you look closely, you can see that the line is steadily going upwards as it advances towards the right side. If the texture would have been aligned perfectly, that line would correspond to the top line of the grid.
+
+
+
+\begin{figure}[!hbtp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/MisalignmentArea3.png}
+    \caption{The area has been magnified. An arrow points towards the line that separates the frame from the cloth.}
+    \label{fig:MisalignmentArea}
+\end{figure}
+
+In order to align the texture better, or at least, make the debugging process easier, we could calculate the normals for the mesh and show the shaded object. Further, we could also add color information(then we would have a full 3D model, which resembles the physical object, making it easier to see where the texture should be projected).
+
+\subsubsection{Virtual camera alignment to the cloth area}
+
+The virtual camera was aligned by computing the projection and view matrices, by trial and error, so that it completely covers the previously aligned texture. The projection matrix was computed via the \verb|glm::perspective| method, which requires the vertical field of view, the aspect ratio and the near and far planes. The aspect ratio was set to $16:9$, and the near and far to $0.1$ and $1000$, respectively. The field of view(\verb|FOV|) was the parameter that was computed by trial and error. If we have the intrinsic parameters, the field of view can be obtained, or alternatively, we can obtain all of the frustum planes with these parameters(\textit{left}, \textit{right}, \textit{bottom}, \textit{top}; \textit{near} and \textit{far} can be specified manually). For the latter, \verb| glm::frustum| could have been used.
+
+Next, for the view matrix, we simply use a modelview matrix, of the form described in figure \ref{fig:MVMatrix}. The matrix is set in the code by specifying every element manually. If we have the extrinsic calibration parameters, we need to use the translation parameters for the last column, and the rotation parameters for the first three columns in the matrix. The last row remains unmodified.
+
+As mentioned, the camera was moved around the scene until it roughly had the texture in view. The field of view and distance of the camera have been adjusted to that effect, but, it is important to note that there is an infinity of ways to combine these two values in order to roughly have the texture in view. This is because, we can always increase the field of view, and decrease the z distance, or vice versa. Now, the important issue here, is that the image will not look the same for all different combinations of values! For example, if we move the camera closer to the mesh in the virtual world while decreasing the FOV, we will see more aliasing(noise), but the distortion compensation is also more pronounced. Conversely, if we move the camera further away while increasing the FOV, we will have a more stable image, but the distortion effect is less pronounced. In order to get accurate results, one needs to calibrate the system in order to obtain proper parameters. However, it is still possible to set the value to acceptable levels by trial and error.
+
+The values were set manually as explained above, and the system was tested via a video, where the difference between an image with distortion compensation and without is shown, and an experimental study. If the results from these tests are positive, meaning that the compensation improves the quality of the image(to some degree), by making it look more like on a flat screen, then it is reasonable to assume that, if the setup is calibrated, the distortion correction will be of higher quality. However, another set of tests would be necessary in order to verify this. The empirical study is described in section \ref{sec:EmpiricalStudy}.
+
+\subsubsection{Testing precision of alignments}
+
+Finally, in order to test how well the system is aligned, tests were made with single finger interactions, where the pushed finger corresponds to the maximum slope(minimum depth distance from the camera). A color coding scheme has been used for testing. First, just by using a red color for testing the finger's tip, and then several colors, to distinguish a larger area around the interaction point. 
+
+The results were accurate in the center, as you can see from the figure \ref{fig:CenterPointCalibration}. The area surrounding the finger was drawn roughly in the center, in both images(the size of the area was determined by a threshold). In \ref{fig:RedCenterDotPhysical} we can also see that after pushing into the display, the red dot still appears around the finger.
+
+\begin{figure}[!hbtp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/RedCenterDotPhysical.JPG}
+  \caption{Pushed area on cloth, shown red.}
+  \label{fig:RedCenterDotPhysical}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/RedCenterDot.JPG}
+  \caption{Pushed area on screen, shown red.}
+  \label{fig:RedCenterDot}
+\end{subfigure}
+\caption{Correspondence between physical and virtual images.}
+\label{fig:CenterPointCalibration}
+\end{figure}
+
+However, when testing towards the sides, the results were worse, and the offset grew larger. This is probably due to the fact that the surface is rotated. The results are shown in figure \ref{fig:RightPointCalibration}, with the detected area being very small. However, we can still see that the image shifts when seen on the cloth, and the red area is no longer aligned with the finger. Considering this, it is much more likely that the image will be correctly shifted(undistorted) only in the center area. Some further testing and adjustments could perhaps reduce the offsets and increase the quality of the distortion correction.
+
+Please do no try to look for the distortion compensation effect in these figures, because they have been captured at an angle and you will not see the correct effect. For the compensation please take a look at  the video and section \textbf{[TO DO]}, where the results are also discussed.
+
+\begin{figure}[!hbtp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/RedRightDotPhysical.JPG}
+  \caption{Pushed area on right side of cloth, shown red.}
+  \label{fig:RedRightDotPhysical.JPG}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/RedRightDot.JPG}
+  \caption{Pushed area on right side (screen view), shown red.}
+  \label{fig:RedRightDot.JPG}
+\end{subfigure}
+\caption{Correspondence between physical and virtual images.}
+\label{fig:RightPointCalibration}
+\end{figure}
+
+
+\newpage
+\newpage
 \section{Empirical Study}
+\label{sec:EmpiricalStudy}
 
 Despite the fact that the system was not calibrated, it did seem to correct the distortions in certain areas or for certain cases. However, this correction is not perfect, and to find out how well it performs a user study has been run. Further, the users were also asked if they prefer the correcting method over a normal image projection.
 
-
+\newpage
 \section{Conclusions}
+\newpage
 \section{Future Work}
 
 \newpage
 \bibliography{bibliography}
 \bibliographystyle{plain}
+
+\newpage
+
+\begin{appendices}
+\include{A}
+\section{Glossary}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\include{B}
+
+\section{ Additional Images}
+\label{appendix:B}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\include{C}
+\section{Empirical Study Documents}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\end{appendices}
 
 \end{document}
