@@ -6,6 +6,7 @@
 \usepackage{subcaption}
 \usepackage{cleveref}
 \usepackage{appendix}
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
 
 %opening
 \title{\textbf{Master's Thesis} \\ Correct Projection Mapping on - and Interaction Techniques with - Cloth-based Deformable Surfaces}
@@ -29,6 +30,18 @@
 \newpage
 \thispagestyle{empty}
 \begin{abstract}
+
+In recent years, natural user interfaces have become more and more common. These interfaces are very easy to learn by new users, since they rely on gestures or actions which are already known, unlike physical input devices which have a learning curve and also affect the user's experience, since they have to rely on external, artificial input methods. One of the important developments is the growin research around deformable displays. These displays allow the users to interact with an application as they would do in the real world, by directly manipulating the virtual world with their hands. These types of interfaces build upon the touch paradigm, adding an additional layer of flexibility, allowing gestures to be performed in a 3D space. Unlike mid-air methods, these deformable displays also provide haptic feedback while interacting, which can be useful for certain applications.  
+
+One of the main problems with deformable displays is that the image contents become distorted when deforming the surface - the image will follow the shape of the display. For many applications this is not desired: for example, if we want to move an object by pushing and dragging it around, the image should appear as on a flat screen - otherwise the object will also move around and become skewed, due to the deformation induced by the display's shape.
+
+While research has been  done in this area, to my knowledge, the problem is still not completely solved. Although the issue was addressed, for example, in \textit{The Deformable Workspace}, they rely on a custom image processor. Further, they only show some images and videos which compare the correction with a normal image, but they have not done a study to determine how users perceive the compensation. In this project, the aim was to build a distortion correction prototype using off the shelf components. Moreover, an empirical study has been done to determine if participants thought that the compensation is working and if they prefer it over a regular method of displaying the image.Originally, the plan was to also create some dynamic applications on which users can test different interaction techniques. However, the distortion problem was more complex than originally thought and, due to several issues, no time was left to develop this part. 
+
+Unfortunately, the system has a number of limitations. The main issue is that it has not been calibrated, but manually aligned, which means that the compensation is offset due to misalignments of the physical setup. Several projector-camera calibration techniques were tried, but a workable solution was not employed in the alloted time. Moreover, even though two methods of noise reduction were applied(spatial and temporal averaging), dynamic artifacts were still present in the final image, albeit less pronounced. Finally, another issue is that there is some observable latency from the time of interaction, until the image compensates. Although the image has been updated at around 30 frames per second(\textbf{fps}) with the noise reduction techniques applied, and around 60 fps without.
+
+These issues all constitute candidates for future work. Finally, the compensation only works well from one viewpoint. In order to fix this issue, the user must be tracked and the image has to be rotated depending on the viewpoint.
+
+Although the prototype has several important limitations, the experiment results indicate both that the compensation is working(to some extent) and that the compensated method was almost universally preferred. For this setup, the results convey that the compensation worked best in the center of the image, because other distortions were introduced on the sides, due to the compensation offset. This issue can be fixed by calibrating the system.
 
 \end{abstract}
 
@@ -338,7 +351,10 @@ Unfortunately, unless the point cloud is of sub-pixel density(which would also r
     \label{fig:PointCloud}
 \end{figure}
 
- However, before we proceed, we must also unproject the points to world coordinates(we just had pixel positions and depth values, but we need to obtain the coordinates in regular metric space, so that the distances between the points are correct). This operation requires knowledge about intrinsic camera parameters, since we need to know the projection matrix, in order to unproject the points:
+\subsubsection{Unprojecting to World Coordinates}
+\label{sec:unprojecting}
+
+ Before we proceed to triangulation, we must also unproject the points to world coordinates(we just had pixel positions and depth values, but we need to obtain the coordinates in regular metric space, so that the distances between the points are correct). This operation requires knowledge about intrinsic camera parameters, since we need to know the projection matrix, in order to unproject the points:
 
 $$point => Viewport^{-1} => Projection^{-1} => ModelView^{-1} => PointInWorldSpace$$
 
@@ -347,7 +363,7 @@ More information about the unprojecting process is available in \cite{sung2013},
 $$p(v) = t(v) *\vec{r}(v),$$
 where $t(v)$ represents the ray length and $\vec{r}(v)$ represents the ray direction and is equal to $$\vec{r}(v) = (\frac{x - x_{c}}{f},\frac{y-y_{c}}{f},1)^T,$$ where $(x_{c}, y_{c})$ is the principal point or image center and f represents the focal distance.
 
- However, the official library for the depth camera used in this project provides a very useful method that computes the unprojection given the array and number of points. So in the end, that is all we really need to know in order to un project the points, if we are using the \textit{Creative Senz3D} depth camera.
+However, the official library for the depth camera used in this project provides a very useful method that computes the unprojection given the array and number of points. So in the end, that is all we really need to know in order to un project the points, if we are using the \textit{Creative Senz3D} depth camera.
  
 \subsection{Object Reconstruction by Mesh Triangulation}
 
@@ -722,7 +738,7 @@ if (c == colSteps - 1) {
 At the end of this process, the \verb|indices| vector will contain all of the triangle strip indices and in the right order. Therefore, it can be added to the index buffer object, so that the data is available for rendering later(degenerate triangles will simply be discarded by the GPU, they will not introduce artifacts).
 
 \subsection{Depth Smoothing}
-
+\label{sec:DepthSmoothing}
 The depth data is quite noisy and, due to this, the final textured image is shimmering(vertices are moving around between frames, which creates a distracting effect). The effect is similar to aliasing(the "staircase effect").
 
 In order to reduce this noise, smoothing of the depth data can be applied. A whitepaper from Canesta(see \cite{gokturk}) discusses aliasing issues, as well as artefacts for time-of-flight cameras. The authors describe how the noise can be reduced through \textit{spatial} and \textit{temporal averaging}. 
@@ -1047,7 +1063,7 @@ The depth camera was also aligned to the cloth manually, by trial and error. The
 
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[width=0.85\textwidth]{figures/tripodCamSetup.jpg}
+    \includegraphics[width=0.7\textwidth]{figures/tripodCamSetup.jpg}
     \caption{The depth camera is setup on a tripod. By reversing the column we can get the center of the depth camera to roughly correspond to the center of the projected image.}
     \label{fig:Tripod}
 \end{figure}
@@ -1072,9 +1088,23 @@ This setup allowed to position the camera fairly close to the screen and fairly 
 \label{fig:CenterPointAlignment}
 \end{figure}
 
- However, this figure only provides information about the alignment of the image's center area. In order to test the sides, we can check the depth values of four points, in different areas of the screen, where the depth of the captured object is the same(we can use the wooden frame for this).
+ However, this figure only provides information about the alignment of the image's center area. In order to test the sides, we can check the depth values of points, in different areas on the screen.Of course, the depth of the captured object has to be the same in the physical world - we can use the wooden frame for this. The frame has been placed at a distance of approximately $2.5$ centimeters from the edge of the desk, as shown in figure \ref{fig:FramePlacement}. However, as you can see, there is a slight offset, with one side being slightly closer to the edge. This issue may also introduce some minor depth discrepancies. 
  
- \textbf{[TO DO]}
+ \begin{figure}[!hbtp]
+     \centering
+     \includegraphics[width=0.85\textwidth]{figures/FramePlacementCM.jpg}
+     \caption{The frame placement. Distance is displayed in red.}
+     \label{fig:FramePlacement}
+ \end{figure}
+ 
+An application that allows a user to manually specify a number of points in the image and subsequently returns the depth values corresponding to these points, has been developed(see figure \ref{fig:PointDepthExtraction}). It is using the OpenCV(see \cite{opencv}) and Intel Perceptual Computing Libraries. The former was used for displaying the image, reacting to mouse input and drawing the crosses, while the latter provided the depth frame data from which the image was created. The depth has been returned in millimeters, and for the points in figure \ref{fig:PointDepthExtraction}, the values were: 689 for top left, 685 for bottom left, 701 for top right, 702 for bottom right. From these values, it appears that there is a small vertical offset(1-4 mm), and a larger offset on the horizontal axis(7-11 mm). The test was repeated several times, and the general pattern was the same - larger horizontal offset and smaller vertical offset. However, the obtained values shifted overall with up to 2-3 centimeters, between different frames and points. While the relative offset patterns were largely the same, there were a few exceptions, when the vertical offset was also large on one side. However, this issue, along with that of the points being shifted, may be caused due to noisy data, as the points in those cases were very near to the top or bottom edge of the valid depth data(where we can also see some small dark spots).
+ 
+  \begin{figure}[hbtp]
+      \centering
+      \includegraphics[width=0.7\textwidth]{figures/PointExtractionDepthMP.PNG}
+      \caption{Points for which depth had been extracted and compared.}
+      \label{fig:PointDepthExtraction}
+  \end{figure}
 
 
 Note that if calibration is used, the offset introduced from incorrect orientation and positioning is applied to the virtual camera view. Therefore, as long as the projector would be physically aligned to the cloth and the cloth would be fully in view of the depth camera, the setup would work fine. It would not be necessary to have the camera aligned perfectly in the physical world.
@@ -1161,17 +1191,452 @@ Please do no try to look for the distortion compensation effect in these figures
 \label{fig:RightPointCalibration}
 \end{figure}
 
-
-\newpage
-\newpage
+%\newpage
+\clearpage
 \section{Empirical Study}
 \label{sec:EmpiricalStudy}
 
-Despite the fact that the system was not calibrated, it did seem to correct the distortions in certain areas or for certain cases. However, this correction is not perfect, and to find out how well it performs a user study has been run. Further, the users were also asked if they prefer the correcting method over a normal image projection.
+Despite the fact that the system was not calibrated, it did seem to correct the distortions in certain areas. However, this correction is not perfect, and to find out how well it performs a user study had to be run. Further, the users were also asked if they prefer the correcting method over a normal image.
+
+\subsection{Experiment Description}
+
+Before starting the experiment, each user was given a short text to read, which presented basic information on the experiment in which they were about to partake. Next, they were introduced to the cloth display and the distortion problem was explained and shown to them(with images outside of the application). Further, they practiced the gestures that they were about to use during the experiment. 
+
+Each user was presented two methods of displaying the image onto the cloth: A and B. One of these methods represented the distortion compensation method that is the focus of this report, while the other was just a regular image, projected onto the cloth. The participants had to compare the two methods, regarding the preservation of appearance(proportions similar to the original image, projected onto a 2D surface), or whether they see a difference at all. Further, 5 scenarios were designed, and the users had to test both methods in all scenarios. 
+
+Two pilot experiments were performed, before the actual user study. From these, an important issue surfaced. Users could easily spot which method is the normal one, because there was no noise in the image, while the distortion correction methods introduced aliasing-like effects, other noise and black areas, due to invalid depth data(while interacting). 
+
+One attempt to solve the problem was to use depth smoothing as described in section \ref{sec:DepthSmoothing}. The final result after spatial and temporal averaging was still not good enough - you could still see the difference between the two methods, because of the dynamic noise in the compensated image. However, the smoothing did reduce the overall noise and improved image quality. 
+
+Since noise reduction did not solve the issue, the remaining options were to either introduce noise in the other image, by some function or random pattern, or, the solution which was actually employed, capturing a number of frames rendered with the distortion correction method and displaying them continuously as the normal method. This approach made the images look very much alike when the display was not deformed. Consequently, this served as a good way to avoid any bias coming from comparing a normal image with a noisy one. Most users did not realize that the other method was just a normal image(or actually 10 frames which keep repeating). Even some users, who had the impression that the normal method does not help at all with correcting the distortion, assumed that the method is doing something, because of the dynamic noise in the image.
+
+Coming back to the two methods, A and B, the users had to switch between them by using a mouse as an input device. As seen in figure \ref{fig:Mouse}, the mouse had two labels, denoting which button must be pressed to select a particular method. Moreover, it was attached to the display's frame, which made it easy for users to interact with it. The participants were instructed what task they need to perform, before each interaction point. 
+
+\begin{figure}[!hbtp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/UserStudyMouseInput.JPG}
+    \caption{The input device for switching between the methods.}
+    \label{fig:Mouse}
+\end{figure}
+
+This input method allowed the users to compare the visuals while interacting with the display, and at their own pace. Further, this enabled the use of the same images in both methods A and B, without having to use a visual indicator on the textures themselves. All scenarios started with method A, but after some points, a few users forgot which method was A or B; although,  this was not a problem, since they could just press the A(or B) button twice, to find if the current image is rendered with that method. For certain scenarios, when using two-hand interactions, I switched between the two methods for the users. Moreover, the scenarios and points were also changed by me. 
+
+Next, methods A and B were also given in a random fashion - first A as the compensating method for the first user, then B as the compensating method for the second user, and so on, not necessarily keeping the order(meaning that, for example, the experiment with A as the compensated method could have been performed twice in a row). Moreover, the scenarios have also been shown to the participants in a different order, so that the data is not biased for a particular scenario configuration. Therefore, each scenario was assigned a number between 1 and 5, and a latin square was used in order to decide the scenario configuration for the following experiments. Each row from the square(the same scenario configuration) was used once for each combination of A and B(once when A was the compensating method, and once for B).
+
+\begin{figure}[!hbtp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/LatinSquare5x5.PNG}
+    \caption{A $5 \times 5$ latin square that denotes the order in which scenarios were shown to the user.}
+    \label{fig:LatinSquare}
+\end{figure}
+
+The original order of the scenarios was as follows:
+\begin{enumerate}
+\item Grid
+\item Text
+\item Columns
+\item Map
+\item Brain Scan
+\end{enumerate}
+
+
+Finally, I was sitting at a desk behind the users, so I could watch them go through the task, while also keeping notes on the current task. I also asked interview questions, while they were interacting. In addition, a questionnaire was given to the users after each scenario. If the questionnaire would have been only given at the end, it would have been hard for the users to remember the details about each method, for all scenarios. This fact was also uncovered during one of the pilot sessions.
+
+Reiterating, feedback has been captured using several methods:
+\begin{itemize}
+\item Questionnaire
+\begin{itemize}
+\item Likert scale questions (quantitative feedback)
+\item Descriptive questions (more qualitative feedback)
+\end{itemize}
+\item Questions during the experiment, related to the task at hand. The user was also encouraged to think aloud.
+\end{itemize}
+
+To summarize, the following steps were performed during the experiment:
+\begin{itemize}
+\item Before starting, a certain configuration was picked for methods A and B(e.g.: A compensates, B does not) as well as for the scenarios(choosing a row from the latin square)
+\item To begin, the users were given an introduction page to read up some basic information
+\item Then, the cloth display, the distortion issue and gestures were introduced to the participant
+\item The scenarios were started in a certain order, and the participant kept switching between methods A and B(by using the mouse attached to the frame), in order to compare them 
+\item While the participant was performing a certain task, some interview-like questions were asked, and I noted down important information
+\item After each scenario, the participant was given a short questionnaire regarding that particular scenario only
+\end{itemize}
+
+In the following sections, each scenario will briefly be described in addition to the other documents used in the study, including the questionnaire. Due to three of the scenarios being very similar, they will all be explained in one section.
+
+\subsubsection{Grid, Text and Columns Scenarios}
+
+These scenarios all consisted of displaying a static image: of a grid, some text, and a number of columns in a scene, respectively. For each of these scenarios the users had to share their thoughts on methods A and B, for three different points in the image(see figure \ref{fig:GridTextColumns}). For these scenarios, they only used one finger interactions to deform the display at the indicated points(by using the index finger). Only one point was shown at a time, and it was made invisible after the participant remembered where the point was positioned.
+
+
+\begin{figure}[!hbtp]
+\centering
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/grid_hd_allPoints.jpg}
+  \caption{Grid scenario.}
+  \label{fig:GridTexture}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/random-text-2048x2048_complete.jpg}
+  \caption{Text scenario.}
+  \label{fig:TextTexture}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/3D_Scene_011_allPoints.jpg}
+  \caption{Columns scenario.}
+  \label{fig:ColumnsTexture}
+\end{subfigure}
+\caption{Grid, Text and Column Textures. Red dots indicate interaction areas.}
+\label{fig:GridTextColumns}
+\end{figure}
+
+As you can see, the dots are not in the same positions, except for the center. This probably affects the results to some extent, since the compensation seems worse as one advances towards the sides of the image. However, the points were placed with the texture contents in mind - for example, having the red circles on the columns, or on a particular word, for the respective scenarios. The three points were coded: \textit{left}, \textit{center} and \textit{right}(with left meaning left-most and similarly for right). Even though the left and right points are not in the same positions, the same patterns were observed for all three scenarios, as presented in section \ref{sec:Results}.
+
+Finally, for each scenario, users were told to look at some particular aspect of the current image, in order to give their opinion on how distorted the image is, when compared to how it would look on a flat display:
+\begin{itemize}
+\item For the grid, users were asked how straight the black lines appear with each method
+\item For the text, users were asked to look at the space between the lines, readibility, and how similar the word appears to one on a flat screen
+\item For the columns, users were asked to look at how straight the columns appear after pushing into the display
+\end{itemize}
+
+\subsubsection{Map Scenario}
+
+The map scenario simply consisted of a static map texture of a region of \textit{New York City City}(see figure \ref{fig:Map}). Users were asked to push into the display, using two hands. Further, they were also instructed to focus on the central area of the display. Then, the users were asked to compare the proportions and readability of the image, with both methods. Further, users were also instructed to focus on some particular name or landmark to focus on, as this makes it easier to compare.
+
+
+\begin{figure}[!hbtp]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/NYMidZoomA.jpg}
+    \caption{A map showing a region of New York City. Courtesy of Google Maps.}
+    \label{fig:Map}
+\end{figure}
+
+Note that the colors in the image are not the default ones. This is because, initially, methods A and B were also visually different. However, by using the mouse as input, this was no longer necessary, but one of the images which was already loaded into the application was used.
+
+\subsubsection{CT Brain Scan Scenario}
+
+This scenario consists of a number of textures, representing volume data for a brain scan. The texture set was taken from the \textit{Stanford volume data archive}(available at \cite{levoy2001}). Users had to use two-hand push gestures in order to advance, or two-hand pull gestures to reverse, through the \textit{slices}(textures). The starting texture was in the middle of the dataset. Again, the objective was to compare methods A and B. Since the brain is changing shape throughout the slices and the the speed is too fast, it can be hard to see the differences. Several users complained about this, and, if they could not see a difference, they were instructed to compare the methods for the last image(see figure \ref{fig:BrainSlices}), using the push gesture.
+
+
+\begin{figure}[!hbtp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/brain_043.jpg}
+  \caption{Starting scenario volume slice.}
+  \label{fig:StartBrainSlice}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/brain_098.jpg}
+  \caption{Last volume slice.}
+  \label{fig:EndBrainSlice}
+\end{subfigure}
+\caption{CT scan of a brain. Example of two different textures(slices). Courtesy of \cite{levoy2001}}
+\label{fig:BrainSlices}
+\end{figure}
+
+\paragraph{Volume Slice Interaction}\mbox{}\\
+
+The implementation of the interaction for this scenario is naive, with only the depth value of the center point being considered. Therefore, the users could actually use any gesture that moves the display in the center area to change the slices. The two-hand gestures were used because, with one hand, the user might obstruct the object. Both the compensated method and the normal texture are interactive(only one texture has been used for the normal image in this scenario, because the noise is much less apparent).
+
+For the compensated method, we get the initial depth value, given the current modlview and projection matrices, as well as the resolution:
+\begin{verbatim}
+initDepth = getGLDepth(1920 / 2, 1080 / 2, mModelView, frustum)
+\end{verbatim}
+This method reads the pixel depth value from the back buffer(with double buffering, drawing commands are typically directed to the back buffer, while the front buffer is used for drawing), at position $(x,y)$ using:
+\begin{verbatim}
+glReadBuffer(GL_BACK);
+glReadPixels(x, y, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &depth_z);
+\end{verbatim}
+The result is stored in \verb|depth_z|. However, our depth value must be converted from screen space coordinates back to metric space coordinates by unprojecting:
+\begin{verbatim}
+glm::vec3 final = glm::unProject(glm::vec3(x, y, depth_z),
+    mModelView, frustum, glm::vec4(0, 0, 1920, 1080));
+\end{verbatim}
+The \verb|glm::unProject| method works similarly to how the process has been described in section \ref{sec:unprojecting}. Further on, we simply compute the depth difference between frames, and if the value is above or below a certain threshold, the active texture is changed by incrementing, or decrementing a counter, respectively.
+
+For the texture, we cannot access the depth values from OpenGL since our matrices are different and, in this case, the texture is projected on a quad, within the default coordinate space. Therefore, one can just retrieve the raw depth value from the middle of the frame data, in the \textit{RawDepthPipeline} class, when we create the point cloud:
+\begin{verbatim}
+if (x == depthCamWidth / 2 && y == depthCamHeight / 2)
+	centerDepth = depthValue;
+\end{verbatim}
+This value can then be retrieved and converted to metric units(by dividing with 1000, since the depth frame data is in millimeters). Finally, the textures are changed in the same manner as for the compensated method.
+
+\subsubsection{The Questionnaire}
+
+The questionnaire is composed of several parts. On the first page, the participants were given some basic information about the structure of the questionnaire and they were also asked for demographic data. This page was given to the users after completion of the first scenario, with an additional page with the questions for that particular scenario - questions for each scenario were given on a separate page. Finally, there were some common question in the end, which asked the participant to rate method A and B overall.
+
+The questions mainly related to the following attributes:
+\begin{itemize}
+\item Perceived difference between the two methods \\{[Not Different - Very Different]}
+\item Preservation of appearance(proportions) for each method \\{[Very Poor - Very Good]}
+\item Method preference [A - B]
+\end{itemize}
+
+The preservation of appearance is related to the resemblance to the original image, as it would appear on a flat display(how similar are the relative proportions, with respect to the original image?). Next, the subjective preference is asked for, because it is possible that a user does not like a method, even if it works correctly - qualitative feedback has been obtained in order to determine if this is the case. Lastly, the attribute that is being rated is shown in brackets in the section above(the ends of the scale).
+
+To be more concrete, the questionnaire contained the following items:
+\begin{itemize}
+\item Difference between the two methods
+\item Please explain in what way were the methods different
+\item Preservation of appearance during deformation - Method A
+\item Preservation of appearance during deformation - Method B
+\item Method preference for this scenario
+\item Please explain why you have preffered the selected method
+\end{itemize}
+
+In addition, the grid, text and columns scenarios had two additional questions, regarding how consistent the behavior was, in the different areas of the display - for the three tested points(e.g.: a method could work very well in the center, but have poor results on the sides):
+\begin{itemize}
+\item Method A's behavior was consistent, for all points \\{[Not Consistent - Consistent]}
+\item Method B's behavior was consistent, for all points \\{[Not Consistent - Consistent]}
+\end{itemize}
+
+An 11-point Likert scale has been made available for users to rate all the attributes. The scale starts at 0 and ends at 10; it has been originally adapted from the QUIS 10-point scale(examples at \cite{quis}). An 11-point scale was used instead, so that the user also has a neutral option – otherwise they would have been forced to “prefer” one of the methods.
+
 
 \newpage
+\section{Results}
+\label{sec:Results}
+\subsection{Experimental Study Results}
+
+The user study consisted of 11 experiments on the deformable cloth display. As described in chapter \ref{sec:EmpiricalStudy}, each participant tested both the compensated method, and a normal image projection. The two methods have been alternated between participants - the first had method A as the compensated and B as the normal image, while the second had A as the normal and B as the compensated, etc. Further, the experiment consisted of 5 scenarios, which have also been shown to the participants in a different order, in order not to bias the data for a particular scenario configuration. Finally, smoothing functions were applied on the compensated method in order to reduce noise. However, this was not enough, as dynamic noise could still be seen in the image. Therefore, noise was added to the normal method, by capturing 10 frames of the compensated method and replaying them in a loop. This meant that the users could not easily identify the method due to visual artifacts, because they were present in both methods.
+
+Three of the participants had seen the display before the experiment. However, a strong bias due to the previous reason is unlikely, since they had not seen the actual experiments/scenarios before.
+
+Since feedback is of both quantitative and qualitative nature(questionnaire + interview questions), both were used in order to draw conclusions on the outcome of the experiment.
+
+In order to analyze the quantitative results, paired t-tests have been run for both the consistency and preservation of appearance questions. These tests help to determine the statistical significance of that particular comparison.
+
+Further more, t-tests have also been run on the preference as well as on the overall preservation of appearance questions. However, it is very important to note that there was only one question related to the previous items, where the user had to compare between methods A and B on an 11-point Likert scale from 0 to 10. In order to get some meaningful results, the scale has been converted, so that both the compensated and the non-compensated method could be rated from 0 to 5(e.g. 0 represents 5 for method A, while 10 represents 5 for method B, and 5 represents 0). The values were separated into compensated/not\_compensated categories and the missing values were replaced with 0. Due to this, a bias is probably introduced. However, it is likely that a bias could appear in the degree to which a method is preferred, but it is much less likely to affect the overall result(e.g.: if 80\% preferred one method, this would still be the case if two questions would have been used; the only difference would be in the degree, since, most likely, the other method would receive a rating greater than 0). The differences are shown in a pie chart.
+
+The qualitative data has been grouped in a few categories(e.g.: distorted, preserves appearance). Only the qualitative data regarding the center, left and right points for the grid, text and columns scenarios and the qualitative data in the overall case, have been analyzed. Most of the qualitative feedback for the three previously mentioned scenarios could be grouped by the three points. It may have been confusing to look at how the scenario was said to behave over all of the points, since in many cases the results differed quite a lot between them(for example, a user could have stated that method A for scenario 1 was distorted twice, and not distorted once; however, feedback such as - "it was not distorted in the center, but distorted to the left or right" is much more useful).
+
+In the following, the full analysis will be described.
+
+\subsubsection{Quantitative Analysis}
+\paragraph{Preservation of Appearance}\mbox{}\\
+
+There are a total of 5 pairs that have been tested for significance using a paired t-test. Each pair corresponds to one of the scenarios, and several useful measures including the mean for each case are shown in table \ref{tabel:POA_Pairs}. The values were computed from the raw data with both a spreadsheet and IBM SPSS(details at \cite{spss}).
+
+\begin{table}[!h]
+  \includegraphics[width=\linewidth]{figures/results/POA_Pairs.PNG}
+  \caption{Characteristics of pair data for preservation of appearance.}
+  \label{tabel:POA_Pairs}
+\end{table}
+
+The output of the t-tests is shown in table \ref{tabel:POA_Test}. Note that a \verb|*| symbol has been used to denote statistical significance. For all other cases, the null hypothesis could not be rejected. Since the confidence interval is 95\%, we would normally need a significance level of $<= 0.05$ for significance. However, we have a case of multiple testing, because we have one hypothesis tested for each scenario. As described in \cite{bonferroni}, we need to adjust the parameter $\alpha$ by dividing it with the number of tests(Bonferroni correction). In this case we have $\alpha = 0.05$ and $n$ = 5, which gives $\frac{\alpha}{n} = \frac{0.05}{5} = 0.01$. We must test against this value rather than the original $0.05$. However, in this case, the results are affected.
+
+From these tests we can conclude that, for the Map Scenario, the difference in preservation of appearance is statistically significant. Moreover, it is possible that we have a trend for the Brain Scan scenario since the pair's value is  value is $< 0.1$, but all other cases are insignificant(a larger user pool may improve results).
+
+\begin{table}[!h]
+  \includegraphics[width=\linewidth]{figures/results/POA_Test.PNG}
+  \caption{T-test results for preservation of appearance. The * indicates statistical significance.}
+  \label{tabel:POA_Test}
+\end{table}
+
+Further, the actual results are shown via a bar chart in figure \ref{fig:POA_Graph}. All scenarios have the mean shown for both compensated and normal methods. We can also see visually, that the highest differences are in the Map Scenario, with the compensated method being rated much higher. In addition, the vertical error bars show the standard error, and it can be used as another measure for statistical significance by checking if the bars from the two different methods overlap(see \cite{error_bars} for more details on this procedure). We can see that the only scenario for which there is no overlap is Map. Although this does not tell us if the results are statistically significant, it does tell us that all the other cases are not(when there is an overlap, we can be sure that the results are insignificant).
+
+To conclude this part, both the table and the chart indicate that the only statistically significant scenario is Map. The table tells us that the result is actually significant, while the chart can also be used to rule out the other cases, as well as providing a helpful visual indicator of the degree of difference for the two methods, for preservation of appearance.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/results/POA_Graph.PNG}
+    \caption{Mean of preservation of appearance, per scenario.}
+    \label{fig:POA_Graph}
+\end{figure}
+
+\paragraph{Overall Preservation of Appearance}\mbox{}\\
+
+A separate question was asked for overall preservation of appearance. This case has not been included previously because the results are on a different scale. All other questions about preservation of appearance were asked twice, once for each method. However, there is only one question for the overall case, which asked the participants to rate the preservation of appearance on an 11-point Likert scale from 0 to 10, where 0 denoted the maximum preference for method A, while 10 denoted the maximum preference for method B, with 0 as a neutral option. The results were mapped to [0,5] as mentioned previously, at the beginning of this section.  Returning to our t-test, the result is shown in table \ref{tabel:OPOA_Test}. This time we only have one pair, for which we show aggregated data measures(see table \ref{tabel:OPOA_Pairs}).
+
+
+\begin{table}[!h]
+  \includegraphics[width=\linewidth]{figures/results/OPOA_Pairs.PNG}
+  \caption{Characteristics of pair data for overall preservation of appearance.}
+  \label{tabel:OPOA_Pairs}
+\end{table}
+
+As mentioned before, the missing values were replaced with 0 when running the t-test(the user was forced to select a preference for either method A or B). The results are statistically significant, with a value comfortably below the $0.05$ threshold(there is no need for a correction in this case, since the question is not asked for each scenario, so we only have one test).
+
+\begin{table}[!h]
+  \includegraphics[width=\linewidth]{figures/results/OPOA_Test.PNG}
+  \caption{T-test results for overall preservation of appearance. The * indicates statistical significance.}
+  \label{tabel:OPOA_Test}
+\end{table}
+
+Finally, the graph in figure \ref{fig:OPOA_Graph} shows the contrast for the results between the two methods. We can see that the preference was clearly for the compensated method, though the degree of preference is maxed somewhere between 2 and 3, out of a maxim of 5, which suggests that, even though the method did help to correct the image so that it appears as on a flat display, there still is room for improvement. Removing some of the visual artifacts, as well as calibrating the system to ensure that the compensation is almost exactly right, should improve the degree to which participants prefer the compensated method. 
+
+Moreover, the standard error bars do not overlap, which indicates that the test may be statistically significant. In conjunction with the previous table, we can conclude that there is a substantial, statistically significant preference for the compensated method, albeit with a relatively modest degree of preservation.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/results/OPOA_Graph.PNG}
+    \caption{Mean of preservation of appearance, overall.}
+    \label{fig:OPOA_Graph}
+\end{figure}
+
+Another helpful visual tool is the area graph shown in figure \ref{fig:OPOA_Area}. Now we can more clearly see that only one participant preferred the method which had not been compensated.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/results/OPOA_Area.PNG}
+    \caption{An area chart showing the perceived overall preservation of appearance, for both methods and all participants.}
+    \label{fig:OPOA_Area}
+\end{figure}
+
+\paragraph{Consistency}\mbox{}\\
+
+The consistency refers to the behavior of the methods in different areas of the display, and it has only been tested for three scenarios: Grid, Text and Columns, where the participants had to interact with three different points placed towards the center, left and right side of the screen. The samples are shown in table \ref{tabel:Consistency_Pairs}.
+
+\begin{table}[!h]
+  \includegraphics[width=\linewidth]{figures/results/Consistency_Pairs.PNG}
+  \caption{Characteristics of pair data for consistency.}
+  \label{tabel:Consistency_Pairs}
+\end{table}
+
+
+Next, the t-test results are shown in table \ref{tabel:Consistency_Test}. Note that the consistency tests between methods is statistically insignificant for all scenarios.
+
+\begin{table}[!h]
+  \includegraphics[width=\linewidth]{figures/results/Consistency_Test.PNG}
+  \caption{T-test results for consistency. None of the tests were statistically significant.}
+  \label{tabel:Consistency_Test}
+\end{table}
+
+The graph below show the results visually. We can see that we got similar values for all scenarios. Further, the standard error bars overlap for all cases, which also indicates inconclusive results.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/results/Consistency_Graph.PNG}
+    \caption{Consistency mean, per scenario.}
+    \label{fig:Consistency_Graph}
+\end{figure}
+
+From the previous analysis it seems that the quantitative consistency tests did not provide significant results, since, when computing the Bonferonni correction, the significance level is: $\frac{\alpha}{n} = \frac{0.05}{3} = 0.016$, which is much less than any of the values obtained in the tests. However, the results are quite similar between scenarios and the normal projection method has generally been deemed more consistent, as we could see in figure \ref{fig:Consistency_Graph}. 
+
+Finally, qualitative measures may provide more information on consistency, and whether there really was a perceived difference between the three interaction points. We shall look at this aspect in one of the subsequent sections.
+\\
+\paragraph{Preference}\mbox{}\\
+
+Similarly to the previous cases, the sample statistics used for the t-tests are shown in table \ref{tabel:Preference_Pairs}. We can see that in this case we have 5 pairs, 1 for each scenario, and an additional one for the overall case. This is because there was only one combined preference question, where the user had to rate between method A and B on an 11-point scale, with 0 representing strong preference for A and 10 representing strong preference for B. 
+
+\begin{table}[!h]
+  \includegraphics[width=\linewidth]{figures/results/Preference_Pairs.PNG}
+  \caption{Characteristics of pair data for method preference.}
+  \label{tabel:Preference_Pairs}
+\end{table}
+
+The results of the t-test can be observed in table \ref{tabel:Preference_Test}. Again, the \verb|*| symbol indicates if the results were statistically significant for that pair. We observe that we again have the map scenario and the overall case as significant(we have a statistical level of $0.01$, after correction, for the five scenarios and $0.05$ and for the overall case).
+
+\begin{table}[!h]
+  \includegraphics[width=\linewidth]{figures/results/Preference_Test.PNG}
+  \caption{T-test results for method preference. The * indicates statistical significance.}
+   \label{tabel:Preference_Test}
+\end{table}
+
+The graph in figure \ref{fig:Preference_Graph} shows all the preference ratings, color coded by method and clustered on scenarios. From the standard error bars, we see that only the Map and Overall cases may be statistically significant, since the bars do not overlap for these cases.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/results/Preference_Graph.PNG}
+    \caption{Means of method preferences, per scenario and overall.}
+    \label{fig:Preference_Graph}
+\end{figure}
+
+Moreover, we can also see the rather large preference for the compensated method, both for the Map and the Overall cases. This analysis indicates that, for the previous two cases, the compensated method has been preferred to a far greater extent than the other one, and the results are statistically significant. In order to better illustrate how participants rated their preference for the overall case, the area graph in figure \ref{fig:Preference_Area} can be consulted. We can see that only 2 participants preferred the normal method, while 9 preferred the compensation. 
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/results/Preference_Area.PNG}
+    \caption{An area chart showing the perceived overall method preference.}
+    \label{fig:Preference_Area}
+\end{figure}
+
+\paragraph{Difference}\mbox{}\\
+
+One of the items on the questionnaire asked users whether they can see a difference between the compensated and non-compensated methods. The means of the results are shown in the pie chart in figure \ref{fig:DifferenceChart}, for each scenario. We can see that the map scenario had the highest perceived differences, while the brain scan scenario had the lowest. For the latter, a problem was that the shape was changing too fast as the user was interacting, which made it hard to make out differences. However, in order to solve this issue, the user was then told to only compare the methods for the last slice in the set, which remained static.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/results/DifferenceChart.PNG}
+    \caption{Mean of perceived differences between methods, per scenario.}
+    \label{fig:DifferenceChart}
+\end{figure}
+
+The mean values are approximately in the [4.2, 7] interval. This shows that at least moderate differences were observed between the two methods.
+
+\subsubsection{Qualitative Analysis}
+
+Qualitative data has been retrieved with two methods: 
+\begin{itemize}[noitemsep,topsep=0pt]
+\item Descriptive questions about all of the previous attributes: consistency, difference, preference, preservation of appearance.
+\item Interview-like questions asked while the user was interacting. Some scenario specific questions were introduced, in order to make the user think how well the image is preserved.
+\end{itemize} 
+
+A substantial amount of data has been collected for each scenario. However, due to the nature of this experiment, participants described their experience using different words, even when faced with very similar questions. This makes it difficult to obtain meaningful measures for each scenario. Further, in some cases, for example, when the participants were stating that something is distorted, they repeated the test for each point(for the scenarios with three interaction points), which means that just knowing how many participants stated that a method is distorted is not as relevant as also knowing for which point the image was distorted. For example, the center point could have worked very well, but maybe, due to a high number of distortions on one of the sides, the overall scenario would have been ranked as distorted. Therefore, we start by analyzing the distortions around the interaction points, from the interview. Naturally, this is only applicable to the three scenarios which consisted of a task for each point(shown as a red circles in the scenarios)
+\\
+\paragraph{Center Point}\mbox{}\\
+
+From the graph in figure \ref{fig:CenterPointGraph} we can observe that the compensated method was preserving the appearance much  more often than the one which was not compensated. In addition, the non-compensated method also appeared distorted to users more often than the compensated one. Finally, the \textit{Follow the Finger} measure was also in favor of the compensated method, but there were only few results and not as significant. This last measure refers to the user's finger being in the same place after deforming the display, which would normally happen if the image correctly compensates for the distortion. However, in the center area of the display, it is more difficult to tell the difference, unless a more significant force is applied.
+
+The three qualitative measures do not necessarily appear under the same name in the survey results. For example, if a method was "moving the image to the left", it was added as distortion for the respective method; or, if the grid lines appeared "straighter" that note was added to preservation of appearance. Otherwise, there would have been too many different measures, and it would have been hard to analyze and classify the data.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/results/CenterPointGraph.PNG}
+    \caption{Results for the center point.}
+    \label{fig:CenterPointGraph}
+\end{figure}
+
+\paragraph{Left Point}\mbox{}\\
+
+For this point we almost see a reversal of the distortion and preservation of appearance measures, while the other remained similar, as we can see in figure \ref{fig:LeftPointGraph}. This happens because the setup is not calibrated, and the depth camera is not 100\% orthogonal to the display. This introduces misalignments near the sides if the camera is tilted, even slightly(which means the compensation will take place in a wrong area – with an offset; several users complained of distortions “underneath the finger”).
+
+Even though the results were much poorer for this point, we also have a moderate amount of candidates for preservation of appearance of the compensated method. This is in contrast to the previous point, where the differences were more pronounced between the methods.
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.80\textwidth]{figures/results/LeftPointGraph.PNG}
+    \caption{Results for the left-most point.}
+    \label{fig:LeftPointGraph}
+\end{figure}
+
+\paragraph{Right Point}\mbox{}\\
+
+For this point, we interestingly get a large number of preservation of appearance statements for the compensated method, while also getting large numbers of distortions, for both methods, as seen in figure \ref{fig:RightPointGraph.PNG}. This effect might be explained by the fact that users felt that the compensated method introduces a different kind of distortion. Therefore, even though there was compensation, which helped to make the image look more like it would on a flat display, some parts of the image were distorted in some way(e.g.: “underneath the finger”, "inverse distortion").
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.80\textwidth]{figures/results/RightPointGraph.PNG}
+    \caption{Results for the right-most point.}
+    \label{fig:RightPointGraph.PNG}
+\end{figure}
+
+\paragraph{Overall}\mbox{}\\
+
+Finally, some qualitative measures regarding overall differences and preference are shown in the graph in figure \ref{fig:QualitativeOverall}.
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.80\textwidth]{figures/results/QualitativeOverall.PNG}
+    \caption{Qualitative results for the overall case, grouped in a few categories.}
+    \label{fig:QualitativeOverall}
+\end{figure}
+
+"Better" simply represents which method participants thought is subjectively better. There is no item for the normal method, which may indicate that participants didn't necessarily feel that this method was more appropriate, but simply that the compensated method has some issues. Next, we only have a few entries for distortion, but we can see that the non-compensated method has a slightly larger number of distorted results. Finally, there is a very substantial difference between preservation of appearance of the two methods, with almost all participants preferring the compensated method.
+
+\clearpage
+\subsection{Comparison of Compensated and Uncompensated Images}
+\clearpage
 \section{Conclusions}
-\newpage
+\clearpage
 \section{Future Work}
 
 \newpage

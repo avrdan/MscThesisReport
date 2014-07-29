@@ -36,7 +36,25 @@
 \contentsline {figure}{\numberline {36}{\ignorespaces Illustration of alignments in the four corners of the frame.\relax }}{47}
 \contentsline {figure}{\numberline {37}{\ignorespaces The depth camera is setup on a tripod. By reversing the column we can get the center of the depth camera to roughly correspond to the center of the projected image.\relax }}{48}
 \contentsline {figure}{\numberline {38}{\ignorespaces A comparison which shows that pushing in the center roughly modifies the same area of both the depth stream and physical image.\relax }}{48}
-\contentsline {figure}{\numberline {39}{\ignorespaces Texture Aligned to Cloth Surface. The area inside the red rectangle shows an offset.\relax }}{49}
-\contentsline {figure}{\numberline {40}{\ignorespaces The area has been magnified. An arrow points towards the line that separates the frame from the cloth.\relax }}{49}
-\contentsline {figure}{\numberline {41}{\ignorespaces Correspondence between physical and virtual images.\relax }}{51}
-\contentsline {figure}{\numberline {42}{\ignorespaces Correspondence between physical and virtual images.\relax }}{52}
+\contentsline {figure}{\numberline {39}{\ignorespaces The frame placement. Distance is displayed in red.\relax }}{48}
+\contentsline {figure}{\numberline {40}{\ignorespaces Points for which depth had been extracted and compared.\relax }}{49}
+\contentsline {figure}{\numberline {41}{\ignorespaces Texture Aligned to Cloth Surface. The area inside the red rectangle shows an offset.\relax }}{50}
+\contentsline {figure}{\numberline {42}{\ignorespaces The area has been magnified. An arrow points towards the line that separates the frame from the cloth.\relax }}{50}
+\contentsline {figure}{\numberline {43}{\ignorespaces Correspondence between physical and virtual images.\relax }}{52}
+\contentsline {figure}{\numberline {44}{\ignorespaces Correspondence between physical and virtual images.\relax }}{53}
+\contentsline {figure}{\numberline {45}{\ignorespaces The input device for switching between the methods.\relax }}{55}
+\contentsline {figure}{\numberline {46}{\ignorespaces A $5 \times 5$ latin square that denotes the order in which scenarios were shown to the user.\relax }}{56}
+\contentsline {figure}{\numberline {47}{\ignorespaces Grid, Text and Column Textures. Red dots indicate interaction areas.\relax }}{57}
+\contentsline {figure}{\numberline {48}{\ignorespaces A map showing a region of New York City. Courtesy of Google Maps.\relax }}{58}
+\contentsline {figure}{\numberline {49}{\ignorespaces CT scan of a brain. Example of two different textures(slices). Courtesy of \cite {levoy2001}\relax }}{59}
+\contentsline {figure}{\numberline {50}{\ignorespaces Mean of preservation of appearance, per scenario.\relax }}{65}
+\contentsline {figure}{\numberline {51}{\ignorespaces Mean of preservation of appearance, overall.\relax }}{67}
+\contentsline {figure}{\numberline {52}{\ignorespaces An area chart showing the perceived overall preservation of appearance, for both methods and all participants.\relax }}{68}
+\contentsline {figure}{\numberline {53}{\ignorespaces Consistency mean, per scenario.\relax }}{69}
+\contentsline {figure}{\numberline {54}{\ignorespaces Means of method preferences, per scenario and overall.\relax }}{71}
+\contentsline {figure}{\numberline {55}{\ignorespaces An area chart showing the perceived overall method preference.\relax }}{72}
+\contentsline {figure}{\numberline {56}{\ignorespaces Mean of perceived differences between methods, per scenario.\relax }}{73}
+\contentsline {figure}{\numberline {57}{\ignorespaces Results for the center point.\relax }}{74}
+\contentsline {figure}{\numberline {58}{\ignorespaces Results for the left-most point.\relax }}{75}
+\contentsline {figure}{\numberline {59}{\ignorespaces Results for the right-most point.\relax }}{76}
+\contentsline {figure}{\numberline {60}{\ignorespaces Qualitative results for the overall case, grouped in a few categories.\relax }}{76}

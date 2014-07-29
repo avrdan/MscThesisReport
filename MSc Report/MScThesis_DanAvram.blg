@@ -2,11 +2,15 @@ This is BibTeX, Version 0.99d (TeX Live 2013/W32TeX)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: MScThesis_DanAvram.aux
 The style file: plain.bst
+A level-1 auxiliary file: A.aux
+A level-1 auxiliary file: B.aux
+A level-1 auxiliary file: C.aux
 Database file #1: bibliography.bib
 Repeated entry---line 487 of file bibliography.bib
  : @article{gokturk
  :                 ,
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "opencv"
 Warning--to sort, need author or key in glew
 Warning--to sort, need author or key in glfw
 Warning--to sort, need author or key in freeimage
@@ -15,6 +19,8 @@ Warning--to sort, need author or key in GLM
 Warning--to sort, need author or key in PCL
 Warning--to sort, need author or key in PCSDK
 Warning--to sort, need author or key in OpenGLTuts
+Warning--to sort, need author or key in quis
+Warning--to sort, need author or key in spss
 Warning--empty journal in bourke1994
 Warning--empty journal in crassin2007
 Warning--empty year in daalsgard11
@@ -26,6 +32,7 @@ Warning--empty journal in sung2013
 Warning--empty journal in gokturk
 Warning--empty year in gokturk
 Warning--empty year in cassNvidia
+Warning--empty journal in bonferroni
 Warning--empty journal in Jordt2011
 Warning--empty journal in kilgard2009
 Warning--empty journal in william87
@@ -36,45 +43,45 @@ Warning--empty journal in PCLGreedy
 Warning--empty year in PCLGreedy
 Warning--empty journal in max2013
 Warning--empty year in steimle13
-You've used 38 entries,
+You've used 43 entries,
             2118 wiz_defined-function locations,
-            670 strings with 8914 characters,
-and the built_in function-call counts, 7886 in all, are:
-= -- 707
-> -- 259
+            692 strings with 9505 characters,
+and the built_in function-call counts, 8817 in all, are:
+= -- 794
+> -- 282
 < -- 0
-+ -- 116
-- -- 74
-* -- 340
-:= -- 1321
-add.period$ -- 103
-call.type$ -- 38
-change.case$ -- 135
++ -- 128
+- -- 80
+* -- 368
+:= -- 1461
+add.period$ -- 116
+call.type$ -- 43
+change.case$ -- 153
 chr.to.int$ -- 0
-cite$ -- 67
-duplicate$ -- 389
-empty$ -- 789
-format.name$ -- 74
-if$ -- 1675
+cite$ -- 75
+duplicate$ -- 427
+empty$ -- 896
+format.name$ -- 80
+if$ -- 1885
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 45
-newline$ -- 182
-num.names$ -- 60
-pop$ -- 300
+int.to.str$ -- 43
+missing$ -- 46
+newline$ -- 205
+num.names$ -- 66
+pop$ -- 338
 preamble$ -- 1
-purify$ -- 113
+purify$ -- 126
 quote$ -- 0
-skip$ -- 252
+skip$ -- 291
 stack$ -- 0
-substring$ -- 194
-swap$ -- 26
+substring$ -- 220
+swap$ -- 30
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 120
-warning$ -- 29
-while$ -- 60
-width$ -- 40
-write$ -- 339
+type$ -- 140
+warning$ -- 32
+while$ -- 66
+width$ -- 45
+write$ -- 380
 (There was 1 error message)

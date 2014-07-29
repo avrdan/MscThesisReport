@@ -16,6 +16,10 @@ Glfw.
 Glm: Opengl mathematics.
 \newblock \url{http://glm.g-truc.net/0.9.5/index.html}.
 
+\bibitem{spss}
+Ibm spss.
+\newblock \url{http://www-01.ibm.com/software/analytics/spss/}.
+
 \bibitem{PCSDK}
 Intel® perceptual computing sdk.
 \newblock
@@ -32,6 +36,10 @@ Opengl tutorials.
 \bibitem{PCL}
 Point cloud library.
 \newblock \url{http://pointclouds.org/}.
+
+\bibitem{quis}
+Questionnaire for user interation satisfaction.
+\newblock \url{http://lap.umd.edu/quis/}.
 
 \bibitem{avram2014}
 Dan Avram.
@@ -148,6 +156,11 @@ Cass Everitt.
 \newblock {\em Projective Texture Mapping}.
 \newblock NVIDIA.
 
+\bibitem{bonferroni}
+Megan Goldman.
+\newblock Why is multiple testing a problem?
+\newblock 2008.
+
 \bibitem{Jordt2011}
 Andreas Jordt and Reinhard Koch.
 \newblock Fast tracking of deformable objects in depth and colour video.
@@ -164,6 +177,11 @@ Mark~J. Kilgard.
 \newblock Modern opengl usage: Using vertex buffer objects well.
 \newblock September 2009.
 
+\bibitem{levoy2001}
+Marc Levoy.
+\newblock The stanford volume data archive.
+\newblock \url{http://graphics.stanford.edu/data/voldata/}.
+
 \bibitem{william87}
 William~E. Lorensen and Harvey~E. Cline.
 \newblock Marching cubes: a high resolution 3d surface construction algorithm.
@@ -175,6 +193,14 @@ Zoltan~Csaba Marton, Radu~Bogdan Rusu, and Michael Beetz.
   Datasets}.
 \newblock In {\em Proceedings of the IEEE International Conference on Robotics
   and Automation (ICRA)}, Kobe, Japan, May 12-17 2009.
+
+\bibitem{error_bars}
+Dr.~Harvey Motulsky.
+\newblock Graphpad software: The link between eror bars and statistical
+  significance.
+\newblock
+  \url{http://egret.psychol.cam.ac.uk/statistics/local_copies_of_sources_Cardinal_and_Aitken_ANOVA/errorbars.htm
+  }.
 
 \bibitem{navpreet2013}
 Jon~Macey Navpreet Kaur~Pawar.

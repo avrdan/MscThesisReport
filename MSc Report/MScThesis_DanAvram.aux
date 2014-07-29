@@ -22,6 +22,7 @@
 \citation{cassNvidia}
 \citation{kilgard2009}
 \citation{cassNvidia}
+\citation{levoy2001}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Problem Description}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Hardware Setup}{1}}
@@ -125,6 +126,9 @@
 \newlabel{fig:PointCloud@cref}{{[figure][16][]16}{18}}
 \citation{sung2013}
 \citation{Jordt2011}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Unprojecting to World Coordinates}{19}}
+\newlabel{sec:unprojecting}{{4.2.3}{19}}
+\newlabel{sec:unprojecting@cref}{{[subsubsection][3][4,2]4.2.3}{19}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Object Reconstruction by Mesh Triangulation}{19}}
 \citation{berg08}
 \citation{berg08}
@@ -245,6 +249,8 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}Triangulation}{35}}
 \citation{gokturk}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Depth Smoothing}{37}}
+\newlabel{sec:DepthSmoothing}{{5.5}{37}}
+\newlabel{sec:DepthSmoothing@cref}{{[subsection][5][5]5.5}{37}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}Spatial Averaging}{38}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}Temporal Averaging}{39}}
 \citation{park}
@@ -285,6 +291,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces The alignment grid texture projected on the cloth.\relax }}{46}}
 \newlabel{fig:ProjectedCalibrationGrid}{{35}{46}}
 \newlabel{fig:ProjectedCalibrationGrid@cref}{{[figure][35][]35}{46}}
+\citation{opencv}
 \newlabel{fig:TLA}{{36a}{47}}
 \newlabel{fig:TLA@cref}{{[subfigure][1][36]36a}{47}}
 \newlabel{sub@fig:TLA}{{a}{47}}
@@ -319,87 +326,219 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {38}{\ignorespaces A comparison which shows that pushing in the center roughly modifies the same area of both the depth stream and physical image.\relax }}{48}}
 \newlabel{fig:CenterPointAlignment}{{38}{48}}
 \newlabel{fig:CenterPointAlignment@cref}{{[figure][38][]38}{48}}
+\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces The frame placement. Distance is displayed in red.\relax }}{48}}
+\newlabel{fig:FramePlacement}{{39}{48}}
+\newlabel{fig:FramePlacement@cref}{{[figure][39][]39}{48}}
+\@writefile{lof}{\contentsline {figure}{\numberline {40}{\ignorespaces Points for which depth had been extracted and compared.\relax }}{49}}
+\newlabel{fig:PointDepthExtraction}{{40}{49}}
+\newlabel{fig:PointDepthExtraction@cref}{{[figure][40][]40}{49}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.3}Virtual projector alignment to the cloth area}{49}}
-\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces Texture Aligned to Cloth Surface. The area inside the red rectangle shows an offset.\relax }}{49}}
-\newlabel{fig:TextureAlignmentToMeshArea}{{39}{49}}
-\newlabel{fig:TextureAlignmentToMeshArea@cref}{{[figure][39][]39}{49}}
-\@writefile{lof}{\contentsline {figure}{\numberline {40}{\ignorespaces The area has been magnified. An arrow points towards the line that separates the frame from the cloth.\relax }}{49}}
-\newlabel{fig:MisalignmentArea}{{40}{49}}
-\newlabel{fig:MisalignmentArea@cref}{{[figure][40][]40}{49}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.4}Virtual camera alignment to the cloth area}{50}}
+\@writefile{lof}{\contentsline {figure}{\numberline {41}{\ignorespaces Texture Aligned to Cloth Surface. The area inside the red rectangle shows an offset.\relax }}{50}}
+\newlabel{fig:TextureAlignmentToMeshArea}{{41}{50}}
+\newlabel{fig:TextureAlignmentToMeshArea@cref}{{[figure][41][]41}{50}}
+\@writefile{lof}{\contentsline {figure}{\numberline {42}{\ignorespaces The area has been magnified. An arrow points towards the line that separates the frame from the cloth.\relax }}{50}}
+\newlabel{fig:MisalignmentArea}{{42}{50}}
+\newlabel{fig:MisalignmentArea@cref}{{[figure][42][]42}{50}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.4}Virtual camera alignment to the cloth area}{51}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.5}Testing precision of alignments}{51}}
-\newlabel{fig:RedCenterDotPhysical}{{41a}{51}}
-\newlabel{fig:RedCenterDotPhysical@cref}{{[subfigure][1][41]41a}{51}}
-\newlabel{sub@fig:RedCenterDotPhysical}{{a}{51}}
-\newlabel{sub@fig:RedCenterDotPhysical@cref}{{[subfigure][1][41]41a}{51}}
-\newlabel{fig:RedCenterDot}{{41b}{51}}
-\newlabel{fig:RedCenterDot@cref}{{[subfigure][2][41]41b}{51}}
-\newlabel{sub@fig:RedCenterDot}{{b}{51}}
-\newlabel{sub@fig:RedCenterDot@cref}{{[subfigure][2][41]41b}{51}}
-\@writefile{lof}{\contentsline {figure}{\numberline {41}{\ignorespaces Correspondence between physical and virtual images.\relax }}{51}}
-\newlabel{fig:CenterPointCalibration}{{41}{51}}
-\newlabel{fig:CenterPointCalibration@cref}{{[figure][41][]41}{51}}
-\newlabel{fig:RedRightDotPhysical.JPG}{{42a}{52}}
-\newlabel{fig:RedRightDotPhysical.JPG@cref}{{[subfigure][1][42]42a}{52}}
-\newlabel{sub@fig:RedRightDotPhysical.JPG}{{a}{52}}
-\newlabel{sub@fig:RedRightDotPhysical.JPG@cref}{{[subfigure][1][42]42a}{52}}
-\newlabel{fig:RedRightDot.JPG}{{42b}{52}}
-\newlabel{fig:RedRightDot.JPG@cref}{{[subfigure][2][42]42b}{52}}
-\newlabel{sub@fig:RedRightDot.JPG}{{b}{52}}
-\newlabel{sub@fig:RedRightDot.JPG@cref}{{[subfigure][2][42]42b}{52}}
-\@writefile{lof}{\contentsline {figure}{\numberline {42}{\ignorespaces Correspondence between physical and virtual images.\relax }}{52}}
-\newlabel{fig:RightPointCalibration}{{42}{52}}
-\newlabel{fig:RightPointCalibration@cref}{{[figure][42][]42}{52}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Empirical Study}{52}}
-\newlabel{sec:EmpiricalStudy}{{6}{52}}
-\newlabel{sec:EmpiricalStudy@cref}{{[section][6][]6}{52}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{53}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Future Work}{54}}
+\newlabel{fig:RedCenterDotPhysical}{{43a}{52}}
+\newlabel{fig:RedCenterDotPhysical@cref}{{[subfigure][1][43]43a}{52}}
+\newlabel{sub@fig:RedCenterDotPhysical}{{a}{52}}
+\newlabel{sub@fig:RedCenterDotPhysical@cref}{{[subfigure][1][43]43a}{52}}
+\newlabel{fig:RedCenterDot}{{43b}{52}}
+\newlabel{fig:RedCenterDot@cref}{{[subfigure][2][43]43b}{52}}
+\newlabel{sub@fig:RedCenterDot}{{b}{52}}
+\newlabel{sub@fig:RedCenterDot@cref}{{[subfigure][2][43]43b}{52}}
+\@writefile{lof}{\contentsline {figure}{\numberline {43}{\ignorespaces Correspondence between physical and virtual images.\relax }}{52}}
+\newlabel{fig:CenterPointCalibration}{{43}{52}}
+\newlabel{fig:CenterPointCalibration@cref}{{[figure][43][]43}{52}}
+\newlabel{fig:RedRightDotPhysical.JPG}{{44a}{53}}
+\newlabel{fig:RedRightDotPhysical.JPG@cref}{{[subfigure][1][44]44a}{53}}
+\newlabel{sub@fig:RedRightDotPhysical.JPG}{{a}{53}}
+\newlabel{sub@fig:RedRightDotPhysical.JPG@cref}{{[subfigure][1][44]44a}{53}}
+\newlabel{fig:RedRightDot.JPG}{{44b}{53}}
+\newlabel{fig:RedRightDot.JPG@cref}{{[subfigure][2][44]44b}{53}}
+\newlabel{sub@fig:RedRightDot.JPG}{{b}{53}}
+\newlabel{sub@fig:RedRightDot.JPG@cref}{{[subfigure][2][44]44b}{53}}
+\@writefile{lof}{\contentsline {figure}{\numberline {44}{\ignorespaces Correspondence between physical and virtual images.\relax }}{53}}
+\newlabel{fig:RightPointCalibration}{{44}{53}}
+\newlabel{fig:RightPointCalibration@cref}{{[figure][44][]44}{53}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Empirical Study}{54}}
+\newlabel{sec:EmpiricalStudy}{{6}{54}}
+\newlabel{sec:EmpiricalStudy@cref}{{[section][6][]6}{54}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Experiment Description}{54}}
+\@writefile{lof}{\contentsline {figure}{\numberline {45}{\ignorespaces The input device for switching between the methods.\relax }}{55}}
+\newlabel{fig:Mouse}{{45}{55}}
+\newlabel{fig:Mouse@cref}{{[figure][45][]45}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {46}{\ignorespaces A $5 \times 5$ latin square that denotes the order in which scenarios were shown to the user.\relax }}{56}}
+\newlabel{fig:LatinSquare}{{46}{56}}
+\newlabel{fig:LatinSquare@cref}{{[figure][46][]46}{56}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Grid, Text and Columns Scenarios}{57}}
+\newlabel{fig:GridTexture}{{47a}{57}}
+\newlabel{fig:GridTexture@cref}{{[subfigure][1][47]47a}{57}}
+\newlabel{sub@fig:GridTexture}{{a}{57}}
+\newlabel{sub@fig:GridTexture@cref}{{[subfigure][1][47]47a}{57}}
+\newlabel{fig:TextTexture}{{47b}{57}}
+\newlabel{fig:TextTexture@cref}{{[subfigure][2][47]47b}{57}}
+\newlabel{sub@fig:TextTexture}{{b}{57}}
+\newlabel{sub@fig:TextTexture@cref}{{[subfigure][2][47]47b}{57}}
+\newlabel{fig:ColumnsTexture}{{47c}{57}}
+\newlabel{fig:ColumnsTexture@cref}{{[subfigure][3][47]47c}{57}}
+\newlabel{sub@fig:ColumnsTexture}{{c}{57}}
+\newlabel{sub@fig:ColumnsTexture@cref}{{[subfigure][3][47]47c}{57}}
+\@writefile{lof}{\contentsline {figure}{\numberline {47}{\ignorespaces Grid, Text and Column Textures. Red dots indicate interaction areas.\relax }}{57}}
+\newlabel{fig:GridTextColumns}{{47}{57}}
+\newlabel{fig:GridTextColumns@cref}{{[figure][47][]47}{57}}
+\citation{levoy2001}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Map Scenario}{58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {48}{\ignorespaces A map showing a region of New York City. Courtesy of Google Maps.\relax }}{58}}
+\newlabel{fig:Map}{{48}{58}}
+\newlabel{fig:Map@cref}{{[figure][48][]48}{58}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.3}CT Brain Scan Scenario}{58}}
+\citation{levoy2001}
+\citation{levoy2001}
+\newlabel{fig:StartBrainSlice}{{49a}{59}}
+\newlabel{fig:StartBrainSlice@cref}{{[subfigure][1][49]49a}{59}}
+\newlabel{sub@fig:StartBrainSlice}{{a}{59}}
+\newlabel{sub@fig:StartBrainSlice@cref}{{[subfigure][1][49]49a}{59}}
+\newlabel{fig:EndBrainSlice}{{49b}{59}}
+\newlabel{fig:EndBrainSlice@cref}{{[subfigure][2][49]49b}{59}}
+\newlabel{sub@fig:EndBrainSlice}{{b}{59}}
+\newlabel{sub@fig:EndBrainSlice@cref}{{[subfigure][2][49]49b}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {49}{\ignorespaces CT scan of a brain. Example of two different textures(slices). Courtesy of \cite  {levoy2001}\relax }}{59}}
+\newlabel{fig:BrainSlices}{{49}{59}}
+\newlabel{fig:BrainSlices@cref}{{[figure][49][]49}{59}}
+\@writefile{toc}{\contentsline {paragraph}{Volume Slice Interaction}{59}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.4}The Questionnaire}{60}}
+\citation{quis}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Results}{62}}
+\newlabel{sec:Results}{{7}{62}}
+\newlabel{sec:Results@cref}{{[section][7][]7}{62}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Experimental Study Results}{62}}
+\citation{spss}
+\citation{bonferroni}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}Quantitative Analysis}{63}}
+\@writefile{toc}{\contentsline {paragraph}{Preservation of Appearance}{63}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Characteristics of pair data for preservation of appearance.\relax }}{63}}
+\newlabel{tabel:POA_Pairs}{{2}{63}}
+\newlabel{tabel:POA_Pairs@cref}{{[table][2][]2}{63}}
+\citation{error_bars}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces T-test results for preservation of appearance. The * indicates statistical significance.\relax }}{64}}
+\newlabel{tabel:POA_Test}{{3}{64}}
+\newlabel{tabel:POA_Test@cref}{{[table][3][]3}{64}}
+\@writefile{toc}{\contentsline {paragraph}{Overall Preservation of Appearance}{64}}
+\@writefile{lof}{\contentsline {figure}{\numberline {50}{\ignorespaces Mean of preservation of appearance, per scenario.\relax }}{65}}
+\newlabel{fig:POA_Graph}{{50}{65}}
+\newlabel{fig:POA_Graph@cref}{{[figure][50][]50}{65}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Characteristics of pair data for overall preservation of appearance.\relax }}{66}}
+\newlabel{tabel:OPOA_Pairs}{{4}{66}}
+\newlabel{tabel:OPOA_Pairs@cref}{{[table][4][]4}{66}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces T-test results for overall preservation of appearance. The * indicates statistical significance.\relax }}{66}}
+\newlabel{tabel:OPOA_Test}{{5}{66}}
+\newlabel{tabel:OPOA_Test@cref}{{[table][5][]5}{66}}
+\@writefile{toc}{\contentsline {paragraph}{Consistency}{66}}
+\@writefile{lof}{\contentsline {figure}{\numberline {51}{\ignorespaces Mean of preservation of appearance, overall.\relax }}{67}}
+\newlabel{fig:OPOA_Graph}{{51}{67}}
+\newlabel{fig:OPOA_Graph@cref}{{[figure][51][]51}{67}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Characteristics of pair data for consistency.\relax }}{67}}
+\newlabel{tabel:Consistency_Pairs}{{6}{67}}
+\newlabel{tabel:Consistency_Pairs@cref}{{[table][6][]6}{67}}
+\@writefile{lof}{\contentsline {figure}{\numberline {52}{\ignorespaces An area chart showing the perceived overall preservation of appearance, for both methods and all participants.\relax }}{68}}
+\newlabel{fig:OPOA_Area}{{52}{68}}
+\newlabel{fig:OPOA_Area@cref}{{[figure][52][]52}{68}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces T-test results for consistency. None of the tests were statistically significant.\relax }}{68}}
+\newlabel{tabel:Consistency_Test}{{7}{68}}
+\newlabel{tabel:Consistency_Test@cref}{{[table][7][]7}{68}}
+\@writefile{lof}{\contentsline {figure}{\numberline {53}{\ignorespaces Consistency mean, per scenario.\relax }}{69}}
+\newlabel{fig:Consistency_Graph}{{53}{69}}
+\newlabel{fig:Consistency_Graph@cref}{{[figure][53][]53}{69}}
+\@writefile{toc}{\contentsline {paragraph}{Preference}{69}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Characteristics of pair data for method preference.\relax }}{70}}
+\newlabel{tabel:Preference_Pairs}{{8}{70}}
+\newlabel{tabel:Preference_Pairs@cref}{{[table][8][]8}{70}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces T-test results for method preference. The * indicates statistical significance.\relax }}{70}}
+\newlabel{tabel:Preference_Test}{{9}{70}}
+\newlabel{tabel:Preference_Test@cref}{{[table][9][]9}{70}}
+\@writefile{lof}{\contentsline {figure}{\numberline {54}{\ignorespaces Means of method preferences, per scenario and overall.\relax }}{71}}
+\newlabel{fig:Preference_Graph}{{54}{71}}
+\newlabel{fig:Preference_Graph@cref}{{[figure][54][]54}{71}}
+\@writefile{toc}{\contentsline {paragraph}{Difference}{71}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}Qualitative Analysis}{71}}
+\@writefile{lof}{\contentsline {figure}{\numberline {55}{\ignorespaces An area chart showing the perceived overall method preference.\relax }}{72}}
+\newlabel{fig:Preference_Area}{{55}{72}}
+\newlabel{fig:Preference_Area@cref}{{[figure][55][]55}{72}}
+\@writefile{lof}{\contentsline {figure}{\numberline {56}{\ignorespaces Mean of perceived differences between methods, per scenario.\relax }}{73}}
+\newlabel{fig:DifferenceChart}{{56}{73}}
+\newlabel{fig:DifferenceChart@cref}{{[figure][56][]56}{73}}
+\@writefile{toc}{\contentsline {paragraph}{Center Point}{73}}
+\@writefile{lof}{\contentsline {figure}{\numberline {57}{\ignorespaces Results for the center point.\relax }}{74}}
+\newlabel{fig:CenterPointGraph}{{57}{74}}
+\newlabel{fig:CenterPointGraph@cref}{{[figure][57][]57}{74}}
+\@writefile{toc}{\contentsline {paragraph}{Left Point}{74}}
+\@writefile{toc}{\contentsline {paragraph}{Right Point}{74}}
+\@writefile{lof}{\contentsline {figure}{\numberline {58}{\ignorespaces Results for the left-most point.\relax }}{75}}
+\newlabel{fig:LeftPointGraph}{{58}{75}}
+\newlabel{fig:LeftPointGraph@cref}{{[figure][58][]58}{75}}
+\@writefile{toc}{\contentsline {paragraph}{Overall}{75}}
+\@writefile{lof}{\contentsline {figure}{\numberline {59}{\ignorespaces Results for the right-most point.\relax }}{76}}
+\newlabel{fig:RightPointGraph.PNG}{{59}{76}}
+\newlabel{fig:RightPointGraph.PNG@cref}{{[figure][59][]59}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {60}{\ignorespaces Qualitative results for the overall case, grouped in a few categories.\relax }}{76}}
+\newlabel{fig:QualitativeOverall}{{60}{76}}
+\newlabel{fig:QualitativeOverall@cref}{{[figure][60][]60}{76}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Comparison of Compensated and Uncompensated Images}{77}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusions}{78}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Future Work}{79}}
 \bibdata{bibliography}
 \bibcite{assimp}{1}
 \bibcite{glew}{2}
 \bibcite{glfw}{3}
 \bibcite{GLM}{4}
-\bibcite{PCSDK}{5}
-\bibcite{freeimage}{6}
-\bibcite{OpenGLTuts}{7}
-\bibcite{PCL}{8}
-\bibcite{avram2014}{9}
-\bibcite{bourke1994}{10}
-\bibcite{crassin2007}{11}
-\bibcite{daalsgard11}{12}
-\bibcite{triangleStrip}{13}
-\bibcite{lanman09}{14}
-\bibcite{dyken2007}{15}
-\bibcite{berg08}{16}
-\bibcite{falcao08}{17}
-\bibcite{sung2013}{18}
-\bibcite{pindat12}{19}
-\bibcite{radhwan11}{20}
-\bibcite{raskar98}{21}
-\bibcite{superbible}{22}
-\bibcite{gokturk}{23}
-\bibcite{segal92}{24}
-\bibcite{watanabe07}{25}
-\bibcite{watanabe08}{26}
-\bibcite{yamazaki11}{27}
-\bibcite{cassNvidia}{28}
-\bibcite{Jordt2011}{29}
-\bibcite{jordt12}{30}
-\bibcite{kilgard2009}{31}
-\bibcite{william87}{32}
-\bibcite{Marton09ICRA}{33}
-\bibcite{navpreet2013}{34}
-\bibcite{park}{35}
-\bibcite{PCLGreedy}{36}
-\bibcite{max2013}{37}
-\bibcite{steimle13}{38}
+\bibcite{spss}{5}
+\bibcite{PCSDK}{6}
+\bibcite{freeimage}{7}
+\bibcite{OpenGLTuts}{8}
+\bibcite{PCL}{9}
+\bibcite{quis}{10}
+\bibcite{avram2014}{11}
+\bibcite{bourke1994}{12}
+\bibcite{crassin2007}{13}
+\bibcite{daalsgard11}{14}
+\bibcite{triangleStrip}{15}
+\bibcite{lanman09}{16}
+\bibcite{dyken2007}{17}
+\bibcite{berg08}{18}
+\bibcite{falcao08}{19}
+\bibcite{sung2013}{20}
+\bibcite{pindat12}{21}
+\bibcite{radhwan11}{22}
+\bibcite{raskar98}{23}
+\bibcite{superbible}{24}
+\bibcite{gokturk}{25}
+\bibcite{segal92}{26}
+\bibcite{watanabe07}{27}
+\bibcite{watanabe08}{28}
+\bibcite{yamazaki11}{29}
+\bibcite{cassNvidia}{30}
+\bibcite{bonferroni}{31}
+\bibcite{Jordt2011}{32}
+\bibcite{jordt12}{33}
+\bibcite{kilgard2009}{34}
+\bibcite{levoy2001}{35}
+\bibcite{william87}{36}
+\bibcite{Marton09ICRA}{37}
+\bibcite{error_bars}{38}
+\bibcite{navpreet2013}{39}
+\bibcite{park}{40}
+\bibcite{PCLGreedy}{41}
+\bibcite{max2013}{42}
+\bibcite{steimle13}{43}
 \bibstyle{plain}
 \@input{A.aux}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Glossary}{58}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Glossary}{83}}
 \@input{B.aux}
-\@writefile{toc}{\contentsline {section}{\numberline {B} Additional Images}{59}}
-\newlabel{appendix:B}{{B}{59}}
-\newlabel{appendix:B@cref}{{[section][2][]B}{59}}
+\@writefile{toc}{\contentsline {section}{\numberline {B} Additional Images}{84}}
+\newlabel{appendix:B}{{B}{84}}
+\newlabel{appendix:B@cref}{{[section][2][]B}{84}}
 \@input{C.aux}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Empirical Study Documents}{60}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Empirical Study Documents}{85}}
