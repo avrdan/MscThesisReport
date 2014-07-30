@@ -8,6 +8,8 @@
 \usepackage{appendix}
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
 
+\usepackage{pdfpages}
+
 %opening
 \title{\textbf{Master's Thesis} \\ Correct Projection Mapping on - and Interaction Techniques with - Cloth-based Deformable Surfaces}
 
@@ -1000,7 +1002,7 @@ Further, the \verb|debug| flag was used later on in order to change the color of
 
 
 \subsection{Manual System Alignment (Calibration Not Used)}
-
+\label{sec:ManualAlignment}
 I have run out of time to implement a proper calibration solution, I have implemented a manual process. The results are not as precise as with regular calibration, and an extension to this project would be to correctly calibrate the projector-depthcam system. In this section I will outline the main steps and tests needed in order to make sure that the alignment is acceptable(or at least that there is a difference when applying the compensation; tests will be required in order to find out if the compensation works, and to what degree, for the current setup).
 
 \subsubsection{Physical Projector Alignment to the Physical Screen(Cloth area)}
@@ -1401,8 +1403,8 @@ An 11-point Likert scale has been made available for users to rate all the attri
 \newpage
 \section{Results}
 \label{sec:Results}
-\subsection{Experimental Study Results}
-
+\subsection{Empirical Study Results}
+\label{sec:Empirical Study Results}
 The user study consisted of 11 experiments on the deformable cloth display. As described in chapter \ref{sec:EmpiricalStudy}, each participant tested both the compensated method, and a normal image projection. The two methods have been alternated between participants - the first had method A as the compensated and B as the normal image, while the second had A as the normal and B as the compensated, etc. Further, the experiment consisted of 5 scenarios, which have also been shown to the participants in a different order, in order not to bias the data for a particular scenario configuration. Finally, smoothing functions were applied on the compensated method in order to reduce noise. However, this was not enough, as dynamic noise could still be seen in the image. Therefore, noise was added to the normal method, by capturing 10 frames of the compensated method and replaying them in a loop. This meant that the users could not easily identify the method due to visual artifacts, because they were present in both methods.
 
 Three of the participants had seen the display before the experiment. However, a strong bias due to the previous reason is unlikely, since they had not seen the actual experiments/scenarios before.
@@ -1570,7 +1572,7 @@ One of the items on the questionnaire asked users whether they can see a differe
 The mean values are approximately in the [4.2, 7] interval. This shows that at least moderate differences were observed between the two methods.
 
 \subsubsection{Qualitative Analysis}
-
+\label{sec:QualitativeAnalysis}
 Qualitative data has been retrieved with two methods: 
 \begin{itemize}[noitemsep,topsep=0pt]
 \item Descriptive questions about all of the previous attributes: consistency, difference, preference, preservation of appearance.
@@ -1635,9 +1637,47 @@ Finally, some qualitative measures regarding overall differences and preference 
 \clearpage
 \subsection{Comparison of Compensated and Uncompensated Images}
 \clearpage
-\section{Conclusions}
+\section{Discussion and Future Work}
+
+In this chapter some results of the empirical study analysis will be discussed. Further more, limitations and possible improvements to the system are presented here.
+
+\subsection{Results Discussion}
+
+As described in section \ref{sec:Empirical Study Results}, we have obtained statistically significant quantitative data only for the preservation of appearance of the map scenario and the overall case, as well as the preference in the overall case. Even though the other scenario tests were not significant, the compensated method always scored higher. The results for the map scenario had the highest rating contrast between the methods. This is because the method which was not compensated made the text and roads very small and virtually unreadable, while pushing into the display. On the other hand, the compensated method retained the proportions fairly well.
+
+Even though the consistency tests were not statistically significant, we could see that the results indicated that the behavior of the non-compensated method was more consistent. From the qualitative analysis presented in section \ref{sec:QualitativeAnalysis}, we can obtain more information about what differences participants perceived, and how they differ between the center, left and right points. The analysis indicates that the method compensated best for the center point, and worst for the left point. This issue is due to distortions that are introduced in the image by the compensated method, due to an offset compensation. This happens because the system is not calibrated and the components are not perfectly aligned. Although there were issues on the sides of the image, participants still selected the compensated method over the normal one, when asked to rate the methods over all cases. Since, as mentioned before, these tests are statistically significant, it is reasonable to believe that the compensation both preserved the image proportions better and was the preferred method for working with a deformable display.
+
+\subsection{Limitations and Possible Improvements}
+
+The calibration issue is probably the most important one that must be solved in order to improve both the quality of the compensation and reliability(having the same behavior for the whole display). 
+
+A further aspect to be considered is if it is required to obtain a full reconstruction of the object, including color and lighting or maybe even improving the fidelity of the mesh itself, by reconstructing the geometry in some other ways. This could prove useful for some calibration techniques, as well as for debugging purposes. However, the benefits of this need to be analyzed further, since, it is likely that a reconstruction tool will be available for the depth camera(used in this project) some time in the future. Such tools are already available for depth sensors like the \textit{Microsoft Kinect}.
+
+Further more, noise has not been completely eliminated from the images, even after applying both techniques described in section \ref{sec:DepthSmoothing}. As mentioned in that section, when both averaging techniques are applied the frame rate is substantially reduced. Methods for completely removing the noise, while reducing the frame rate as little as possible, are candidates for future work. A first step could be to improve the performance of the median filter. Then we could use a larger window for the filter, in order to reduce noise further. Dark spots are also present in the image when we deform the display, due to shadows or  obscuring of parts the depth data. Some type of gap-filling algorithm can perhaps be used to reduce this problem.  Moreover, is might be that some noise can only be reduced by using a higher quality depth camera.
+
+Another important limitation of the current prototype is that it can not capture contents from other application windows. In order to run any application with the distortion compensation on, one would need to capture the contents of that window, convert it to frames and feed these frames into the distortion compensating program. However, if the textures are stored locally before starting the program, dynamic contents can be displayed similarly to how the brain scan scenario works. For example, we could capture some video, convert it to frames, add these frames in the program and then render them continuously with the OpenGL application.
+
+Moreover, an important extension is to provide a useful interface for developing interactive scenarios. Currently, only the brain scan scenario is interactive. Even so, it only checks for the depth of the center point in the image when changing textures, so it is a limited and naive approach. Although interaction is not the focus of this project, it is a necessary extension in order to thoroughly test the distortion correction in dynamic environments. For example, let's say we want to move a cube around in a 3D scene. In this case, latency becomes very important. It would be interesting to test if the cube would appear undistorted to users in such an environment. Reducing latency so that it is not observable by end-users is something which also has to be considered, in order to provide an immersive experience.
+
+Finally, the distortion correction only works from one viewpoint. This is the same limitation described in \cite{watanabe08}. The authors of this paper suggest that the virtual contents be rotated according to changes of viewpoint. Further more, they mention a paper where they present the Parallax Augmented Desktop, which tackles this issue(see \cite{reynolds08}). This resource has not been consulted and it is only mentioned for completeness, as a potential solution to  adapt the image to dynamic user viewpoints.
+
 \clearpage
-\section{Future Work}
+\section{Conclusions}
+
+Deformable displays are a newly emerging type of natural user interfaces. One of the main issues related to such displays is the distortions that appear from the deformation of the object. The image will follow the shape of the displayed - it will not look like the intended output on a flat screen; this is called distortion. 
+
+The project's main aim is to try and correct, or perhaps more properly said, compensate, these distortions, using off-the-shelf components(without requiring special hardware). Further more, an important question is if users perceive this compensation as intended, meaning that it helps bring the image to a form that resembles the image as seen on a flat screen, even when pushing and pulling into the display. Moreover, it is also interesting to know if users actually prefer such a compensation, if they were to use a deformable display.
+
+The compensation problem is fairly complex involving computer graphics methods for rendering, computer vision methods for manipulating image data(in this case mostly depth data), real-time modeling of the shape of the display, manual alignment of physical and virtual components(e.g.: camera alignment) or calibration(ideally), virtual projection of textures onto the reconstructed display model etc. 
+
+The compensation was implemented using a time-of-flight depth sensor, a standard projector and a cloth material(in a wooden frame) to display the images on. The model of the cloth is updated dynamically in a virtual scene(in real-time, up to about 60 fps, when not using noise reduction functions), and we can project any texture we want, to represent our final image contents. The depth camera is set to capture the back side of the display, on which we also project the image. When interacting from the front, pushing into the display is therefore modeled from the back-side, creating an extrusion in the corresponding area(see the thesis video for a demonstration). This enlarges the respective area, which negates the shrinking effect induced by moving that part of the display closer to the project - this negates the distortion, to a certain extent. The main components have therefore been tested and working, however, the system does have a few limitations, as described in the following paragraph.
+
+Since manual alignment was employed, instead of calibration, there are some issues from misalignments between the depth camera and physical display, and the virtual camera's parameters, which were computed by a trial-and-error process. However, as described in section \ref{sec:ManualAlignment}, the correct parameters can not be found by this process: we would at least need to find the intrinsic parameters, obtain, for example the field of view and distance, and then we could manually position the camera so that it covers the cloth area of the display(the last part corresponds to the extrinsic parameters, and it depends on the intrinsic ones). Further more, although noise reduction methods were employed, it is required to improve upon the existing ones, or perhaps, use a more stable depth sensor. Moreover, the system can currently not capture contents from other applications. Therefore, in order to use dynamic scenarios, one has to pre-convert the contents to frames and feed them to the application before it is started. Finally, the compensation does not adapt to the user's viewpoint - the user must look straight onto the deforming area, to see a correct compensation(if they look from above/below or the sides they can see the distorted material and the immersion is broken). These last three items represent the main limitations of the system. 
+
+At this point, it was unclear whether the compensation is actually perceived to be working by users, whether they would prefer it over the a regular image projection, or whether we can say anything about how the compensation works in different areas of the screen. To gain some insights regarding these questions, an empirical study was run. From this study, we have learned that the preservation of appearance was perceived to be superior in the compensated method, for all cases, although only one scenario and the overall tests are statistically significant. Further, the behavior was deemed to be more consistent for the non-compensated method. All though the quantitative results were not statistically significant, the qualitative data confirms that the results for the methods differed between center, left and right points. Moreover, users perceived that the compensation works well in the center, but they complained of other types of distortions being introduced in the left and right sides.
+
+To conclude, a prototype that compensates distortions for deformable displays using off-the-shelf components has been created. The prototype was tested with end-users and the results indicate that the compensation preserved the original image proportions better than the non-compensated method overall, but especially in the center area of the display. Further more, the results also suggest that the compensated method was the preferred one for interacting with such displays. These results were obtained in spite of the fact that the prototype has several limitations, the most important one being that the system is not calibrated, which causes different compensation behaviors in different screen areas and will also not compensate the correct amount, due to incorrect values for the field of view and distance of the virtual camera.
+
 
 \newpage
 \bibliography{bibliography}
@@ -1656,6 +1696,21 @@ Finally, some qualitative measures regarding overall differences and preference 
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \include{C}
 \section{Empirical Study Documents}
+
+In this appendix all the documents used during the user study will be appended. These include:
+\begin{itemize}
+   \item User Study Randomization
+   \item Introduction Document(for the user,to read before the study)
+   \item Questionnaire
+   \item Scenario Notes(Interview-like Questions)
+\end{itemize}
+
+For the scenario notes, some questions were only asked once(like if a user has seen a display before), while others were dropped because after a few tries it appeared that they were not really relevant. Further more, there are some-scenario specific questions - even though in the document it just indicates to circle method A and B, the feedback noted down was more of a qualitative nature. Finally, some questions were repeated for each point, for the three scenarios where this was applicable.
+
+\includepdf[pages={-},pagecommand={}, scale=.8]{documents/UserStudyRandomization.pdf}
+\includepdf[pages={-},pagecommand={}, scale=.8]{documents/DeformableDisplayExperimentIntroduction.pdf}
+\includepdf[pages={-},pagecommand={}, scale=.8]{documents/DeformableDisplayQuestionnaire.pdf}
+\includepdf[pages={-},pagecommand={}, scale=.8]{documents/DeformableDisplayUserScenarioNotes1.pdf}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \end{appendices}
 

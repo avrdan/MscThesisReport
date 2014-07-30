@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  29 JUL 2014 07:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.6.11)  30 JUL 2014 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -187,35 +187,76 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box28
 \enitdp@description=\count110
 )
+(d:/Work/texlive/2013/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2013/08/25 v0.4v Insert pages of external PDF documents (AM)
+
+(d:/Work/texlive/2013/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(d:/Work/texlive/2013/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2013/10/06 v2.0d eso-pic (RN)
+
+(d:/Work/texlive/2013/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+(d:/Work/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+))
+(d:/Work/texlive/2013/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(d:/Work/texlive/2013/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+(d:/Work/texlive/2013/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box29
+\AM@toc@title=\toks21
+\c@AM@survey=\count111
+\AM@templatesizebox=\box30
+)
 (./MScThesis_DanAvram.aux (./A.aux) (./B.aux) (./C.aux))
 \openout1 = `MScThesis_DanAvram.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 (d:/Work/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
+\scratchcounter=\count112
 \scratchdimen=\dimen131
-\scratchbox=\box29
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count114
+\scratchbox=\box31
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count115
 \MPscratchDim=\dimen132
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
-\everyMPtoPDFconversion=\toks22
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks23
 ) (d:/Work/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -223,10 +264,6 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 (d:/Work/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-)
-(d:/Work/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -266,8 +303,9 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box32
 
-Overfull \hbox (3.22017pt too wide) in paragraph at lines 18--18
+Overfull \hbox (3.22017pt too wide) in paragraph at lines 20--20
  [][] 
  []
 
@@ -299,13 +337,13 @@ tion. Cour-
 \openout5 = `MScThesis_DanAvram.lot'.
 
  [5]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 82.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 84.
 
 (d:/Work/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 84.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
@@ -315,10 +353,10 @@ File: figures/thesis_setup_illustration_ui.png Graphic file (type png)
 
 <use figures/thesis_setup_illustration_ui.png>
 Package pdftex.def Info: figures/thesis_setup_illustration_ui.png used on input
- line 89.
+ line 91.
 (pdftex.def)             Requested size: 276.00105pt x 195.26616pt.
  [1]
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
@@ -327,13 +365,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--101
 File: figures/HolgerTheDane.PNG Graphic file (type png)
 
 <use figures/HolgerTheDane.PNG>
-Package pdftex.def Info: figures/HolgerTheDane.PNG used on input line 106.
+Package pdftex.def Info: figures/HolgerTheDane.PNG used on input line 108.
 (pdftex.def)             Requested size: 276.00105pt x 153.87611pt.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ¶ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
@@ -341,7 +379,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 118--119
 File: figures/Flexpad.PNG Graphic file (type png)
 
 <use figures/Flexpad.PNG>
-Package pdftex.def Info: figures/Flexpad.PNG used on input line 125.
+Package pdftex.def Info: figures/Flexpad.PNG used on input line 127.
 (pdftex.def)             Requested size: 276.00105pt x 90.85878pt.
 
 <figures/FlexpadDeformationModel.PNG, id=51, 344.487pt x 206.57175pt>
@@ -349,16 +387,16 @@ File: figures/FlexpadDeformationModel.PNG Graphic file (type png)
 
 <use figures/FlexpadDeformationModel.PNG>
 Package pdftex.def Info: figures/FlexpadDeformationModel.PNG used on input line
- 134.
+ 136.
 (pdftex.def)             Requested size: 276.00105pt x 165.50977pt.
  [3 <./figures/HolgerTheDane.PNG>]
 [4 <./figures/Flexpad.PNG> <./figures/FlexpadDeformationModel.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
@@ -366,10 +404,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 148--149
 File: figures/FutureOffice.PNG Graphic file (type png)
 
 <use figures/FutureOffice.PNG>
-Package pdftex.def Info: figures/FutureOffice.PNG used on input line 154.
+Package pdftex.def Info: figures/FutureOffice.PNG used on input line 156.
 (pdftex.def)             Requested size: 276.00105pt x 171.24367pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
@@ -379,13 +417,13 @@ File: figures/TheDeformableWorkspace.PNG Graphic file (type png)
 
 <use figures/TheDeformableWorkspace.PNG>
 Package pdftex.def Info: figures/TheDeformableWorkspace.PNG used on input line 
-165.
+167.
 (pdftex.def)             Requested size: 276.00105pt x 218.58871pt.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
@@ -398,15 +436,15 @@ Missing character: There is no ô in font cmr10!
 File: figures/PointProjection.PNG Graphic file (type png)
 
 <use figures/PointProjection.PNG>
-Package pdftex.def Info: figures/PointProjection.PNG used on input line 184.
+Package pdftex.def Info: figures/PointProjection.PNG used on input line 186.
 (pdftex.def)             Requested size: 276.00105pt x 185.4637pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 
  []
 
@@ -414,10 +452,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--192
 File: figures/JellyLens.PNG Graphic file (type png)
 
 <use figures/JellyLens.PNG>
-Package pdftex.def Info: figures/JellyLens.PNG used on input line 197.
+Package pdftex.def Info: figures/JellyLens.PNG used on input line 199.
 (pdftex.def)             Requested size: 276.00105pt x 91.575pt.
  [9 <./figures/PointProjection.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
@@ -426,14 +464,9 @@ File: figures/DeformableDisplayPipeline.PNG Graphic file (type png)
 
 <use figures/DeformableDisplayPipeline.PNG>
 Package pdftex.def Info: figures/DeformableDisplayPipeline.PNG used on input li
-ne 215.
+ne 217.
 (pdftex.def)             Requested size: 276.00105pt x 212.29321pt.
  [10 <./figures/JellyLens.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
@@ -443,8 +476,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 226--227
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
+
+ []
+
 [11 <./figures/DeformableDisplayPipeline.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
@@ -453,17 +491,17 @@ File: figures/Projector-Camera_Calibration.PNG Graphic file (type png)
 
 <use figures/Projector-Camera_Calibration.PNG>
 Package pdftex.def Info: figures/Projector-Camera_Calibration.PNG used on input
- line 247.
+ line 249.
 (pdftex.def)             Requested size: 276.00105pt x 223.77565pt.
 
 <figures/Frustum.PNG, id=98, 304.7385pt x 240.9pt>
 File: figures/Frustum.PNG Graphic file (type png)
  <use figures/Frustum.PNG>
-Package pdftex.def Info: figures/Frustum.PNG used on input line 255.
+Package pdftex.def Info: figures/Frustum.PNG used on input line 257.
 (pdftex.def)             Requested size: 276.00105pt x 218.19377pt.
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 260--262
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
 
  []
 
@@ -472,30 +510,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 260--262
 File: figures/MVMatrixOGLSB.PNG Graphic file (type png)
 
 <use figures/MVMatrixOGLSB.PNG>
-Package pdftex.def Info: figures/MVMatrixOGLSB.PNG used on input line 267.
+Package pdftex.def Info: figures/MVMatrixOGLSB.PNG used on input line 269.
 (pdftex.def)             Requested size: 137.9979pt x 211.42691pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--280
+Underfull \hbox (badness 10000) in paragraph at lines 279--282
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--284
+Underfull \hbox (badness 10000) in paragraph at lines 284--286
 
  []
 
 [14 <./figures/Frustum.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Underfull \hbox (badness 10000) in paragraph at lines 297--298
 
  []
 
 [15 <./figures/MVMatrixOGLSB.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 296--298
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
 
  []
 
@@ -503,7 +541,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 296--298
 File: figures/GeneralPinholeModel.PNG Graphic file (type png)
 
 <use figures/GeneralPinholeModel.PNG>
-Package pdftex.def Info: figures/GeneralPinholeModel.PNG used on input line 302
+Package pdftex.def Info: figures/GeneralPinholeModel.PNG used on input line 304
 .
 (pdftex.def)             Requested size: 276.00105pt x 89.68773pt.
  [16 <./figures/GeneralPinholeModel.PNG>]
@@ -512,17 +550,17 @@ File: figures/TransformationPipeline.PNG Graphic file (type png)
 
 <use figures/TransformationPipeline.PNG>
 Package pdftex.def Info: figures/TransformationPipeline.PNG used on input line 
-323.
+325.
 (pdftex.def)             Requested size: 276.00105pt x 143.15111pt.
 
 <figures/Graphics3D_Pipe.png, id=122, 531.1845pt x 204.16275pt>
 File: figures/Graphics3D_Pipe.png Graphic file (type png)
 
 <use figures/Graphics3D_Pipe.png>
-Package pdftex.def Info: figures/Graphics3D_Pipe.png used on input line 333.
+Package pdftex.def Info: figures/Graphics3D_Pipe.png used on input line 335.
 (pdftex.def)             Requested size: 276.00105pt x 106.08736pt.
  [17 <./figures/TransformationPipeline.PNG> <./figures/Graphics3D_Pipe.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 340--342
+Underfull \hbox (badness 10000) in paragraph at lines 342--344
 
  []
 
@@ -530,10 +568,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 340--342
 File: figures/PointCloud.PNG Graphic file (type png)
 
 <use figures/PointCloud.PNG>
-Package pdftex.def Info: figures/PointCloud.PNG used on input line 349.
+Package pdftex.def Info: figures/PointCloud.PNG used on input line 351.
 (pdftex.def)             Requested size: 276.00105pt x 157.82784pt.
  [18 <./figures/PointCloud.PNG>]
-Overfull \hbox (29.50774pt too wide) detected at line 359
+Overfull \hbox (29.50774pt too wide) detected at line 361
 \OML/cmm/m/it/10 point \OT1/cmr/m/n/10 =\OML/cmm/m/it/10 > Viewport[] \OT1/cmr/
 m/n/10 =\OML/cmm/m/it/10 > Projection[] \OT1/cmr/m/n/10 =\OML/cmm/m/it/10 > Mod
 elView[] \OT1/cmr/m/n/10 =\OML/cmm/m/it/10 > PointInWorldSpace
@@ -543,7 +581,7 @@ elView[] \OT1/cmr/m/n/10 =\OML/cmm/m/it/10 > PointInWorldSpace
 File: figures/PerspectiveTerrain.PNG Graphic file (type png)
 
 <use figures/PerspectiveTerrain.PNG>
-Package pdftex.def Info: figures/PerspectiveTerrain.PNG used on input line 376.
+Package pdftex.def Info: figures/PerspectiveTerrain.PNG used on input line 378.
 
 (pdftex.def)             Requested size: 137.9979pt x 65.90797pt.
 
@@ -551,7 +589,7 @@ Package pdftex.def Info: figures/PerspectiveTerrain.PNG used on input line 376.
 File: figures/PolyhedralTerrain.PNG Graphic file (type png)
 
 <use figures/PolyhedralTerrain.PNG>
-Package pdftex.def Info: figures/PolyhedralTerrain.PNG used on input line 387.
+Package pdftex.def Info: figures/PolyhedralTerrain.PNG used on input line 389.
 (pdftex.def)             Requested size: 137.9979pt x 69.56998pt.
  [20 <./figures/PerspectiveTerrain.PNG> <./figures/PolyhedralTerrain.PNG>]
 <figures/TriangleStripOrdering.PNG, id=145, 181.27725pt x 138.5175pt>
@@ -559,7 +597,7 @@ File: figures/TriangleStripOrdering.PNG Graphic file (type png)
 
 <use figures/TriangleStripOrdering.PNG>
 Package pdftex.def Info: figures/TriangleStripOrdering.PNG used on input line 4
-02.
+04.
 (pdftex.def)             Requested size: 207.0021pt x 158.18211pt.
  [21 <./figures/TriangleStripOrdering.PNG>] <figures/MountainRidgeNarrowValley.
 PNG, id=150, 292.09125pt x 118.64325pt>
@@ -567,17 +605,17 @@ File: figures/MountainRidgeNarrowValley.PNG Graphic file (type png)
 
 <use figures/MountainRidgeNarrowValley.PNG>
 Package pdftex.def Info: figures/MountainRidgeNarrowValley.PNG used on input li
-ne 420.
+ne 422.
 (pdftex.def)             Requested size: 137.9979pt x 56.05379pt.
  [22 <./figures/MountainRidgeNarrowValley.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
 
  []
 
 <figures/Voxels.PNG, id=156, 378.213pt x 171.039pt>
 File: figures/Voxels.PNG Graphic file (type png)
  <use figures/Voxels.PNG>
-Package pdftex.def Info: figures/Voxels.PNG used on input line 436.
+Package pdftex.def Info: figures/Voxels.PNG used on input line 438.
 (pdftex.def)             Requested size: 137.9979pt x 62.40652pt.
 
 [23 <./figures/Voxels.PNG>]
@@ -585,7 +623,7 @@ Package pdftex.def Info: figures/Voxels.PNG used on input line 436.
 File: figures/MarchingCubesTriagulationCases.PNG Graphic file (type png)
 <use figures/MarchingCubesTriagulationCases.PNG>
 Package pdftex.def Info: figures/MarchingCubesTriagulationCases.PNG used on inp
-ut line 456.
+ut line 458.
 (pdftex.def)             Requested size: 137.9979pt x 193.72694pt.
  [24 <./figures/MarchingCubesTriagulationCases.PNG>]
 <figures/MarchingCubesNumbering.PNG, id=166, 317.988pt x 305.34074pt>
@@ -593,25 +631,25 @@ File: figures/MarchingCubesNumbering.PNG Graphic file (type png)
 
 <use figures/MarchingCubesNumbering.PNG>
 Package pdftex.def Info: figures/MarchingCubesNumbering.PNG used on input line 
-466.
+468.
 (pdftex.def)             Requested size: 137.9979pt x 132.50998pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
+
+ []
+
 [25 <./figures/MarchingCubesNumbering.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 493--494
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
 
@@ -619,7 +657,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 498--499
 File: figures/reconstructedBunny.png Graphic file (type png)
 
 <use figures/reconstructedBunny.png>
-Package pdftex.def Info: figures/reconstructedBunny.png used on input line 510.
+Package pdftex.def Info: figures/reconstructedBunny.png used on input line 512.
 
 (pdftex.def)             Requested size: 137.9979pt x 77.61154pt.
  [27 <./figures/reconstructedBunny.png>]
@@ -628,21 +666,21 @@ File: figures/VirtualProjectorPipeline.PNG Graphic file (type png)
 
 <use figures/VirtualProjectorPipeline.PNG>
 Package pdftex.def Info: figures/VirtualProjectorPipeline.PNG used on input lin
-e 527.
+e 529.
 (pdftex.def)             Requested size: 137.9979pt x 204.1124pt.
 
 <figures/PTMCoordinates.PNG, id=181, 527.571pt x 136.1085pt>
 File: figures/PTMCoordinates.PNG Graphic file (type png)
 
 <use figures/PTMCoordinates.PNG>
-Package pdftex.def Info: figures/PTMCoordinates.PNG used on input line 536.
+Package pdftex.def Info: figures/PTMCoordinates.PNG used on input line 538.
 (pdftex.def)             Requested size: 345.0pt x 89.00737pt.
  [28 <./figures/VirtualProjectorPipeline.PNG>]
 <figures/ObjectLinearTexgen.PNG, id=187, 393.26926pt x 162.6075pt>
 File: figures/ObjectLinearTexgen.PNG Graphic file (type png)
 
 <use figures/ObjectLinearTexgen.PNG>
-Package pdftex.def Info: figures/ObjectLinearTexgen.PNG used on input line 549.
+Package pdftex.def Info: figures/ObjectLinearTexgen.PNG used on input line 551.
 
 (pdftex.def)             Requested size: 207.0021pt x 85.58855pt.
 
@@ -650,17 +688,17 @@ Package pdftex.def Info: figures/ObjectLinearTexgen.PNG used on input line 549.
 File: figures/EyeLinearTexgen.PNG Graphic file (type png)
 
 <use figures/EyeLinearTexgen.PNG>
-Package pdftex.def Info: figures/EyeLinearTexgen.PNG used on input line 560.
+Package pdftex.def Info: figures/EyeLinearTexgen.PNG used on input line 562.
 (pdftex.def)             Requested size: 137.9979pt x 97.2536pt.
  [29 <./figures/PTMCoordinates.PNG> <./figures/ObjectLinearTexgen.PNG>] [30 <./
 figures/EyeLinearTexgen.PNG>] [31]
-Overfull \hbox (17.24684pt too wide) in paragraph at lines 610--610
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 612--612
 []\OT1/cmtt/m/n/10 pxcU16 depthValue = ((pxcU16*)ddepth.planes[0])[y * depthStr
 ide + x], 
  []
 
 
-Overfull \hbox (38.24666pt too wide) in paragraph at lines 627--627
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 629--629
 []\OT1/cmtt/m/n/10 projection->ProjectImageToRealWorld(nPoints, &pcPos[0], worl
 dPos.data()). 
  []
@@ -669,17 +707,17 @@ dPos.data()).
 File: figures/VertexArrays.PNG Graphic file (type png)
 
 <use figures/VertexArrays.PNG>
-Package pdftex.def Info: figures/VertexArrays.PNG used on input line 639.
+Package pdftex.def Info: figures/VertexArrays.PNG used on input line 641.
 (pdftex.def)             Requested size: 241.49895pt x 230.09737pt.
 
 <figures/VBOClientMemory.PNG, id=205, 438.438pt x 354.123pt>
 File: figures/VBOClientMemory.PNG Graphic file (type png)
 
 <use figures/VBOClientMemory.PNG>
-Package pdftex.def Info: figures/VBOClientMemory.PNG used on input line 647.
+Package pdftex.def Info: figures/VBOClientMemory.PNG used on input line 649.
 (pdftex.def)             Requested size: 293.2521pt x 236.87212pt.
  [33 <./figures/VertexArrays.PNG>]
-Overfull \hbox (43.49661pt too wide) in paragraph at lines 659--659
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 661--661
 []\OT1/cmtt/m/n/10 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(PXCPo
 int3DF32), 0);[] 
  []
@@ -701,13 +739,13 @@ Missing character: There is no ‚ in font cmtt10!
 Missing character: There is no Ä in font cmtt10!
 Missing character: There is no ã in font cmtt10!
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 681--681
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 683--683
 []\OT1/cmtt/m/n/10 glBufferData(GL_ARRAY_BUFFER, rdp->nPoints * sizeof(PXCPoint
 3DF32),[] 
  []
 
 
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 693--693
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 695--695
 []\OT1/cmtt/m/n/10 ibo.addData(&(rdp->indices[0]), rdp->indices.size() * sizeof
 (unsigned int));[] 
  []
@@ -717,7 +755,7 @@ Overfull \hbox (53.99652pt too wide) in paragraph at lines 693--693
 File: figures/NoSmoothingC.png Graphic file (type png)
 
 <use figures/NoSmoothingC.png>
-Package pdftex.def Info: figures/NoSmoothingC.png used on input line 832.
+Package pdftex.def Info: figures/NoSmoothingC.png used on input line 834.
 (pdftex.def)             Requested size: 155.24895pt x 67.65646pt.
 
 <figures/BothAveragingTechniquesC.png, id=231, 1140.05925pt x 480.5955pt>
@@ -725,29 +763,29 @@ File: figures/BothAveragingTechniquesC.png Graphic file (type png)
 
 <use figures/BothAveragingTechniquesC.png>
 Package pdftex.def Info: figures/BothAveragingTechniquesC.png used on input lin
-e 838.
+e 840.
 (pdftex.def)             Requested size: 155.24895pt x 65.44225pt.
  [40 <./figures/NoSmoothingC.png> <./figures/BothAveragingTechniquesC.png>] [41
 ]
-Overfull \hbox (53.99652pt too wide) in paragraph at lines 905--905
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 907--907
 []\OT1/cmtt/m/n/10 glUniformMatrix4fv(iPTMModelViewLoc, 1, GL_FALSE, glm::value
 _ptr(mCurrent));[] 
  []
 
 
-Overfull \hbox (13.72137pt too wide) in paragraph at lines 907--908
+Overfull \hbox (13.72137pt too wide) in paragraph at lines 909--910
 \OT1/cmr/m/n/10 which we will need to pass in as the data - in this case, []\OT
 1/cmtt/m/n/10 glm::value_ptr(mCurrent)\OT1/cmr/m/n/10 .
  []
 
 
-Overfull \hbox (64.49643pt too wide) in paragraph at lines 925--925
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 927--927
 []\OT1/cmtt/m/n/10 glUniform4fv(iColorLoc, 1, glm::value_ptr(glm::vec4(0.0f, 0.
 0f, 0.0f, 1.0f)));[] 
  []
 
 [42]
-Overfull \hbox (43.49661pt too wide) in paragraph at lines 971--971
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 973--973
 []    \OT1/cmtt/m/n/10 // CLAMP PROJECTIVE TEXTURE (for some reason gl_clamp di
 d not work...)[] 
  []
@@ -756,21 +794,21 @@ d not work...)[]
 File: figures/ReverseProjecton.PNG Graphic file (type png)
 
 <use figures/ReverseProjecton.PNG>
-Package pdftex.def Info: figures/ReverseProjecton.PNG used on input line 983.
+Package pdftex.def Info: figures/ReverseProjecton.PNG used on input line 985.
 (pdftex.def)             Requested size: 293.2521pt x 138.45422pt.
 
 <figures/PTMTest.png, id=249, 619.113pt x 461.92575pt>
 File: figures/PTMTest.png Graphic file (type png)
 
 <use figures/PTMTest.png>
-Package pdftex.def Info: figures/PTMTest.png used on input line 994.
+Package pdftex.def Info: figures/PTMTest.png used on input line 996.
 (pdftex.def)             Requested size: 293.2521pt x 218.8038pt.
  [44 <./figures/ReverseProjecton.PNG>]
 <figures/CalibrationGrid.jpg, id=254, 1540.957pt x 867.24pt>
 File: figures/CalibrationGrid.jpg Graphic file (type jpg)
 
 <use figures/CalibrationGrid.jpg>
-Package pdftex.def Info: figures/CalibrationGrid.jpg used on input line 1012.
+Package pdftex.def Info: figures/CalibrationGrid.jpg used on input line 1014.
 (pdftex.def)             Requested size: 293.2521pt x 165.02873pt.
 
 <figures/ProjectedCalibrationGridC2.jpg, id=255, 841.4637pt x 497.4585pt>
@@ -778,39 +816,39 @@ File: figures/ProjectedCalibrationGridC2.jpg Graphic file (type jpg)
 
 <use figures/ProjectedCalibrationGridC2.jpg>
 Package pdftex.def Info: figures/ProjectedCalibrationGridC2.jpg used on input l
-ine 1021.
+ine 1023.
 (pdftex.def)             Requested size: 293.2521pt x 173.3692pt.
 
 <figures/TopLeft2.JPG, id=256, 2826.56pt x 1589.94pt>
 File: figures/TopLeft2.JPG Graphic file (type jpg)
 
 <use figures/TopLeft2.JPG>
-Package pdftex.def Info: figures/TopLeft2.JPG used on input line 1030.
+Package pdftex.def Info: figures/TopLeft2.JPG used on input line 1032.
 (pdftex.def)             Requested size: 129.375pt x 72.75723pt.
 
 <figures/TopRight.JPG, id=257, 2826.56pt x 1589.94pt>
 File: figures/TopRight.JPG Graphic file (type jpg)
 
 <use figures/TopRight.JPG>
-Package pdftex.def Info: figures/TopRight.JPG used on input line 1037.
+Package pdftex.def Info: figures/TopRight.JPG used on input line 1039.
 (pdftex.def)             Requested size: 129.375pt x 72.75723pt.
 
 <figures/BottomRight.JPG, id=258, 2826.56pt x 1589.94pt>
 File: figures/BottomRight.JPG Graphic file (type jpg)
 
 <use figures/BottomRight.JPG>
-Package pdftex.def Info: figures/BottomRight.JPG used on input line 1044.
+Package pdftex.def Info: figures/BottomRight.JPG used on input line 1046.
 (pdftex.def)             Requested size: 129.375pt x 72.75723pt.
 
 <figures/BottomLeft2.JPG, id=259, 2826.56pt x 1589.94pt>
 File: figures/BottomLeft2.JPG Graphic file (type jpg)
 
 <use figures/BottomLeft2.JPG>
-Package pdftex.def Info: figures/BottomLeft2.JPG used on input line 1050.
+Package pdftex.def Info: figures/BottomLeft2.JPG used on input line 1052.
 (pdftex.def)             Requested size: 129.375pt x 72.75723pt.
  [45 <./figures/PTMTest.png>] [46 <./figures/CalibrationGrid.jpg> <./figures/Pr
 ojectedCalibrationGridC2.jpg>]
-Overfull \hbox (8.97307pt too wide) in paragraph at lines 1060--1060
+Overfull \hbox (8.97307pt too wide) in paragraph at lines 1062--1062
 []\OT1/cmr/bx/n/10 Physical Depth Cam-era Align-ment to the Phys-i-cal Screen (
 Cloth
  []
@@ -819,7 +857,7 @@ Cloth
 File: figures/tripodCamSetup.jpg Graphic file (type jpg)
 
 <use figures/tripodCamSetup.jpg>
-Package pdftex.def Info: figures/tripodCamSetup.jpg used on input line 1066.
+Package pdftex.def Info: figures/tripodCamSetup.jpg used on input line 1068.
 (pdftex.def)             Requested size: 241.49895pt x 181.12154pt.
 
 <figures/DepthStreamCenterPoint.jpg, id=269, 193.32225pt x 146.949pt>
@@ -827,14 +865,14 @@ File: figures/DepthStreamCenterPoint.jpg Graphic file (type jpg)
 
 <use figures/DepthStreamCenterPoint.jpg>
 Package pdftex.def Info: figures/DepthStreamCenterPoint.jpg used on input line 
-1077.
+1079.
 (pdftex.def)             Requested size: 155.24895pt x 118.01228pt.
 
 <figures/CenterPointPattern.JPG, id=270, 2055.68pt x 1541.76pt>
 File: figures/CenterPointPattern.JPG Graphic file (type jpg)
 
 <use figures/CenterPointPattern.JPG>
-Package pdftex.def Info: figures/CenterPointPattern.JPG used on input line 1083
+Package pdftex.def Info: figures/CenterPointPattern.JPG used on input line 1085
 .
 (pdftex.def)             Requested size: 155.24895pt x 116.42686pt.
 
@@ -842,11 +880,11 @@ Package pdftex.def Info: figures/CenterPointPattern.JPG used on input line 1083
 File: figures/FramePlacementCM.jpg Graphic file (type jpg)
 
 <use figures/FramePlacementCM.jpg>
-Package pdftex.def Info: figures/FramePlacementCM.jpg used on input line 1095.
+Package pdftex.def Info: figures/FramePlacementCM.jpg used on input line 1097.
 (pdftex.def)             Requested size: 293.2521pt x 83.2201pt.
 
 
-LaTeX Warning: Citation `opencv' on page 47 undefined on input line 1100.
+LaTeX Warning: Citation `opencv' on page 47 undefined on input line 1102.
 
 [47 <./figures/TopLeft2.JPG> <./figures/TopRight.JPG> <./figures/BottomRight.JP
 G> <./figures/BottomLeft2.JPG>] [48 <./figures/tripodCamSetup.jpg> <./figures/D
@@ -857,7 +895,7 @@ File: figures/PointExtractionDepthMP.PNG Graphic file (type png)
 
 <use figures/PointExtractionDepthMP.PNG>
 Package pdftex.def Info: figures/PointExtractionDepthMP.PNG used on input line 
-1104.
+1106.
 (pdftex.def)             Requested size: 241.49895pt x 181.49365pt.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -871,14 +909,14 @@ File: figures/TextureAlignmentToMeshArea.png Graphic file (type png)
 
 <use figures/TextureAlignmentToMeshArea.png>
 Package pdftex.def Info: figures/TextureAlignmentToMeshArea.png used on input l
-ine 1118.
+ine 1120.
 (pdftex.def)             Requested size: 293.2521pt x 164.94934pt.
  [49 <./figures/PointExtractionDepthMP.PNG>] <figures/MisalignmentArea3.png, id
 =284, 2059.695pt x 475.7775pt>
 File: figures/MisalignmentArea3.png Graphic file (type png)
 
 <use figures/MisalignmentArea3.png>
-Package pdftex.def Info: figures/MisalignmentArea3.png used on input line 1131.
+Package pdftex.def Info: figures/MisalignmentArea3.png used on input line 1133.
 
 (pdftex.def)             Requested size: 345.0pt x 79.69049pt.
  [50 <./figures/TextureAlignmentToMeshArea.png> <./figures/MisalignmentArea3.pn
@@ -888,14 +926,14 @@ File: figures/RedCenterDotPhysical.JPG Graphic file (type jpg)
 
 <use figures/RedCenterDotPhysical.JPG>
 Package pdftex.def Info: figures/RedCenterDotPhysical.JPG used on input line 11
-58.
+60.
 (pdftex.def)             Requested size: 155.24895pt x 206.99156pt.
 
 <figures/RedCenterDot.JPG, id=294, 1541.76pt x 2055.68pt>
 File: figures/RedCenterDot.JPG Graphic file (type jpg)
 
 <use figures/RedCenterDot.JPG>
-Package pdftex.def Info: figures/RedCenterDot.JPG used on input line 1164.
+Package pdftex.def Info: figures/RedCenterDot.JPG used on input line 1166.
 (pdftex.def)             Requested size: 155.24895pt x 206.99156pt.
 
 <figures/RedRightDotPhysical.JPG, id=295, 1541.76pt x 2055.68pt>
@@ -903,14 +941,14 @@ File: figures/RedRightDotPhysical.JPG Graphic file (type jpg)
 
 <use figures/RedRightDotPhysical.JPG>
 Package pdftex.def Info: figures/RedRightDotPhysical.JPG used on input line 118
-0.
+2.
 (pdftex.def)             Requested size: 155.24895pt x 206.99156pt.
 
 <figures/RedRightDot.JPG, id=296, 1927.2pt x 1084.05pt>
 File: figures/RedRightDot.JPG Graphic file (type jpg)
 
 <use figures/RedRightDot.JPG>
-Package pdftex.def Info: figures/RedRightDot.JPG used on input line 1186.
+Package pdftex.def Info: figures/RedRightDot.JPG used on input line 1188.
 (pdftex.def)             Requested size: 155.24895pt x 87.32126pt.
  [52 <./figures/RedCenterDotPhysical.JPG> <./figures/RedCenterDot.JPG>] [53 <./
 figures/RedRightDotPhysical.JPG> <./figures/RedRightDot.JPG>] [54
@@ -921,14 +959,14 @@ File: figures/UserStudyMouseInput.JPG Graphic file (type jpg)
 
 <use figures/UserStudyMouseInput.JPG>
 Package pdftex.def Info: figures/UserStudyMouseInput.JPG used on input line 121
-7.
+9.
 (pdftex.def)             Requested size: 207.0021pt x 147.89604pt.
 
 <figures/LatinSquare5x5.PNG, id=309, 293.898pt x 186.6975pt>
 File: figures/LatinSquare5x5.PNG Graphic file (type png)
 
 <use figures/LatinSquare5x5.PNG>
-Package pdftex.def Info: figures/LatinSquare5x5.PNG used on input line 1228.
+Package pdftex.def Info: figures/LatinSquare5x5.PNG used on input line 1230.
 (pdftex.def)             Requested size: 172.5pt x 109.58081pt.
  [55 <./figures/UserStudyMouseInput.JPG>]
 [56 <./figures/LatinSquare5x5.PNG>]
@@ -936,7 +974,7 @@ Package pdftex.def Info: figures/LatinSquare5x5.PNG used on input line 1228.
 File: figures/grid_hd_allPoints.jpg Graphic file (type jpg)
 
 <use figures/grid_hd_allPoints.jpg>
-Package pdftex.def Info: figures/grid_hd_allPoints.jpg used on input line 1276.
+Package pdftex.def Info: figures/grid_hd_allPoints.jpg used on input line 1278.
 
 (pdftex.def)             Requested size: 102.46486pt x 57.62971pt.
 
@@ -945,7 +983,7 @@ File: figures/random-text-2048x2048_complete.jpg Graphic file (type jpg)
 
 <use figures/random-text-2048x2048_complete.jpg>
 Package pdftex.def Info: figures/random-text-2048x2048_complete.jpg used on inp
-ut line 1282.
+ut line 1284.
 (pdftex.def)             Requested size: 102.46486pt x 102.44498pt.
 
 <figures/3D_Scene_011_allPoints.jpg, id=319, 1027.84pt x 770.88pt>
@@ -953,7 +991,7 @@ File: figures/3D_Scene_011_allPoints.jpg Graphic file (type jpg)
 
 <use figures/3D_Scene_011_allPoints.jpg>
 Package pdftex.def Info: figures/3D_Scene_011_allPoints.jpg used on input line 
-1288.
+1290.
 (pdftex.def)             Requested size: 102.46486pt x 76.84549pt.
  [57 <./figures/grid_hd_allPoints.jpg> <./figures/random-text-2048x2048_complet
 e.jpg> <./figures/3D_Scene_011_allPoints.jpg>] <figures/NYMidZoomA.jpg, id=323,
@@ -961,10 +999,10 @@ e.jpg> <./figures/3D_Scene_011_allPoints.jpg>] <figures/NYMidZoomA.jpg, id=323,
 File: figures/NYMidZoomA.jpg Graphic file (type jpg)
 
 <use figures/NYMidZoomA.jpg>
-Package pdftex.def Info: figures/NYMidZoomA.jpg used on input line 1312.
+Package pdftex.def Info: figures/NYMidZoomA.jpg used on input line 1314.
 (pdftex.def)             Requested size: 345.0pt x 194.06194pt.
 
-Overfull \hbox (22.88615pt too wide) in paragraph at lines 1321--1322
+Overfull \hbox (22.88615pt too wide) in paragraph at lines 1323--1324
 \OT1/cmr/m/n/10 brain scan. The tex-ture set was taken from the \OT1/cmr/m/it/1
 0 Stan-ford vol-ume data archive\OT1/cmr/m/n/10 (available
  []
@@ -974,17 +1012,17 @@ Overfull \hbox (22.88615pt too wide) in paragraph at lines 1321--1322
 File: figures/brain_043.jpg Graphic file (type jpg)
 
 <use figures/brain_043.jpg>
-Package pdftex.def Info: figures/brain_043.jpg used on input line 1328.
+Package pdftex.def Info: figures/brain_043.jpg used on input line 1330.
 (pdftex.def)             Requested size: 155.24895pt x 87.32126pt.
 
 <figures/brain_098.jpg, id=329, 1927.2pt x 1084.05pt>
 File: figures/brain_098.jpg Graphic file (type jpg)
 
 <use figures/brain_098.jpg>
-Package pdftex.def Info: figures/brain_098.jpg used on input line 1334.
+Package pdftex.def Info: figures/brain_098.jpg used on input line 1336.
 (pdftex.def)             Requested size: 155.24895pt x 87.32126pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1342--1343
+Underfull \hbox (badness 10000) in paragraph at lines 1344--1345
 
  []
 
@@ -999,7 +1037,7 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
  [61] [62]
-Underfull \hbox (badness 10000) in paragraph at lines 1421--1422
+Underfull \hbox (badness 10000) in paragraph at lines 1423--1424
 
  []
 
@@ -1007,7 +1045,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1421--1422
 File: figures/results/POA_Pairs.PNG Graphic file (type png)
 
 <use figures/results/POA_Pairs.PNG>
-Package pdftex.def Info: figures/results/POA_Pairs.PNG used on input line 1426.
+Package pdftex.def Info: figures/results/POA_Pairs.PNG used on input line 1428.
 
 (pdftex.def)             Requested size: 345.0pt x 181.89485pt.
  [63 <./figures/results/POA_Pairs.PNG>]
@@ -1015,14 +1053,14 @@ Package pdftex.def Info: figures/results/POA_Pairs.PNG used on input line 1426.
 File: figures/results/POA_Test.PNG Graphic file (type png)
 
 <use figures/results/POA_Test.PNG>
-Package pdftex.def Info: figures/results/POA_Test.PNG used on input line 1436.
+Package pdftex.def Info: figures/results/POA_Test.PNG used on input line 1438.
 (pdftex.def)             Requested size: 345.0pt x 207.0879pt.
 
 <figures/results/POA_Graph.PNG, id=348, 425.79076pt x 373.395pt>
 File: figures/results/POA_Graph.PNG Graphic file (type png)
 
 <use figures/results/POA_Graph.PNG>
-Package pdftex.def Info: figures/results/POA_Graph.PNG used on input line 1447.
+Package pdftex.def Info: figures/results/POA_Graph.PNG used on input line 1449.
 
 (pdftex.def)             Requested size: 345.0pt x 302.55084pt.
 
@@ -1030,7 +1068,7 @@ Package pdftex.def Info: figures/results/POA_Graph.PNG used on input line 1447.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
+Underfull \hbox (badness 10000) in paragraph at lines 1454--1455
 
  []
 
@@ -1039,7 +1077,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
 File: figures/results/OPOA_Pairs.PNG Graphic file (type png)
 
 <use figures/results/OPOA_Pairs.PNG>
-Package pdftex.def Info: figures/results/OPOA_Pairs.PNG used on input line 1458
+Package pdftex.def Info: figures/results/OPOA_Pairs.PNG used on input line 1460
 .
 (pdftex.def)             Requested size: 345.0pt x 68.30954pt.
 
@@ -1050,7 +1088,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figures/results/OPOA_Test.PNG Graphic file (type png)
 
 <use figures/results/OPOA_Test.PNG>
-Package pdftex.def Info: figures/results/OPOA_Test.PNG used on input line 1466.
+Package pdftex.def Info: figures/results/OPOA_Test.PNG used on input line 1468.
 
 (pdftex.def)             Requested size: 345.0pt x 101.30693pt.
 
@@ -1062,7 +1100,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figures/results/OPOA_Graph.PNG Graphic file (type png)
 
 <use figures/results/OPOA_Graph.PNG>
-Package pdftex.def Info: figures/results/OPOA_Graph.PNG used on input line 1477
+Package pdftex.def Info: figures/results/OPOA_Graph.PNG used on input line 1479
 .
 (pdftex.def)             Requested size: 293.2521pt x 234.45285pt.
 
@@ -1073,7 +1111,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: figures/results/OPOA_Area.PNG Graphic file (type png)
 
 <use figures/results/OPOA_Area.PNG>
-Package pdftex.def Info: figures/results/OPOA_Area.PNG used on input line 1486.
+Package pdftex.def Info: figures/results/OPOA_Area.PNG used on input line 1488.
 
 (pdftex.def)             Requested size: 345.0pt x 273.24469pt.
 
@@ -1081,7 +1119,7 @@ Package pdftex.def Info: figures/results/OPOA_Area.PNG used on input line 1486.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1491--1492
+Underfull \hbox (badness 10000) in paragraph at lines 1493--1494
 
  []
 
@@ -1090,7 +1128,7 @@ File: figures/results/Consistency_Pairs.PNG Graphic file (type png)
 
 <use figures/results/Consistency_Pairs.PNG>
 Package pdftex.def Info: figures/results/Consistency_Pairs.PNG used on input li
-ne 1496.
+ne 1498.
 (pdftex.def)             Requested size: 345.0pt x 123.8393pt.
 
 
@@ -1101,7 +1139,7 @@ File: figures/results/Consistency_Test.PNG Graphic file (type png)
 
 <use figures/results/Consistency_Test.PNG>
 Package pdftex.def Info: figures/results/Consistency_Test.PNG used on input lin
-e 1505.
+e 1507.
 (pdftex.def)             Requested size: 345.0pt x 148.94789pt.
 
 
@@ -1112,20 +1150,20 @@ File: figures/results/Consistency_Graph.PNG Graphic file (type png)
 
 <use figures/results/Consistency_Graph.PNG>
 Package pdftex.def Info: figures/results/Consistency_Graph.PNG used on input li
-ne 1514.
+ne 1516.
 (pdftex.def)             Requested size: 293.2521pt x 240.4059pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [66 <./figures/results/OPOA_Pairs.PNG> <./figures/results/OPOA_Test.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 1521--1523
+Underfull \hbox (badness 10000) in paragraph at lines 1523--1525
 
  []
 
 [67 <./figures/results/OPOA_Graph.PNG> <./figures/results/Consistency_Pairs.PNG
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 1523--1524
+Underfull \hbox (badness 10000) in paragraph at lines 1525--1526
 
  []
 
@@ -1135,7 +1173,7 @@ File: figures/results/Preference_Pairs.PNG Graphic file (type png)
 
 <use figures/results/Preference_Pairs.PNG>
 Package pdftex.def Info: figures/results/Preference_Pairs.PNG used on input lin
-e 1528.
+e 1530.
 (pdftex.def)             Requested size: 345.0pt x 206.1366pt.
 
 
@@ -1146,7 +1184,7 @@ File: figures/results/Preference_Test.PNG Graphic file (type png)
 
 <use figures/results/Preference_Test.PNG>
 Package pdftex.def Info: figures/results/Preference_Test.PNG used on input line
- 1536.
+ 1538.
 (pdftex.def)             Requested size: 345.0pt x 233.60461pt.
 
 
@@ -1157,7 +1195,7 @@ File: figures/results/Preference_Graph.PNG Graphic file (type png)
 
 <use figures/results/Preference_Graph.PNG>
 Package pdftex.def Info: figures/results/Preference_Graph.PNG used on input lin
-e 1545.
+e 1547.
 (pdftex.def)             Requested size: 293.2521pt x 253.74072pt.
 
 
@@ -1169,14 +1207,14 @@ File: figures/results/Preference_Area.PNG Graphic file (type png)
 
 <use figures/results/Preference_Area.PNG>
 Package pdftex.def Info: figures/results/Preference_Area.PNG used on input line
- 1554.
+ 1556.
 (pdftex.def)             Requested size: 345.0pt x 294.62375pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1559--1560
+Underfull \hbox (badness 10000) in paragraph at lines 1561--1562
 
  []
 
@@ -1186,19 +1224,19 @@ File: figures/results/DifferenceChart.PNG Graphic file (type png)
 
 <use figures/results/DifferenceChart.PNG>
 Package pdftex.def Info: figures/results/DifferenceChart.PNG used on input line
- 1565.
+ 1567.
 (pdftex.def)             Requested size: 293.2521pt x 260.21158pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1580--1582
+Underfull \hbox (badness 10000) in paragraph at lines 1582--1584
 
  []
 
 [71 <./figures/results/Preference_Graph.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 1582--1583
+Underfull \hbox (badness 10000) in paragraph at lines 1584--1585
 
  []
 
@@ -1208,14 +1246,14 @@ File: figures/results/CenterPointGraph.PNG Graphic file (type png)
 
 <use figures/results/CenterPointGraph.PNG>
 Package pdftex.def Info: figures/results/CenterPointGraph.PNG used on input lin
-e 1590.
+e 1592.
 (pdftex.def)             Requested size: 293.2521pt x 259.34746pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1595--1596
+Underfull \hbox (badness 10000) in paragraph at lines 1597--1598
 
  []
 
@@ -1235,14 +1273,14 @@ File: figures/results/LeftPointGraph.PNG Graphic file (type png)
 
 <use figures/results/LeftPointGraph.PNG>
 Package pdftex.def Info: figures/results/LeftPointGraph.PNG used on input line 
-1604.
+1606.
 (pdftex.def)             Requested size: 276.00105pt x 238.38727pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1609--1610
+Underfull \hbox (badness 10000) in paragraph at lines 1611--1612
 
  []
 
@@ -1258,14 +1296,14 @@ File: figures/results/RightPointGraph.PNG Graphic file (type png)
 
 <use figures/results/RightPointGraph.PNG>
 Package pdftex.def Info: figures/results/RightPointGraph.PNG used on input line
- 1616.
+ 1618.
 (pdftex.def)             Requested size: 276.00105pt x 244.35497pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1621--1622
+Underfull \hbox (badness 10000) in paragraph at lines 1623--1624
 
  []
 
@@ -1274,7 +1312,7 @@ File: figures/results/QualitativeOverall.PNG Graphic file (type png)
 
 <use figures/results/QualitativeOverall.PNG>
 Package pdftex.def Info: figures/results/QualitativeOverall.PNG used on input l
-ine 1628.
+ine 1630.
 (pdftex.def)             Requested size: 276.00105pt x 244.95139pt.
 
 
@@ -1285,10 +1323,10 @@ aph.PNG> <./figures/results/QualitativeOverall.PNG>] [77
 
 ] [78
 
-] [79
+] [79] [80
 
 ]
-(./MScThesis_DanAvram.bbl
+[81] (./MScThesis_DanAvram.bbl
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no Æ in font cmr10!
 
@@ -1320,24 +1358,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--71
 ids-a-
  []
 
-[80]
-Underfull \hbox (badness 1033) in paragraph at lines 134--139
+[82]
+Underfull \hbox (badness 1033) in paragraph at lines 139--144
 []\OT1/cmr/m/n/10 Watanabe et al.  \OT1/cmr/m/it/10 955-fps Real-time Shape Mea
 -sure-ment of a Mov-
  []
 
-[81]
-Underfull \hbox (badness 10000) in paragraph at lines 198--204
+[83]
+Underfull \hbox (badness 10000) in paragraph at lines 203--209
 \OT1/cmtt/m/n/10 local _ copies _ of _ sources _ Cardinal _ and _ Aitken _ ANOV
 A / errorbars .
  []
 
-) [82]
+) [84]
 \openout2 = `A.aux'.
 
 
 No file A.tex.
-[83
+[85
 
 
 ]
@@ -1345,7 +1383,7 @@ No file A.tex.
 
 
 No file B.tex.
-[84
+[86
 
 
 
@@ -1355,24 +1393,343 @@ No file B.tex.
 
 
 No file C.tex.
-[85
+<documents/UserStudyRandomization.pdf, id=456, 614.295pt x 794.97pt>
+File: documents/UserStudyRandomization.pdf Graphic file (type pdf)
+
+<use documents/UserStudyRandomization.pdf>
+Package pdftex.def Info: documents/UserStudyRandomization.pdf used on input lin
+e 1710.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: documents/UserStudyRandomization.pdf Graphic file (type pdf)
+
+<use documents/UserStudyRandomization.pdf>
+Package pdftex.def Info: documents/UserStudyRandomization.pdf used on input lin
+e 1710.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+ [87
 
 
 
 
-] (./MScThesis_DanAvram.aux (./A.aux) (./B.aux) (./C.aux))
+]
+<documents/UserStudyRandomization.pdf, id=462, page=1, 614.295pt x 794.97pt>
+File: documents/UserStudyRandomization.pdf Graphic file (type pdf)
+
+<use documents/UserStudyRandomization.pdf, page 1>
+Package pdftex.def Info: documents/UserStudyRandomization.pdf, page1 used on in
+put line 1710.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: documents/UserStudyRandomization.pdf Graphic file (type pdf)
+
+<use documents/UserStudyRandomization.pdf, page 1>
+Package pdftex.def Info: documents/UserStudyRandomization.pdf, page1 used on in
+put line 1710.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/UserStudyRandomization.pdf Graphic file (type pdf)
+
+<use documents/UserStudyRandomization.pdf, page 1>
+Package pdftex.def Info: documents/UserStudyRandomization.pdf, page1 used on in
+put line 1710.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/UserStudyRandomization.pdf Graphic file (type pdf)
+
+<use documents/UserStudyRandomization.pdf, page 1>
+Package pdftex.def Info: documents/UserStudyRandomization.pdf, page1 used on in
+put line 1710.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/UserStudyRandomization.pdf Graphic file (type pdf)
+
+<use documents/UserStudyRandomization.pdf, page 1>
+Package pdftex.def Info: documents/UserStudyRandomization.pdf, page1 used on in
+put line 1710.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [88 <./documents/UserStudyRandomization.pdf>]
+<documents/DeformableDisplayExperimentIntroduction.pdf, id=487, 614.295pt x 794
+.97pt>
+File: documents/DeformableDisplayExperimentIntroduction.pdf Graphic file (type 
+pdf)
+ <use documents/DeformableDisplayExperimentIntroduction.pdf>
+Package pdftex.def Info: documents/DeformableDisplayExperimentIntroduction.pdf 
+used on input line 1711.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: documents/DeformableDisplayExperimentIntroduction.pdf Graphic file (type 
+pdf)
+
+<use documents/DeformableDisplayExperimentIntroduction.pdf>
+Package pdftex.def Info: documents/DeformableDisplayExperimentIntroduction.pdf 
+used on input line 1711.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<documents/DeformableDisplayExperimentIntroduction.pdf, id=490, page=1, 614.295
+pt x 794.97pt>
+File: documents/DeformableDisplayExperimentIntroduction.pdf Graphic file (type 
+pdf)
+
+<use documents/DeformableDisplayExperimentIntroduction.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayExperimentIntroduction.pdf,
+ page1 used on input line 1711.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: documents/DeformableDisplayExperimentIntroduction.pdf Graphic file (type 
+pdf)
+
+<use documents/DeformableDisplayExperimentIntroduction.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayExperimentIntroduction.pdf,
+ page1 used on input line 1711.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayExperimentIntroduction.pdf Graphic file (type 
+pdf)
+
+<use documents/DeformableDisplayExperimentIntroduction.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayExperimentIntroduction.pdf,
+ page1 used on input line 1711.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayExperimentIntroduction.pdf Graphic file (type 
+pdf)
+
+<use documents/DeformableDisplayExperimentIntroduction.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayExperimentIntroduction.pdf,
+ page1 used on input line 1711.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayExperimentIntroduction.pdf Graphic file (type 
+pdf)
+
+<use documents/DeformableDisplayExperimentIntroduction.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayExperimentIntroduction.pdf,
+ page1 used on input line 1711.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [89 <./documents/DeformableDisplayExperimentIntroduction.pdf>]
+<documents/DeformableDisplayQuestionnaire.pdf, id=518, 614.295pt x 794.97pt>
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf used on i
+nput line 1712.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf used on i
+nput line 1712.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<documents/DeformableDisplayQuestionnaire.pdf, id=521, page=1, 614.295pt x 794.
+97pt>
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+ <use documents/DeformableDisplayQuestionnaire.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page1 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page1 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page1 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page1 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page1 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [90 <./documents/DeformableDisplayQuestionnaire.pdf>]
+<documents/DeformableDisplayQuestionnaire.pdf, id=564, page=2, 614.295pt x 794.
+97pt>
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+ <use documents/DeformableDisplayQuestionnaire.pdf, page 2>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page2 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 2>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page2 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 2>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page2 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [91 <./documents/DeformableDisplayQuestionnaire.pdf>]
+<documents/DeformableDisplayQuestionnaire.pdf, id=569, page=3, 614.295pt x 794.
+97pt>
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+ <use documents/DeformableDisplayQuestionnaire.pdf, page 3>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page3 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 3>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page3 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 3>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page3 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [92 <./documents/DeformableDisplayQuestionnaire.pdf>]
+<documents/DeformableDisplayQuestionnaire.pdf, id=574, page=4, 614.295pt x 794.
+97pt>
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+ <use documents/DeformableDisplayQuestionnaire.pdf, page 4>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page4 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 4>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page4 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 4>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page4 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [93 <./documents/DeformableDisplayQuestionnaire.pdf>]
+<documents/DeformableDisplayQuestionnaire.pdf, id=579, page=5, 614.295pt x 794.
+97pt>
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+ <use documents/DeformableDisplayQuestionnaire.pdf, page 5>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page5 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 5>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page5 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 5>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page5 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [94 <./documents/DeformableDisplayQuestionnaire.pdf>]
+<documents/DeformableDisplayQuestionnaire.pdf, id=585, page=6, 614.295pt x 794.
+97pt>
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+ <use documents/DeformableDisplayQuestionnaire.pdf, page 6>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page6 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 6>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page6 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 6>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page6 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [95 <./documents/DeformableDisplayQuestionnaire.pdf>]
+<documents/DeformableDisplayQuestionnaire.pdf, id=590, page=7, 614.295pt x 794.
+97pt>
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+ <use documents/DeformableDisplayQuestionnaire.pdf, page 7>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page7 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 7>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page7 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayQuestionnaire.pdf Graphic file (type pdf)
+
+<use documents/DeformableDisplayQuestionnaire.pdf, page 7>
+Package pdftex.def Info: documents/DeformableDisplayQuestionnaire.pdf, page7 us
+ed on input line 1712.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [96 <./documents/DeformableDisplayQuestionnaire.pdf>]
+<documents/DeformableDisplayUserScenarioNotes1.pdf, id=595, 614.295pt x 794.97p
+t>
+File: documents/DeformableDisplayUserScenarioNotes1.pdf Graphic file (type pdf)
+
+ <use documents/DeformableDisplayUserScenarioNotes1.pdf>
+Package pdftex.def Info: documents/DeformableDisplayUserScenarioNotes1.pdf used
+ on input line 1713.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: documents/DeformableDisplayUserScenarioNotes1.pdf Graphic file (type pdf)
+
+
+<use documents/DeformableDisplayUserScenarioNotes1.pdf>
+Package pdftex.def Info: documents/DeformableDisplayUserScenarioNotes1.pdf used
+ on input line 1713.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+<documents/DeformableDisplayUserScenarioNotes1.pdf, id=598, page=1, 614.295pt x
+ 794.97pt>
+File: documents/DeformableDisplayUserScenarioNotes1.pdf Graphic file (type pdf)
+
+ <use documents/DeformableDisplayUserScenarioNotes1.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayUserScenarioNotes1.pdf, pag
+e1 used on input line 1713.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: documents/DeformableDisplayUserScenarioNotes1.pdf Graphic file (type pdf)
+
+
+<use documents/DeformableDisplayUserScenarioNotes1.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayUserScenarioNotes1.pdf, pag
+e1 used on input line 1713.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayUserScenarioNotes1.pdf Graphic file (type pdf)
+
+
+<use documents/DeformableDisplayUserScenarioNotes1.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayUserScenarioNotes1.pdf, pag
+e1 used on input line 1713.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayUserScenarioNotes1.pdf Graphic file (type pdf)
+
+
+<use documents/DeformableDisplayUserScenarioNotes1.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayUserScenarioNotes1.pdf, pag
+e1 used on input line 1713.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+File: documents/DeformableDisplayUserScenarioNotes1.pdf Graphic file (type pdf)
+
+
+<use documents/DeformableDisplayUserScenarioNotes1.pdf, page 1>
+Package pdftex.def Info: documents/DeformableDisplayUserScenarioNotes1.pdf, pag
+e1 used on input line 1713.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+ [97 <./documents/DeformableDisplayUserScenarioNotes1.pdf>] (./MScThesis_DanAvr
+am.aux (./A.aux) (./B.aux) (./C.aux))
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6399 strings out of 493308
- 115991 string characters out of 6139147
- 173378 words of memory out of 5000000
- 9697 multiletter control sequences out of 15000+600000
+ 7615 strings out of 493308
+ 135376 string characters out of 6139147
+ 202840 words of memory out of 5000000
+ 10881 multiletter control sequences out of 15000+600000
  10796 words of font info for 39 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,8n,40p,1628b,459s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,19n,49p,1628b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d
 :/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/Wo
 rk/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><d:/Work/te
@@ -1388,10 +1745,10 @@ blic/amsfonts/cm/cmsy10.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public
 onts/cm/cmti10.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti9.pfb><d:/Work/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mtt10.pfb>
-Output written on MScThesis_DanAvram.pdf (94 pages, 29159830 bytes).
+Output written on MScThesis_DanAvram.pdf (106 pages, 29963360 bytes).
 PDF statistics:
- 505 PDF objects out of 1000 (max. 8388607)
- 255 compressed objects within 3 object streams
+ 673 PDF objects out of 1000 (max. 8388607)
+ 347 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 391 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 501 words of extra memory for PDF output out of 10000 (max. 10000000)
 

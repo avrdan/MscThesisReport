@@ -27,6 +27,7 @@ Warning--empty year in daalsgard11
 Warning--empty year in triangleStrip
 Warning--empty year in lanman09
 Warning--empty journal in dyken2007
+Warning--empty journal in reynolds08
 Warning--empty year in falcao08
 Warning--empty journal in sung2013
 Warning--empty journal in gokturk
@@ -43,45 +44,45 @@ Warning--empty journal in PCLGreedy
 Warning--empty year in PCLGreedy
 Warning--empty journal in max2013
 Warning--empty year in steimle13
-You've used 43 entries,
+You've used 44 entries,
             2118 wiz_defined-function locations,
-            692 strings with 9505 characters,
-and the built_in function-call counts, 8817 in all, are:
-= -- 794
-> -- 282
+            696 strings with 9597 characters,
+and the built_in function-call counts, 9020 in all, are:
+= -- 813
+> -- 289
 < -- 0
-+ -- 128
-- -- 80
-* -- 368
-:= -- 1461
-add.period$ -- 116
-call.type$ -- 43
-change.case$ -- 153
++ -- 131
+- -- 82
+* -- 376
+:= -- 1499
+add.period$ -- 119
+call.type$ -- 44
+change.case$ -- 157
 chr.to.int$ -- 0
-cite$ -- 75
-duplicate$ -- 427
-empty$ -- 896
-format.name$ -- 80
-if$ -- 1885
+cite$ -- 77
+duplicate$ -- 437
+empty$ -- 913
+format.name$ -- 82
+if$ -- 1925
 int.to.chr$ -- 0
-int.to.str$ -- 43
-missing$ -- 46
-newline$ -- 205
-num.names$ -- 66
-pop$ -- 338
+int.to.str$ -- 44
+missing$ -- 47
+newline$ -- 210
+num.names$ -- 68
+pop$ -- 344
 preamble$ -- 1
-purify$ -- 126
+purify$ -- 129
 quote$ -- 0
-skip$ -- 291
+skip$ -- 298
 stack$ -- 0
-substring$ -- 220
+substring$ -- 225
 swap$ -- 30
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 140
-warning$ -- 32
-while$ -- 66
-width$ -- 45
-write$ -- 380
+type$ -- 144
+warning$ -- 33
+while$ -- 68
+width$ -- 46
+write$ -- 389
 (There was 1 error message)
