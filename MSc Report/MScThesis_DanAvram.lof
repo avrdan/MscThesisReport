@@ -1,60 +1,68 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Physical setup of the prototype\relax }}{2}
-\contentsline {figure}{\numberline {2}{\ignorespaces Projection on Holger the Dane. Courtesy of \cite {daalsgard11}\relax }}{3}
-\contentsline {figure}{\numberline {3}{\ignorespaces Interaction with Flexpad. Courtesy of \cite {steimle13}\relax }}{4}
-\contentsline {figure}{\numberline {4}{\ignorespaces Deformation model of Flexpad(left) and deformations it can express(right). Courtesy of \cite {steimle13}\relax }}{4}
-\contentsline {figure}{\numberline {5}{\ignorespaces The Future Office. Courtesy of \cite {raskar98}\relax }}{6}
-\contentsline {figure}{\numberline {6}{\ignorespaces The Deformable Workspace Setup. Courtesy of \cite {watanabe08}\relax }}{7}
-\contentsline {figure}{\numberline {7}{\ignorespaces Compensation of image warp caused by screen deformation. Courtesy of \cite {watanabe08}\relax }}{9}
-\contentsline {figure}{\numberline {8}{\ignorespaces a) Only a portion of the object can be magnified with a small fisheye lens; b) A large fisheye magnifies almost the entire object, but at the cost of added distortion for sorrounding objects; c) JellyLens - adapting the relevant information of the object, while preserving the surrounding areas. Courtesy of \cite {pindat12}\relax }}{10}
-\contentsline {figure}{\numberline {9}{\ignorespaces Distortion Correction Pipeline\relax }}{11}
-\contentsline {figure}{\numberline {10}{\ignorespaces A setup that needs projector-camera calibration\relax }}{13}
-\contentsline {figure}{\numberline {11}{\ignorespaces The projection frustum. Courtesy of \cite {superbible}\relax }}{14}
-\contentsline {figure}{\numberline {12}{\ignorespaces A 4x4 matrix that represents a position(column 4) and orientation(columns 1-3) in space. Courtesy of \cite {superbible}\relax }}{15}
-\contentsline {figure}{\numberline {13}{\ignorespaces General Pinhole Camera Model\relax }}{16}
-\contentsline {figure}{\numberline {14}{\ignorespaces Vertex Transformation Pipeline. Courtesy of \cite {superbible}\relax }}{17}
-\contentsline {figure}{\numberline {15}{\ignorespaces 3D Graphics Pipeline\relax }}{17}
-\contentsline {figure}{\numberline {16}{\ignorespaces An example point cloud, corresponding to the depth stream, updated in real-time.\relax }}{18}
-\contentsline {figure}{\numberline {17}{\ignorespaces Perspective View of Some Terrain. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{20}
-\contentsline {figure}{\numberline {18}{\ignorespaces Polyhedral(solid object with flat surfaces) Terrain. Smoothness will depend on point density. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{20}
-\contentsline {figure}{\numberline {19}{\ignorespaces Ordering of vertices in a triangle strip for a grid. Courtesy of \cite {triangleStrip}.\relax }}{21}
-\contentsline {figure}{\numberline {20}{\ignorespaces a)Mountain ridge; b) Narrow valley. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{22}
-\contentsline {figure}{\numberline {21}{\ignorespaces Voxel data representation. Courtesy of \cite {navpreet2013}\relax }}{23}
-\contentsline {figure}{\numberline {22}{\ignorespaces Marching Cubes - The 14 Patterns of Triangulated Cubes. Courtesy of \cite {william87}\relax }}{24}
-\contentsline {figure}{\numberline {23}{\ignorespaces Marching Cubes - Cube Numbering. Courtesy of \cite {william87}\relax }}{25}
-\contentsline {figure}{\numberline {24}{\ignorespaces Mesh from point cloud reconstruction of a bunny.\relax }}{27}
-\contentsline {figure}{\numberline {25}{\ignorespaces Virtual Projector Transformation Pipeline. Courtesy of \cite {cassNvidia}\relax }}{28}
-\contentsline {figure}{\numberline {26}{\ignorespaces Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space. Courtesy of \cite {cassNvidia}\relax }}{29}
-\contentsline {figure}{\numberline {27}{\ignorespaces Object Linear Texgen. Courtesy of \cite {cassNvidia}\relax }}{29}
-\contentsline {figure}{\numberline {28}{\ignorespaces Eye Linear Texgen. Courtesy of \cite {cassNvidia}\relax }}{30}
-\contentsline {figure}{\numberline {29}{\ignorespaces Vertex array layout with two vertex attributes. Courtesy of \cite {kilgard2009}\relax }}{33}
-\contentsline {figure}{\numberline {30}{\ignorespaces Transfers of vertex array object data using DMA.\relax }}{34}
-\contentsline {figure}{\numberline {31}{\ignorespaces A grid texture whch shows the noise reduction obtained by averaging.\relax }}{40}
-\contentsline {figure}{\numberline {32}{\ignorespaces Reverse projection after applying PTM. Courtesy of \cite {cassNvidia}\relax }}{44}
-\contentsline {figure}{\numberline {33}{\ignorespaces PTM applied on a Suzanne monkey head from Blender, and on a floor with a small cube. The frustum represents the virtual projector.\relax }}{45}
-\contentsline {figure}{\numberline {34}{\ignorespaces A grid with four corners and a red border, used to test the physical alignment of the projector to the cloth.\relax }}{46}
-\contentsline {figure}{\numberline {35}{\ignorespaces The alignment grid texture projected on the cloth.\relax }}{46}
-\contentsline {figure}{\numberline {36}{\ignorespaces Illustration of alignments in the four corners of the frame.\relax }}{47}
-\contentsline {figure}{\numberline {37}{\ignorespaces The depth camera is setup on a tripod. By reversing the column we can get the center of the depth camera to roughly correspond to the center of the projected image.\relax }}{48}
-\contentsline {figure}{\numberline {38}{\ignorespaces A comparison which shows that pushing in the center roughly modifies the same area of both the depth stream and physical image.\relax }}{48}
-\contentsline {figure}{\numberline {39}{\ignorespaces The frame placement. Distance is displayed in red.\relax }}{48}
-\contentsline {figure}{\numberline {40}{\ignorespaces Points for which depth had been extracted and compared.\relax }}{49}
-\contentsline {figure}{\numberline {41}{\ignorespaces Texture Aligned to Cloth Surface. The area inside the red rectangle shows an offset.\relax }}{50}
-\contentsline {figure}{\numberline {42}{\ignorespaces The area has been magnified. An arrow points towards the line that separates the frame from the cloth.\relax }}{50}
-\contentsline {figure}{\numberline {43}{\ignorespaces Correspondence between physical and virtual images.\relax }}{52}
-\contentsline {figure}{\numberline {44}{\ignorespaces Correspondence between physical and virtual images.\relax }}{53}
-\contentsline {figure}{\numberline {45}{\ignorespaces The input device for switching between the methods.\relax }}{55}
-\contentsline {figure}{\numberline {46}{\ignorespaces A $5 \times 5$ latin square that denotes the order in which scenarios were shown to the user.\relax }}{56}
-\contentsline {figure}{\numberline {47}{\ignorespaces Grid, Text and Column Textures. Red dots indicate interaction areas.\relax }}{57}
-\contentsline {figure}{\numberline {48}{\ignorespaces A map showing a region of New York City. Courtesy of Google Maps.\relax }}{58}
-\contentsline {figure}{\numberline {49}{\ignorespaces CT scan of a brain. Example of two different textures(slices). Courtesy of \cite {levoy2001}\relax }}{59}
-\contentsline {figure}{\numberline {50}{\ignorespaces Mean of preservation of appearance, per scenario.\relax }}{65}
-\contentsline {figure}{\numberline {51}{\ignorespaces Mean of preservation of appearance, overall.\relax }}{67}
-\contentsline {figure}{\numberline {52}{\ignorespaces An area chart showing the perceived overall preservation of appearance, for both methods and all participants.\relax }}{68}
-\contentsline {figure}{\numberline {53}{\ignorespaces Consistency mean, per scenario.\relax }}{69}
-\contentsline {figure}{\numberline {54}{\ignorespaces Means of method preferences, per scenario and overall.\relax }}{71}
-\contentsline {figure}{\numberline {55}{\ignorespaces An area chart showing the perceived overall method preference.\relax }}{72}
-\contentsline {figure}{\numberline {56}{\ignorespaces Mean of perceived differences between methods, per scenario.\relax }}{73}
-\contentsline {figure}{\numberline {57}{\ignorespaces Results for the center point.\relax }}{74}
-\contentsline {figure}{\numberline {58}{\ignorespaces Results for the left-most point.\relax }}{75}
-\contentsline {figure}{\numberline {59}{\ignorespaces Results for the right-most point.\relax }}{76}
-\contentsline {figure}{\numberline {60}{\ignorespaces Qualitative results for the overall case, grouped in a few categories.\relax }}{76}
+\contentsline {figure}{\numberline {1}{\ignorespaces Back View of the Deformable Display\relax }}{3}
+\contentsline {figure}{\numberline {2}{\ignorespaces \textbf {Creative Senz3D} Time-Of-Flight(\textbf {TOF}) Depth Camera, mounted on a tripod.\relax }}{3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Physical setup of the prototype\relax }}{4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Projection on Holger the Dane. Courtesy of \cite {daalsgard11}\relax }}{5}
+\contentsline {figure}{\numberline {5}{\ignorespaces Interaction with Flexpad. Courtesy of \cite {steimle13}\relax }}{6}
+\contentsline {figure}{\numberline {6}{\ignorespaces Deformation model of Flexpad(left) and deformations it can express(right). Courtesy of \cite {steimle13}\relax }}{7}
+\contentsline {figure}{\numberline {7}{\ignorespaces The Future Office. Courtesy of \cite {raskar98}\relax }}{8}
+\contentsline {figure}{\numberline {8}{\ignorespaces The Deformable Workspace Setup. Courtesy of \cite {watanabe08}\relax }}{9}
+\contentsline {figure}{\numberline {9}{\ignorespaces Compensation of image warp caused by screen deformation. Courtesy of \cite {watanabe08}\relax }}{11}
+\contentsline {figure}{\numberline {10}{\ignorespaces a) Only a portion of the object can be magnified with a small fisheye lens; b) A large fisheye magnifies almost the entire object, but at the cost of added distortion for sorrounding objects; c) JellyLens - adapting the relevant information of the object, while preserving the surrounding areas. Courtesy of \cite {pindat12}\relax }}{12}
+\contentsline {figure}{\numberline {11}{\ignorespaces Distortion Correction Pipeline\relax }}{13}
+\contentsline {figure}{\numberline {12}{\ignorespaces A setup that needs projector-camera calibration\relax }}{15}
+\contentsline {figure}{\numberline {13}{\ignorespaces The projection frustum. Courtesy of \cite {superbible}\relax }}{16}
+\contentsline {figure}{\numberline {14}{\ignorespaces A 4x4 matrix that represents a position(column 4) and orientation(columns 1-3) in space. Courtesy of \cite {superbible}\relax }}{17}
+\contentsline {figure}{\numberline {15}{\ignorespaces Coordinate system differences between the two libraries.\relax }}{19}
+\contentsline {figure}{\numberline {16}{\ignorespaces General Pinhole Camera Model\relax }}{19}
+\contentsline {figure}{\numberline {17}{\ignorespaces Vertex Transformation Pipeline. Courtesy of \cite {superbible}\relax }}{21}
+\contentsline {figure}{\numberline {18}{\ignorespaces 3D Graphics Pipeline\relax }}{21}
+\contentsline {figure}{\numberline {19}{\ignorespaces An example point cloud, corresponding to the depth stream, updated in real-time.\relax }}{22}
+\contentsline {figure}{\numberline {20}{\ignorespaces Perspective View of Some Terrain. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{24}
+\contentsline {figure}{\numberline {21}{\ignorespaces Polyhedral(solid object with flat surfaces) Terrain. Smoothness will depend on point density. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{24}
+\contentsline {figure}{\numberline {22}{\ignorespaces Ordering of vertices in a triangle strip for a grid. Courtesy of \cite {triangleStrip}.\relax }}{25}
+\contentsline {figure}{\numberline {23}{\ignorespaces a)Mountain ridge; b) Narrow valley. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{26}
+\contentsline {figure}{\numberline {24}{\ignorespaces Voxel data representation. Courtesy of \cite {navpreet2013}\relax }}{27}
+\contentsline {figure}{\numberline {25}{\ignorespaces Marching Cubes - The 14 Patterns of Triangulated Cubes. Courtesy of \cite {william87}\relax }}{28}
+\contentsline {figure}{\numberline {26}{\ignorespaces Marching Cubes - Cube Numbering. Courtesy of \cite {william87}\relax }}{29}
+\contentsline {figure}{\numberline {27}{\ignorespaces Mesh from point cloud reconstruction of a bunny.\relax }}{31}
+\contentsline {figure}{\numberline {28}{\ignorespaces Virtual Projector Transformation Pipeline. Courtesy of \cite {cassNvidia}\relax }}{32}
+\contentsline {figure}{\numberline {29}{\ignorespaces Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space. Courtesy of \cite {cassNvidia}\relax }}{32}
+\contentsline {figure}{\numberline {30}{\ignorespaces Object Linear Texgen. Courtesy of \cite {cassNvidia}\relax }}{33}
+\contentsline {figure}{\numberline {31}{\ignorespaces Eye Linear Texgen. Courtesy of \cite {cassNvidia}\relax }}{33}
+\contentsline {figure}{\numberline {32}{\ignorespaces Vertex array layout with two vertex attributes. Courtesy of \cite {kilgard2009}\relax }}{37}
+\contentsline {figure}{\numberline {33}{\ignorespaces Transfers of vertex array object data using DMA.\relax }}{38}
+\contentsline {figure}{\numberline {34}{\ignorespaces A grid texture which shows the noise reduction obtained by averaging.\relax }}{44}
+\contentsline {figure}{\numberline {35}{\ignorespaces Reverse projection after applying PTM. Courtesy of \cite {cassNvidia}\relax }}{48}
+\contentsline {figure}{\numberline {36}{\ignorespaces PTM applied on a Suzanne monkey head from Blender, and on a floor with a small cube. The frustum represents the virtual projector.\relax }}{49}
+\contentsline {figure}{\numberline {37}{\ignorespaces A grid with four corners and a red border, used to test the physical alignment of the projector to the cloth.\relax }}{50}
+\contentsline {figure}{\numberline {38}{\ignorespaces The alignment grid texture projected on the cloth.\relax }}{50}
+\contentsline {figure}{\numberline {39}{\ignorespaces Illustration of alignments in the four corners of the frame.\relax }}{51}
+\contentsline {figure}{\numberline {40}{\ignorespaces The depth camera is setup on a tripod. By reversing the column we can get the center of the depth camera to roughly correspond to the center of the projected image.\relax }}{52}
+\contentsline {figure}{\numberline {41}{\ignorespaces A comparison which shows that pushing in the center roughly modifies the same area of both the depth stream and physical image.\relax }}{52}
+\contentsline {figure}{\numberline {42}{\ignorespaces The frame placement. Distance is displayed in red.\relax }}{52}
+\contentsline {figure}{\numberline {43}{\ignorespaces Points for which depth had been extracted and compared.\relax }}{53}
+\contentsline {figure}{\numberline {44}{\ignorespaces Texture Aligned to Cloth Surface. The area inside the red rectangle shows an offset.\relax }}{54}
+\contentsline {figure}{\numberline {45}{\ignorespaces The area has been magnified. An arrow points towards the line that separates the frame from the cloth.\relax }}{54}
+\contentsline {figure}{\numberline {46}{\ignorespaces Correspondence between physical and virtual images.\relax }}{56}
+\contentsline {figure}{\numberline {47}{\ignorespaces Correspondence between physical and virtual images.\relax }}{57}
+\contentsline {figure}{\numberline {48}{\ignorespaces The input device for switching between the methods.\relax }}{59}
+\contentsline {figure}{\numberline {49}{\ignorespaces A $5 \times 5$ latin square that denotes the order in which scenarios were shown to the user.\relax }}{60}
+\contentsline {figure}{\numberline {50}{\ignorespaces Grid, Text and Column Textures. Red dots indicate interaction areas.\relax }}{61}
+\contentsline {figure}{\numberline {51}{\ignorespaces A map showing a region of New York City. Courtesy of Google Maps.\relax }}{62}
+\contentsline {figure}{\numberline {52}{\ignorespaces CT scan of a brain. Example of two different textures(slices). Courtesy of \cite {levoy2001}\relax }}{63}
+\contentsline {figure}{\numberline {53}{\ignorespaces Mean of preservation of appearance, per scenario.\relax }}{69}
+\contentsline {figure}{\numberline {54}{\ignorespaces Mean of preservation of appearance, overall.\relax }}{71}
+\contentsline {figure}{\numberline {55}{\ignorespaces An area chart showing the perceived overall preservation of appearance, for both methods and all participants.\relax }}{72}
+\contentsline {figure}{\numberline {56}{\ignorespaces Consistency mean, per scenario.\relax }}{73}
+\contentsline {figure}{\numberline {57}{\ignorespaces Means of method preferences, per scenario and overall.\relax }}{75}
+\contentsline {figure}{\numberline {58}{\ignorespaces An area chart showing the perceived overall method preference.\relax }}{76}
+\contentsline {figure}{\numberline {59}{\ignorespaces Mean of perceived differences between methods, per scenario.\relax }}{77}
+\contentsline {figure}{\numberline {60}{\ignorespaces Results for the center point.\relax }}{78}
+\contentsline {figure}{\numberline {61}{\ignorespaces Results for the left-most point.\relax }}{79}
+\contentsline {figure}{\numberline {62}{\ignorespaces Results for the right-most point.\relax }}{80}
+\contentsline {figure}{\numberline {63}{\ignorespaces Qualitative results for the overall case, grouped in a few categories.\relax }}{80}
+\contentsline {figure}{\numberline {64}{\ignorespaces Side-by-side comparison of the grid image rendered with and without compensation.\relax }}{81}
+\contentsline {figure}{\numberline {65}{\ignorespaces Side-by-side comparison of the text image rendered with and without compensation.\relax }}{81}
+\contentsline {figure}{\numberline {66}{\ignorespaces Side-by-side comparison of the columns image rendered with and without compensation.\relax }}{82}
+\contentsline {figure}{\numberline {67}{\ignorespaces Side-by-side comparison of the map rendered with and without compensation.\relax }}{82}
+\contentsline {figure}{\numberline {68}{\ignorespaces Side-by-side comparison of the brain scan rendered with and without compensation.\relax }}{83}

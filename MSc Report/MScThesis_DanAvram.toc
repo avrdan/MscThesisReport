@@ -1,78 +1,82 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {subsection}{\numberline {1.1}Problem Description}{1}
-\contentsline {subsection}{\numberline {1.2}Hardware Setup}{1}
-\contentsline {section}{\numberline {2}Related Work}{2}
-\contentsline {subsection}{\numberline {2.1}Tracking and Projection on Deformable Surfaces}{2}
-\contentsline {subsection}{\numberline {2.2}Interaction Techniques with Deformable Surfaces}{8}
-\contentsline {section}{\numberline {3}Prototype Design}{9}
-\contentsline {section}{\numberline {4}Prototype Development}{11}
-\contentsline {subsection}{\numberline {4.1}Calibration of the Projector and the Depth Camera}{12}
-\contentsline {subsubsection}{\numberline {4.1.1}Approaches to Calibration}{14}
-\contentsline {subsection}{\numberline {4.2}Creating a Point Cloud from the Depth Data}{16}
-\contentsline {subsubsection}{\numberline {4.2.1}Rendering}{17}
-\contentsline {subsubsection}{\numberline {4.2.2}Limitations}{18}
-\contentsline {subsubsection}{\numberline {4.2.3}Unprojecting to World Coordinates}{19}
-\contentsline {subsection}{\numberline {4.3}Object Reconstruction by Mesh Triangulation}{19}
-\contentsline {subsubsection}{\numberline {4.3.1}Connect a Grid of Points with a Triangle Strip}{21}
-\contentsline {subsubsection}{\numberline {4.3.2}Other Methods for 2.5D Triangulation}{22}
-\contentsline {subsubsection}{\numberline {4.3.3}Marching Cubes on GPU}{22}
-\contentsline {paragraph}{The Marching Cubes Algorithm}{23}
-\contentsline {paragraph}{GPU Implementation}{25}
-\contentsline {subparagraph}{Geometry Shader}{25}
-\contentsline {subparagraph}{Histogram Pyramids}{26}
-\contentsline {paragraph}{Implicit Surface Generation}{26}
-\contentsline {subsubsection}{\numberline {4.3.4}Greedy Triangulation}{26}
-\contentsline {subsubsection}{\numberline {4.3.5}Kinect Fusion and Kinfu}{28}
-\contentsline {subsection}{\numberline {4.4}Projective Texture Mapping}{28}
-\contentsline {subsubsection}{\numberline {4.4.1}Object Linear Texgen}{29}
-\contentsline {subsubsection}{\numberline {4.4.2}Eye Linear Texgen}{29}
-\contentsline {subsection}{\numberline {4.5}Capturing Dynamic Contents}{29}
-\contentsline {section}{\numberline {5}Prototype Implementation}{30}
-\contentsline {subsection}{\numberline {5.1}Tools and Technologies Used}{30}
-\contentsline {subsection}{\numberline {5.2}Virtual World Setup}{31}
-\contentsline {subsection}{\numberline {5.3}Point Cloud Generation}{32}
-\contentsline {subsection}{\numberline {5.4}Mesh Rendering}{33}
-\contentsline {subsubsection}{\numberline {5.4.1}Rendering Process}{33}
-\contentsline {subsubsection}{\numberline {5.4.2}Triangulation}{35}
-\contentsline {subsection}{\numberline {5.5}Depth Smoothing}{37}
-\contentsline {subsubsection}{\numberline {5.5.1}Spatial Averaging}{38}
-\contentsline {subsubsection}{\numberline {5.5.2}Temporal Averaging}{39}
-\contentsline {subsubsection}{\numberline {5.5.3}Results}{40}
-\contentsline {subsection}{\numberline {5.6}Projective Texture Mapping}{41}
-\contentsline {subsubsection}{\numberline {5.6.1}Setting Uniforms and Computing the Texture Coordinates in the Vertex Shader}{41}
-\contentsline {subsubsection}{\numberline {5.6.2}Applying the Texture in the Fragment Shader}{43}
-\contentsline {subsubsection}{\numberline {5.6.3}Results}{44}
-\contentsline {subsection}{\numberline {5.7}Manual System Alignment (Calibration Not Used)}{44}
-\contentsline {subsubsection}{\numberline {5.7.1}Physical Projector Alignment to the Physical Screen(Cloth area)}{45}
-\contentsline {subsubsection}{\numberline {5.7.2}Physical Depth Camera Alignment to the Physical Screen (Cloth area)}{47}
-\contentsline {subsubsection}{\numberline {5.7.3}Virtual projector alignment to the cloth area}{49}
-\contentsline {subsubsection}{\numberline {5.7.4}Virtual camera alignment to the cloth area}{51}
-\contentsline {subsubsection}{\numberline {5.7.5}Testing precision of alignments}{51}
-\contentsline {section}{\numberline {6}Empirical Study}{54}
-\contentsline {subsection}{\numberline {6.1}Experiment Description}{54}
-\contentsline {subsubsection}{\numberline {6.1.1}Grid, Text and Columns Scenarios}{57}
-\contentsline {subsubsection}{\numberline {6.1.2}Map Scenario}{58}
-\contentsline {subsubsection}{\numberline {6.1.3}CT Brain Scan Scenario}{58}
-\contentsline {paragraph}{Volume Slice Interaction}{59}
-\contentsline {subsubsection}{\numberline {6.1.4}The Questionnaire}{60}
-\contentsline {section}{\numberline {7}Results}{62}
-\contentsline {subsection}{\numberline {7.1}Empirical Study Results}{62}
-\contentsline {subsubsection}{\numberline {7.1.1}Quantitative Analysis}{63}
-\contentsline {paragraph}{Preservation of Appearance}{63}
-\contentsline {paragraph}{Overall Preservation of Appearance}{64}
-\contentsline {paragraph}{Consistency}{66}
-\contentsline {paragraph}{Preference}{69}
-\contentsline {paragraph}{Difference}{71}
-\contentsline {subsubsection}{\numberline {7.1.2}Qualitative Analysis}{71}
-\contentsline {paragraph}{Center Point}{73}
-\contentsline {paragraph}{Left Point}{74}
-\contentsline {paragraph}{Right Point}{74}
-\contentsline {paragraph}{Overall}{75}
-\contentsline {subsection}{\numberline {7.2}Comparison of Compensated and Uncompensated Images}{77}
-\contentsline {section}{\numberline {8}Discussion and Future Work}{78}
-\contentsline {subsection}{\numberline {8.1}Results Discussion}{78}
-\contentsline {subsection}{\numberline {8.2}Limitations and Possible Improvements}{78}
-\contentsline {section}{\numberline {9}Conclusions}{80}
-\contentsline {section}{\numberline {A}Glossary}{85}
-\contentsline {section}{\numberline {B} Additional Images}{86}
-\contentsline {section}{\numberline {C}Empirical Study Documents}{87}
+\contentsline {subsection}{\numberline {1.2}Overview}{1}
+\contentsline {subsection}{\numberline {1.3}Hardware Setup}{2}
+\contentsline {section}{\numberline {2}Related Work}{5}
+\contentsline {subsection}{\numberline {2.1}Tracking and Projection on Deformable Surfaces}{5}
+\contentsline {section}{\numberline {3}Prototype Design}{11}
+\contentsline {subsection}{\numberline {3.1}System's Pipeline Overview}{13}
+\contentsline {subsection}{\numberline {3.2}Calibration of the Projector and the Depth Camera}{14}
+\contentsline {subsubsection}{\numberline {3.2.1}Approaches to Calibration}{16}
+\contentsline {subsection}{\numberline {3.3}Creating a Point Cloud from the Depth Data}{20}
+\contentsline {subsubsection}{\numberline {3.3.1}Rendering}{20}
+\contentsline {subsubsection}{\numberline {3.3.2}Limitations}{22}
+\contentsline {subsubsection}{\numberline {3.3.3}Unprojecting to World Coordinates}{22}
+\contentsline {subsection}{\numberline {3.4}Object Reconstruction by Mesh Triangulation}{23}
+\contentsline {subsubsection}{\numberline {3.4.1}Connect a Grid of Points with a Triangle Strip}{24}
+\contentsline {subsubsection}{\numberline {3.4.2}Other Methods for 2.5D Triangulation}{26}
+\contentsline {subsubsection}{\numberline {3.4.3}Marching Cubes on GPU}{26}
+\contentsline {paragraph}{The Marching Cubes Algorithm}{27}
+\contentsline {paragraph}{GPU Implementation}{28}
+\contentsline {subparagraph}{Geometry Shader}{28}
+\contentsline {subparagraph}{Histogram Pyramids}{30}
+\contentsline {paragraph}{Implicit Surface Generation}{30}
+\contentsline {subsubsection}{\numberline {3.4.4}Greedy Triangulation}{30}
+\contentsline {subsection}{\numberline {3.5}Projective Texture Mapping}{31}
+\contentsline {subsubsection}{\numberline {3.5.1}Object Linear Texgen}{32}
+\contentsline {subsubsection}{\numberline {3.5.2}Eye Linear Texgen}{33}
+\contentsline {subsection}{\numberline {3.6}Capturing Dynamic Contents}{33}
+\contentsline {section}{\numberline {4}System Development and Implementation}{34}
+\contentsline {subsection}{\numberline {4.1}Tools and Technologies Used}{34}
+\contentsline {subsection}{\numberline {4.2}Virtual World Setup}{35}
+\contentsline {subsection}{\numberline {4.3}Point Cloud Generation}{35}
+\contentsline {subsection}{\numberline {4.4}Mesh Rendering}{37}
+\contentsline {subsubsection}{\numberline {4.4.1}Rendering Process}{37}
+\contentsline {subsubsection}{\numberline {4.4.2}Triangulation}{39}
+\contentsline {subsection}{\numberline {4.5}Depth Smoothing}{41}
+\contentsline {subsubsection}{\numberline {4.5.1}Spatial Averaging}{42}
+\contentsline {subsubsection}{\numberline {4.5.2}Temporal Averaging}{43}
+\contentsline {subsubsection}{\numberline {4.5.3}Results}{44}
+\contentsline {subsection}{\numberline {4.6}Projective Texture Mapping}{45}
+\contentsline {subsubsection}{\numberline {4.6.1}Setting Uniforms and Computing the Texture Coordinates in the Vertex Shader}{45}
+\contentsline {subsubsection}{\numberline {4.6.2}Applying the Texture in the Fragment Shader}{47}
+\contentsline {subsubsection}{\numberline {4.6.3}Results}{48}
+\contentsline {subsection}{\numberline {4.7}Manual System Alignment (Calibration Not Used)}{48}
+\contentsline {subsubsection}{\numberline {4.7.1}Physical Projector Alignment to the Physical Screen(Cloth area)}{48}
+\contentsline {subsubsection}{\numberline {4.7.2}Physical Depth Camera Alignment to the Physical Screen (Cloth area)}{51}
+\contentsline {subsubsection}{\numberline {4.7.3}Virtual projector alignment to the cloth area}{53}
+\contentsline {subsubsection}{\numberline {4.7.4}Virtual camera alignment to the cloth area}{55}
+\contentsline {subsubsection}{\numberline {4.7.5}Testing precision of alignments}{55}
+\contentsline {section}{\numberline {5}Empirical Study}{58}
+\contentsline {subsection}{\numberline {5.1}Experiment Description}{58}
+\contentsline {subsubsection}{\numberline {5.1.1}Grid, Text and Columns Scenarios}{61}
+\contentsline {subsubsection}{\numberline {5.1.2}Map Scenario}{62}
+\contentsline {subsubsection}{\numberline {5.1.3}CT Brain Scan Scenario}{62}
+\contentsline {paragraph}{Volume Slice Interaction}{63}
+\contentsline {subsubsection}{\numberline {5.1.4}The Questionnaire}{64}
+\contentsline {section}{\numberline {6}Analysis of Results}{66}
+\contentsline {subsection}{\numberline {6.1}Empirical Study Results}{66}
+\contentsline {subsubsection}{\numberline {6.1.1}Quantitative Analysis}{67}
+\contentsline {paragraph}{Preservation of Appearance}{67}
+\contentsline {paragraph}{Overall Preservation of Appearance}{68}
+\contentsline {paragraph}{Consistency}{70}
+\contentsline {paragraph}{Preference}{73}
+\contentsline {paragraph}{Difference}{75}
+\contentsline {subsubsection}{\numberline {6.1.2}Qualitative Analysis}{75}
+\contentsline {paragraph}{Center Point}{77}
+\contentsline {paragraph}{Left Point}{78}
+\contentsline {paragraph}{Right Point}{78}
+\contentsline {paragraph}{Overall}{79}
+\contentsline {subsection}{\numberline {6.2}Comparison of Compensated and Uncompensated Images}{81}
+\contentsline {subsubsection}{\numberline {6.2.1}Grid Scenario}{81}
+\contentsline {subsubsection}{\numberline {6.2.2}Text Scenario}{81}
+\contentsline {subsubsection}{\numberline {6.2.3}Columns Scenario}{82}
+\contentsline {subsubsection}{\numberline {6.2.4}Map Scenario}{82}
+\contentsline {subsubsection}{\numberline {6.2.5}Brain Scan Scenario}{83}
+\contentsline {section}{\numberline {7}Discussion and Future Work}{84}
+\contentsline {subsection}{\numberline {7.1}Results Discussion}{84}
+\contentsline {subsection}{\numberline {7.2}Limitations and Possible Improvements}{84}
+\contentsline {section}{\numberline {8}Conclusions}{86}
+\contentsline {section}{\numberline {A}Resources: Source Code, Video etc.}{91}
+\contentsline {section}{\numberline {B}Additional Images}{92}
+\contentsline {section}{\numberline {C}Empirical Study Documents}{93}

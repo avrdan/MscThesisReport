@@ -1,5 +1,8 @@
 \documentclass[]{article}
 
+\newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}\ }} %\dotfill
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}}}{\end{list}}
+
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{url}
@@ -9,15 +12,18 @@
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
 
 \usepackage{pdfpages}
+\usepackage{glossaries}
 
 %opening
-\title{\textbf{Master's Thesis} \\ Correct Projection Mapping on - and Interaction Techniques with - Cloth-based Deformable Surfaces}
+%\title{\textbf{Master's Thesis} \\ Correct Projection Mapping on - and Interaction Techniques with - %Cloth-based Deformable Surfaces}
 
-\author{Dan-Adrian Avram}
-\author{\textbf{Academic Supervisors:} Kasper Hornbaek and Esben Pedersen}
+%\author{Dan-Adrian Avram}
+%\author{\textbf{Academic Supervisors:} Kasper Hornbaek and Esben Pedersen}
+
 \begin{document}
 
-\maketitle
+%\maketitle
+\includepdf[pages={-}]{documents/MScFrontPage.pdf}
 \thispagestyle{empty}
 \newpage
 \begin{center}
@@ -27,13 +33,13 @@
 ...
 \end{center}
 
-\maketitle
+%\maketitle
 \thispagestyle{empty}
 \newpage
 \thispagestyle{empty}
 \begin{abstract}
 
-In recent years, natural user interfaces have become more and more common. These interfaces are very easy to learn by new users, since they rely on gestures or actions which are already known, unlike physical input devices which have a learning curve and also affect the user's experience, since they have to rely on external, artificial input methods. One of the important developments is the growin research around deformable displays. These displays allow the users to interact with an application as they would do in the real world, by directly manipulating the virtual world with their hands. These types of interfaces build upon the touch paradigm, adding an additional layer of flexibility, allowing gestures to be performed in a 3D space. Unlike mid-air methods, these deformable displays also provide haptic feedback while interacting, which can be useful for certain applications.  
+In recent years, natural user interfaces have become more and more common. These interfaces are very easy to learn by new users, since they rely on gestures or actions which are already known, unlike physical input devices which have a learning curve and also affect the user's experience, since they have to rely on external, artificial input methods. One of the important developments is the growing research around deformable displays. These displays allow the users to interact with an application as they would do in the real world, by directly manipulating the virtual world with their hands. These types of interfaces build upon the touch paradigm, adding an additional layer of flexibility, allowing gestures to be performed in a 3D space. Unlike mid-air methods, these deformable displays also provide haptic feedback while interacting, which can be useful for certain applications.  
 
 One of the main problems with deformable displays is that the image contents become distorted when deforming the surface - the image will follow the shape of the display. For many applications this is not desired: for example, if we want to move an object by pushing and dragging it around, the image should appear as on a flat screen - otherwise the object will also move around and become skewed, due to the deformation induced by the display's shape.
 
@@ -51,6 +57,21 @@ Although the prototype has several important limitations, the experiment results
 
 \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
 \setcounter{page}{1}
+
+\section*{Glossary}\mbox{}\\
+
+\begin{abbreviations}
+\item[CPU] Central Processing Unit
+\item[DMA] Direct Memory Access
+\item[FOV] Field of View
+\item[fps] Frames Per Second
+\item[GPU] Graphics Processing Unit 
+\item[MVP] Model View Projection matrix
+\item[PTM] Projective Texture Mapping
+\item[TOF] Time of Flight 
+\item[VBO] Vertex Buffer Object 
+\end{abbreviations}
+\newpage
 \tableofcontents
 
 \newpage
@@ -66,25 +87,63 @@ Although the prototype has several important limitations, the experiment results
 
 Deformable displays allow new methods of interaction with virtual scenes, which simply are not possible on flat displays. These interactions are more immersive and feel more natural to the user as they touch, push, pull or pinch the deformable surface. The interaction with the scene can now be done in a 3D space, similarly to how we interact with objects on a daily basis, while also providing a degree of haptic feedback.
 
-The first part of the master thesis project deals with the development of a deformable display prototype on which undistorted visuals can be projected. The distortion of visuals due to irregularities in the surface of an arbitrary-shaped object (the display surface) is the main problem that must be solved. 
+Originally, the thesis was split into two parts. The first part of the master thesis project was to deal with the development of a deformable display prototype on which undistorted visuals can be projected, while for the second part there were several alternatives, including investigating gesture interactions and/or affordances in the context of deformable displays. However, the distortion correction issue was more complex than originally thought and it now represents the full focus of the thesis. In addition, the thesis also aimed to gain some insights on how users perceive the distortion correction and whether they would prefer it over the normal image, with distortions that follow the shape of the display.
 
 \subsection{Problem Description}
 
-One of the main challenges when dealing with deformable surfaces, is correcting the distortions which arise from the user's interaction with the display. The image must be changed(the pixels must be shifted) so that the contents still appear as on a flat surface, even when the surface becomes an arbitrary 2.5D object.
+The distortion of visuals due to irregularities in the surface of an arbitrary-shaped object (the display surface) is the main problem that must be solved. This distortion arises from the user's interaction with the display and represents one of the main challenges when working with deformable surfaces. The image must be changed(the pixels must be shifted) so that the contents still appear as on a flat surface, even when the surface becomes an arbitrary 2.5D object.
 
 If, for example, we are sculpting into or pulling out of a piece of cloth on which visuals are projected, some degree of distortion will appear on the final image. 
-The image should be undistorted in the sense that, the visuals would still look like a fixed display (rather than being deformed with the display), after the previously mentioned pull or pinch gesture is performed. The solution will involve tracking of the cloth material and the modeling of a 3D representation of the material that is deformed based on depth sensor data.
+The image should be undistorted in the sense that, the visuals would still look like on a fixed display (rather than being deformed with the display), after the previously mentioned pull or pinch gesture is performed. The solution involves tracking of the cloth material and the modeling of a 3D representation of the material that is deformed based on depth sensor data.
 
 In order to solve the problem we need to first setup a scenario where one can test how images are deformed when interacting with deformable displays. In order to do this we need: a surface that can be deformed by a user(e.g.: a cloth material) which serves as our display, a projector that is used to display contents to the end user and a depth camera that is used to track the display and surface and detect changes.
+
+\subsection{Overview}
+
+The report is structured into the following chapters:
+
+\begin{itemize}
+\item \textbf{Chapter 2:} Presents related works, mainly in connection with distortion tracking, correction and projection.
+\item \textbf{Chapter 3:} The main system components, how they are interconnected and the main theoretical considerations for each part of the system is explained here. Further, alternatives(possible improvements or failed attempts) to employed methods are also discussed in this chapter. There are several reconstruction techniques discussed, but the one that was finally implemented is explained in section \ref{sec:TriangleStripTriangulation}. Further more, several method for calibrating a projector-camera system are also described here. 
+\item \textbf{Chapter 4:} In this chapter, the implementation of different parts of the system is discussed. Explanations, main code examples and tests, for the different components of the system are presented here.
+\item \textbf{Chapter 5:} The design of the user study is presented here: participants, input, tasks etc.
+\item \textbf{Chapter 6:} In this section results are analyzed, both from the empirical study and by directly comparing the visual results of the compensated and uncompensated methods.
+\item \textbf{Chapter 7:} Discussion, limitations and possible improvements are mainly described here.
+\item \textbf{Chapter 8:} The conclusions to this thesis are presented in this final chapter.
+\end{itemize}
+
+Moreover, a video that demonstrates the compensation for all scenarios used in the empirical study, as well as other important aspects of the system is available on the included DVD. In addition,the full source code is also available. These resources have also been made available online. Finally, the user study documents and thesis resources can be found in the appendices.
 
 \subsection{Hardware Setup}
 
 The deformable display prototype(see figure \ref{fig:hardware_setup}) consists of the following components:
 \begin{itemize}
-\item Cloth display (that can be deformed) + frame
-\item Projector that is used to display the visuals onto the cloth surface
-\item Depth camera that is used to retrieve the cloth display’s depth information
+\item Deformable Cloth Display (see Figure \ref{fig:BackViewDeformableDisplay}) + Frame
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/DisplayBackView.png}
+    \caption{Back View of the Deformable Display}
+    \label{fig:BackViewDeformableDisplay}
+\end{figure}
+\item Projector that is used to display the visuals onto the cloth surface\\
+
+A standard projector was used, namely the \textbf{EPSON EWP-TW680}. Through an HDMI signal, it supports up to full-HD resolution, 1920x1080. This corresponds to the screen resolution of the laptop used for development.
+\item Depth camera(see Figure \ref{fig:CreativeSenz3D}) that is used to retrieve the cloth display’s depth information\\
+
+\begin{figure}[hbtp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/CreativeDepthCam.JPG}
+    \caption{\textbf{Creative Senz3D} Time-Of-Flight(\textbf{TOF}) Depth Camera, mounted on a tripod.}
+    \label{fig:CreativeSenz3D}
+\end{figure}
+
+In \cite{gokturk}, the authors describe the TOF technology, and state that devices that use it are enabled to perceived and interact with the world around them. Further, the technology is succinctly described as sending out a signal(in this case, light) and measuring a property of the signal(phase shift - differences between sinusoidal wave patterns) that returns from a target. This property can be used to obtain the time of flight. By multiplying it with the velocity of the signal, one can obtain the traveled distance. Lastly, they mention some issues with noise and state that their behavior depends on the amount of light reflected into the sensor.
 \end{itemize}
+
+
+Moreover, a computer was used in order to process the data from the depth camera, project the images onto the display and compensate for the distortion. The computer is a laptop, namely the \textit{ASUS N550JV}. This is included here, to keep in mind when looking at some performance results. The technical specifications can be found on-line.
+
+Finally, a \textit{Manfrotto 190XPROB} tripod was used to mount the camera, so that it does not interfere with the projection, while still being placed fairly close to the screen, around 65cm(it is possible to place it closer, however, if the color stream is needed later on; it is important to check that it covers the full display as well). This tripod is very versatile - one can reverse the column, place it horizontally or even bring down the camera to a height of around 8cm, by using its adjustable legs(if enough room is available).
 
 \begin{figure}[hbtp]
     \centering
@@ -92,6 +151,7 @@ The deformable display prototype(see figure \ref{fig:hardware_setup}) consists o
     \caption{Physical setup of the prototype}
     \label{fig:hardware_setup}
 \end{figure}
+
 \newpage
 \section{Related Work}
 
@@ -175,7 +235,6 @@ In [5] they also provide a method to compensate for projection distortion, given
 
 As a final note, we can observe that the techniques used to project onto irregular objects and of correcting the visuals are similar in \cite{watanabe08} and \cite{raskar98}: both extract depth information and form a polygonal model of the target object, they use the same rendering technique(projective texture mapping) and require the same calibration parameters. 
 
-\subsection{Interaction Techniques with Deformable Surfaces}
 \newpage
 \section{Prototype Design}
 
@@ -219,7 +278,7 @@ For this project, a solution similar to that employed in \cite{watanabe08} has b
     \label{fig:Pipeline}
 \end{figure}
 \newpage
-\section{Prototype Development}
+\subsection{System's Pipeline Overview}
 
 Considering our system pipeline, I will explain briefly, how the whole components work and why they are needed, in this section. The first process is calibration. Note that the order in which components are explained does not represent the flow in the pipeline, since it will be easier to see, for example, why calibration is needed once some of the other steps have been explained.\\
 
@@ -295,8 +354,37 @@ In \cite{falcao08} a plane-based calibration of a projector-camera system is des
 
 
 The procamlib (https://code.google.com/p/procamcalib/) software package for Matlab can be used to calibrate the projector-camera system using this approach. The steps are explained in \cite{falcao08}.\\
+\item 3D Projection Mapping by Using a Reconstructed 3D Object\\
+
+The calibration approach described in \cite{vvvv} used a reconstructed 3D scene in order to calibrate the projector. Several vertices are selected on the reconstruction, to be used as calibration points. These can be selected as to correspond to the area where we are projecting. This technique could not be used, since a fully shaded reconstruction of the deformable cloth was not available for use for a third-party \textit{vvvv} application. At this time, I could not find reconstruction tools for the Creative depth camera(the authors of this approach use the \textit{Microsoft Kinect}). However, some attempts were made to save the mesh in an \textit{.obj} file. However, this was not completed due to lack of time(some faces were connected in a wrong order) and mesh normals would also have to be computed to shade the cloth(so that we are able to see the cloth area in the calibration package, where we would need to place our calibration points).
+\item openFrameworks Camera-Projector Calibration\\
+
+A software package that calibrates a camera and a projector is available as an \textit{openFrameworks}(a toolkit for C++ applications) addon. The method is demonstrated in a video(see \cite{ofx}). It should be mentioned that this addon has originally been developed by one of the authors of \cite{watanabe08} and later extended. I had some trouble running the code, but after I made some changes it seemed that I successfully calibrated the camera+projector, since, as in the video, the projected dots were correctly rendered, when rotating and moving the checkerboard. However, the output for the rotation part of the extrinsic parameters was only a vector. In OpenGL I needed a rotation matrix. The matrix can be retrieved by using what is known as the \textit{Rodrigues' rotation formula}. I have used a readily available Matlab function that supposedly did the conversion. This was used like a black-box, I did not study how the formula works, as I was short on time. 
+
+Further more, if the values are calculated using OpenCV's coordinate system, we have to change it to OpenGL's reference sytem by a 180 degree rotation around the X-axis, due to the differences shown in figure \ref{fig:OpenCVOpenGLCoords}. 
+
+\begin{figure}[!hbtp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/OpenGLCoords.jpg}
+  \caption{OpenGL}
+  \label{fig:OpenGLCoordinateSystem}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/OpenCVCoords.png}
+  \caption{OpenCV}
+  \label{fig:OpenCVCoordinateSystem}
+\end{subfigure}
+\caption{Coordinate system differences between the two libraries.}
+\label{fig:OpenCVOpenGLCoords}
+\end{figure}
+
+Moreover, as mentioned in an on-line article(see \cite{vuforia}) the pose matrix(effectively the matrix that combines both rotation and translation parameters), is what one could use to draw a virtual object at the target camera location, but, in order to tell how the camera is placed with respect to the target(which is what we need in this case, since the target is the deformable display, and we want to find the camera view which corresponds to the cloth area), the matrix needs to be inverted. These steps have been applied, but the mesh was scaled non-uniformly(skewed) when using the rotation matrix obtained previously. I did not find out why this was the case, and a manual alignment of physical and virtual cameras has been used instead.
+
 \item Manual Adjustment\\
-\\It is also possible to adjust the physical projector and camera so that one can deduce the extrinsic parameters. The intrinsic parameters may also be obtained by looking into the respective product's datasheet and adjusting the value depending on distance, lens size etc. Otherwise, one must use a trial and error approach, and some tests need to be done to confirm that the accuracy is acceptable. Manual adjustment is likely to produce results of inferior quality, compared to the previous two methods.
+\\It is also possible to adjust the physical projector and camera so that one can deduce the extrinsic parameters. The intrinsic parameters may also be obtained by looking into the respective product's datasheet and adjusting the value depending on distance, lens size etc. Otherwise, one must use a trial and error approach, and some tests need to be done to confirm that the accuracy is acceptable. Manual adjustment is likely to produce results of inferior quality, compared to the previously mentioned methods.
 \end{itemize}
 
 \begin{figure}[hbtp]
@@ -514,9 +602,6 @@ An implementation is available in the PCL library, and a description on how to u
     \label{fig:ReconstructedBunny}
 \end{figure}
 
-
-\subsubsection{Kinect Fusion and Kinfu}
-
 \subsection{Projective Texture Mapping}
 \label{sec:ptm}
 
@@ -565,8 +650,13 @@ The eye linear texgen can be represented as shown in figure \ref{fig:EyeLinearTe
 \end{figure}
 
 \subsection{Capturing Dynamic Contents}
+
+Dynamic contents can be obtained by simply rendering textures every frame. The question is how we get these frames into the application. Currently, they must be stored and initialized before the application is started. However, this is a limited approach. In order to create a versatile system, it is required to capture the contents of another application and then pass them to the distortion correction application for rendering. This would allow to load virtually any dynamic application. The window capturing is operating system specific. Finally, an interaction API of the display would have to communicate with the underlying application, sending commands as appropriate. If only custom OpenGL applications are used with the display, than the distortion correction could be added as a library that automatically applies the required steps, to any 3D scene we may have.
+
 \newpage
-\section{Prototype Implementation}
+\section{System Development and Implementation}
+
+In this chapter I will go into detail about how the employed methods  were implemented, as well as presenting the results of a particular step, including tests, if required. Further more, the explanations will be backed with main coding samples. This chapter will include information on the tools and frameworks used, 3D engine setup, creation of the point cloud, mesh rendering and triangulation, projective texture mapping, noise reducing methods and manual alignment of physical and virtual cameras and components.
 
 \subsection{Tools and Technologies Used}
 
@@ -841,7 +931,7 @@ The averaging techniques have been tested on the deformable display, by judging 
   \caption{Grid With Both Averaging Techniques}
   \label{fig:GridWithAveraging}
 \end{subfigure}
-\caption{A grid texture whch shows the noise reduction obtained by averaging.}
+\caption{A grid texture which shows the noise reduction obtained by averaging.}
 \label{fig:GridNoiseReduction}
 \end{figure}
 
@@ -1138,6 +1228,7 @@ The offset is not easy to see in the previously mentioned figure, but an arrow p
 In order to align the texture better, or at least, make the debugging process easier, we could calculate the normals for the mesh and show the shaded object. Further, we could also add color information(then we would have a full 3D model, which resembles the physical object, making it easier to see where the texture should be projected).
 
 \subsubsection{Virtual camera alignment to the cloth area}
+\label{sec:VirtualCameraAlignmentToClothArea}
 
 The virtual camera was aligned by computing the projection and view matrices, by trial and error, so that it completely covers the previously aligned texture. The projection matrix was computed via the \verb|glm::perspective| method, which requires the vertical field of view, the aspect ratio and the near and far planes. The aspect ratio was set to $16:9$, and the near and far to $0.1$ and $1000$, respectively. The field of view(\verb|FOV|) was the parameter that was computed by trial and error. If we have the intrinsic parameters, the field of view can be obtained, or alternatively, we can obtain all of the frustum planes with these parameters(\textit{left}, \textit{right}, \textit{bottom}, \textit{top}; \textit{near} and \textit{far} can be specified manually). For the latter, \verb| glm::frustum| could have been used.
 
@@ -1401,7 +1492,7 @@ An 11-point Likert scale has been made available for users to rate all the attri
 
 
 \newpage
-\section{Results}
+\section{Analysis of Results}
 \label{sec:Results}
 \subsection{Empirical Study Results}
 \label{sec:Empirical Study Results}
@@ -1636,6 +1727,120 @@ Finally, some qualitative measures regarding overall differences and preference 
 
 \clearpage
 \subsection{Comparison of Compensated and Uncompensated Images}
+
+In this section images with compensation applied and not applied are shown side-by-side. A short discussion is made for each scenario. One thing to note is that some black areas will appear in the compensated method. This is due to missing depth data and can be caused, for example, by occluding that area.
+
+\subsubsection{Grid Scenario}
+
+In figure \ref{fig:GridComparison} we can see that in the image on the left, the lines near the deformed area are substantially curved, while in the other image, the lines are straighter. However, the horizontal lines near the top of the image seem curved in the compensated method(the opposite direction of the uncompensated image). This is probably caused due to over compensation, and can be fixed by calibrating the system.
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/GridNotCompensated.png}
+  \caption{A grid texture without compensation.}
+  \label{fig:GridNotCompensated}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/GridCompensated.png}
+  \caption{The grid with compensation applied.}
+  \label{fig:GridCompensated}
+\end{subfigure}
+\caption{Side-by-side comparison of the grid image rendered with and without compensation.}
+\label{fig:GridComparison}
+\end{figure}
+
+\subsubsection{Text Scenario}
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/TextNotCompensated.png}
+  \caption{A text texture without compensation.}
+  \label{fig:TextNotCompensated}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/TextCompensated.png}
+  \caption{The text with compensation applied.}
+  \label{fig:TextCompensated}
+\end{subfigure}
+\caption{Side-by-side comparison of the text image rendered with and without compensation.}
+\label{fig:TextComparison}
+\end{figure}
+
+In figure \ref{fig:TextComparison}, we can see that the right image(compensated) appears less distorted. The spaces between the lines are kept better and the word we are pressing is more visible.
+
+\subsubsection{Columns Scenario}
+
+For this scenario it is harder to see the differences between the images in figure \ref{fig:ColumnsComparison}. However, if you look closely at the two largest columns on the left and right sides of the image, you should see that they are bent in the uncompensated image and straight in the other.
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/ColumnsNotCompensated.png}
+  \caption{A columns texture without compensation.}
+  \label{fig:ColumnsNotCompensated}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/ColumnsCompensated.png}
+  \caption{The columns with compensation applied.}
+  \label{fig:ColumnsCompensated}
+\end{subfigure}
+\caption{Side-by-side comparison of the columns image rendered with and without compensation.}
+\label{fig:ColumnsComparison}
+\end{figure}
+
+\subsubsection{Map Scenario}
+
+While the map scenario seemed to show the greatest contrast during the study, it is actually harder to see the differences in the video or in the images in figure \ref{fig:MapComparison}. This is because there are a lot of small details which need to be seen up close. Nevertheless, even though I did not press in the exactly same area of the display, you should see that the compensated image retains the size of the objects better(they are larger and more readable).
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/MapNotCompensated.png}
+  \caption{A map without compensation.}
+  \label{fig:MapNotCompensated}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/MapCompensated.png}
+  \caption{The map with compensation applied.}
+  \label{fig:MapCompensated}
+\end{subfigure}
+\caption{Side-by-side comparison of the map rendered with and without compensation.}
+\label{fig:MapComparison}
+\end{figure}
+
+\subsubsection{Brain Scan Scenario}
+
+In the comparison in figure \ref{fig:BrainScanComparison} we can see that the uncompensated method makes the object smaller as we push in, while the compensated one tries to retain its size. However, there may again be some overcompensation, since the image gets a bit larger than the original. A further issue, that may not be apparent in the video or the mentioned figure, is that overcompensation can also happen sideways, and then it seems that the shape of the object is being changed. However, both these issues are present(again) due to calibration issues(there is an offset towards the sides, and the amount of compensation changes with the field of view and distance of the virtual camera, as explained in section \ref{sec:VirtualCameraAlignmentToClothArea}.
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/BrainScanNotCompensated.png}
+  \caption{A brain scan texture without compensation.}
+  \label{fig:BrainScanNotCompensated}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/compensation/BrainScanCompensated.png}
+  \caption{The texture with compensation applied.}
+  \label{fig:BrainScanCompensated}
+\end{subfigure}
+\caption{Side-by-side comparison of the brain scan rendered with and without compensation.}
+\label{fig:BrainScanComparison}
+\end{figure}
+
+
 \clearpage
 \section{Discussion and Future Work}
 
@@ -1687,11 +1892,11 @@ To conclude, a prototype that compensates distortions for deformable displays us
 
 \begin{appendices}
 \include{A}
-\section{Glossary}
+\section{Resources: Source Code, Video etc.}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \include{B}
 
-\section{ Additional Images}
+\section{Additional Images}
 \label{appendix:B}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \include{C}

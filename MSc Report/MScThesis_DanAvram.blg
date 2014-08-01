@@ -11,6 +11,9 @@ Repeated entry---line 487 of file bibliography.bib
  :                 ,
 I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "opencv"
+Warning--to sort, need author or key in vvvv
+Warning--to sort, need author or key in ofx
+Warning--to sort, need author or key in vuforia
 Warning--to sort, need author or key in glew
 Warning--to sort, need author or key in glfw
 Warning--to sort, need author or key in freeimage
@@ -44,45 +47,45 @@ Warning--empty journal in PCLGreedy
 Warning--empty year in PCLGreedy
 Warning--empty journal in max2013
 Warning--empty year in steimle13
-You've used 44 entries,
+You've used 47 entries,
             2118 wiz_defined-function locations,
-            696 strings with 9597 characters,
-and the built_in function-call counts, 9020 in all, are:
-= -- 813
-> -- 289
+            705 strings with 9964 characters,
+and the built_in function-call counts, 9497 in all, are:
+= -- 858
+> -- 292
 < -- 0
-+ -- 131
++ -- 134
 - -- 82
-* -- 376
-:= -- 1499
-add.period$ -- 119
-call.type$ -- 44
-change.case$ -- 157
+* -- 391
+:= -- 1550
+add.period$ -- 125
+call.type$ -- 47
+change.case$ -- 166
 chr.to.int$ -- 0
-cite$ -- 77
-duplicate$ -- 437
-empty$ -- 913
+cite$ -- 83
+duplicate$ -- 458
+empty$ -- 982
 format.name$ -- 82
-if$ -- 1925
+if$ -- 2045
 int.to.chr$ -- 0
-int.to.str$ -- 44
+int.to.str$ -- 47
 missing$ -- 47
-newline$ -- 210
+newline$ -- 222
 num.names$ -- 68
-pop$ -- 344
+pop$ -- 368
 preamble$ -- 1
-purify$ -- 129
+purify$ -- 135
 quote$ -- 0
-skip$ -- 298
+skip$ -- 322
 stack$ -- 0
-substring$ -- 225
-swap$ -- 30
+substring$ -- 240
+swap$ -- 33
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 144
-warning$ -- 33
+type$ -- 156
+warning$ -- 36
 while$ -- 68
-width$ -- 46
-write$ -- 389
+width$ -- 49
+write$ -- 410
 (There was 1 error message)
