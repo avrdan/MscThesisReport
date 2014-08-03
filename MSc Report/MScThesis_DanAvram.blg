@@ -10,7 +10,6 @@ Repeated entry---line 487 of file bibliography.bib
  : @article{gokturk
  :                 ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "opencv"
 Warning--to sort, need author or key in vvvv
 Warning--to sort, need author or key in ofx
 Warning--to sort, need author or key in vuforia
@@ -22,6 +21,7 @@ Warning--to sort, need author or key in GLM
 Warning--to sort, need author or key in PCL
 Warning--to sort, need author or key in PCSDK
 Warning--to sort, need author or key in OpenGLTuts
+Warning--to sort, need author or key in opencv
 Warning--to sort, need author or key in quis
 Warning--to sort, need author or key in spss
 Warning--empty journal in bourke1994
@@ -47,45 +47,45 @@ Warning--empty journal in PCLGreedy
 Warning--empty year in PCLGreedy
 Warning--empty journal in max2013
 Warning--empty year in steimle13
-You've used 47 entries,
+You've used 48 entries,
             2118 wiz_defined-function locations,
-            705 strings with 9964 characters,
-and the built_in function-call counts, 9497 in all, are:
-= -- 858
-> -- 292
+            707 strings with 10015 characters,
+and the built_in function-call counts, 9656 in all, are:
+= -- 873
+> -- 293
 < -- 0
-+ -- 134
++ -- 135
 - -- 82
-* -- 391
-:= -- 1550
-add.period$ -- 125
-call.type$ -- 47
-change.case$ -- 166
+* -- 396
+:= -- 1567
+add.period$ -- 127
+call.type$ -- 48
+change.case$ -- 169
 chr.to.int$ -- 0
-cite$ -- 83
-duplicate$ -- 458
-empty$ -- 982
+cite$ -- 85
+duplicate$ -- 465
+empty$ -- 1005
 format.name$ -- 82
-if$ -- 2045
+if$ -- 2085
 int.to.chr$ -- 0
-int.to.str$ -- 47
+int.to.str$ -- 48
 missing$ -- 47
-newline$ -- 222
+newline$ -- 226
 num.names$ -- 68
-pop$ -- 368
+pop$ -- 376
 preamble$ -- 1
-purify$ -- 135
+purify$ -- 137
 quote$ -- 0
-skip$ -- 322
+skip$ -- 330
 stack$ -- 0
-substring$ -- 240
-swap$ -- 33
+substring$ -- 245
+swap$ -- 34
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 156
-warning$ -- 36
+type$ -- 160
+warning$ -- 37
 while$ -- 68
-width$ -- 49
-write$ -- 410
+width$ -- 50
+write$ -- 417
 (There was 1 error message)

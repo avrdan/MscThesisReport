@@ -38,6 +38,10 @@ Learn 3d projection mapping, from the start, with vvvv.
 Open asset import library.
 \newblock \url{http://freeimage.sourceforge.net/}.
 
+\bibitem{opencv}
+Open source computer vision.
+\newblock \url{http://opencv.org/}.
+
 \bibitem{OpenGLTuts}
 Opengl tutorials.
 \newblock \url{http://www.mbsoftworks.sk/index.php?page=tutorials&series=1}.
