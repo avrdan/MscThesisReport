@@ -1,5 +1,5 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Back View of the Deformable Display\relax }}{4}
-\contentsline {figure}{\numberline {2}{\ignorespaces \textbf {Creative Senz3D} Time-Of-Flight(\textbf {TOF}) Depth Camera, mounted on a tripod.\relax }}{4}
+\contentsline {figure}{\numberline {2}{\ignorespaces Creative Senz3D Time-Of-Flight(TOF) Depth Camera, mounted on a tripod.\relax }}{4}
 \contentsline {figure}{\numberline {3}{\ignorespaces Physical setup of the prototype\relax }}{5}
 \contentsline {figure}{\numberline {4}{\ignorespaces Projection on Holger the Dane. Courtesy of \cite {daalsgard11}\relax }}{6}
 \contentsline {figure}{\numberline {5}{\ignorespaces Deformation model of Flexpad(left) and deformations it can express(right). Courtesy of \cite {steimle13}\relax }}{8}
@@ -14,18 +14,18 @@
 \contentsline {figure}{\numberline {14}{\ignorespaces General Pinhole Camera Model\relax }}{18}
 \contentsline {figure}{\numberline {15}{\ignorespaces Coordinate system differences between the two libraries.\relax }}{21}
 \contentsline {figure}{\numberline {16}{\ignorespaces Vertex Transformation Pipeline. Courtesy of \cite {superbible}\relax }}{22}
-\contentsline {figure}{\numberline {17}{\ignorespaces 3D Graphics Pipeline\relax }}{22}
-\contentsline {figure}{\numberline {18}{\ignorespaces An example point cloud, corresponding to the depth stream, updated in real-time.\relax }}{23}
+\contentsline {figure}{\numberline {17}{\ignorespaces 3D Graphics Pipeline\relax }}{23}
+\contentsline {figure}{\numberline {18}{\ignorespaces An example point cloud, corresponding to the depth stream, updated in real-time.\relax }}{24}
 \contentsline {figure}{\numberline {19}{\ignorespaces Perspective View of Some Terrain. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{25}
-\contentsline {figure}{\numberline {20}{\ignorespaces Polyhedral(solid object with flat surfaces) Terrain. Smoothness will depend on point density. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{25}
-\contentsline {figure}{\numberline {21}{\ignorespaces Ordering of vertices in a triangle strip for a grid. Courtesy of \cite {triangleStrip}.\relax }}{26}
+\contentsline {figure}{\numberline {20}{\ignorespaces Polyhedral(solid object with flat surfaces) Terrain. Smoothness will depend on point density. Courtesy of \cite [Chapter\nobreakspace {}9]{berg08}\relax }}{26}
+\contentsline {figure}{\numberline {21}{\ignorespaces Ordering of vertices in a triangle strip for a grid. Courtesy of \cite {triangleStrip}.\relax }}{27}
 \contentsline {figure}{\numberline {22}{\ignorespaces Voxel data representation. Courtesy of \cite {navpreet2013}\relax }}{28}
 \contentsline {figure}{\numberline {23}{\ignorespaces Marching Cubes - The 14 Patterns of Triangulated Cubes. Courtesy of \cite {william87}\relax }}{29}
 \contentsline {figure}{\numberline {24}{\ignorespaces Marching Cubes - Cube Numbering. Courtesy of \cite {william87}\relax }}{30}
 \contentsline {figure}{\numberline {25}{\ignorespaces Mesh from point cloud reconstruction of a bunny.\relax }}{31}
-\contentsline {figure}{\numberline {26}{\ignorespaces Virtual Projector Transformation Pipeline. Courtesy of \cite {cassNvidia}\relax }}{31}
-\contentsline {figure}{\numberline {27}{\ignorespaces Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space. Courtesy of \cite {cassNvidia}\relax }}{32}
-\contentsline {figure}{\numberline {28}{\ignorespaces Object Linear Texgen. Courtesy of \cite {cassNvidia}\relax }}{32}
+\contentsline {figure}{\numberline {26}{\ignorespaces Virtual Projector Transformation Pipeline. Courtesy of \cite {cassNvidia}\relax }}{32}
+\contentsline {figure}{\numberline {27}{\ignorespaces Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space, where $s, t, r, q$ are the texture coordinates, $v$ represents the vertices in \textit {eye} or \textit {object} space and $T$ is the texgen matrix in eye or object space. Courtesy of \cite {cassNvidia}\relax }}{32}
+\contentsline {figure}{\numberline {28}{\ignorespaces Object Linear Texgen. Courtesy of \cite {cassNvidia}\relax }}{33}
 \contentsline {figure}{\numberline {29}{\ignorespaces Eye Linear Texgen. Courtesy of \cite {cassNvidia}\relax }}{33}
 \contentsline {figure}{\numberline {30}{\ignorespaces Vertex array layout with two vertex attributes. Courtesy of \cite {kilgard2009}\relax }}{37}
 \contentsline {figure}{\numberline {31}{\ignorespaces Transfers of vertex array object data using DMA.\relax }}{38}

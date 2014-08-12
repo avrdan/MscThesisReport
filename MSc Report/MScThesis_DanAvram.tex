@@ -164,7 +164,7 @@ A standard projector was used, namely the \textbf{EPSON EWP-TW680}. Through an H
 \begin{figure}[hbtp]
     \centering
     \includegraphics[width=0.6\textwidth]{figures/CreativeDepthCam.JPG}
-    \caption{\textbf{Creative Senz3D} Time-Of-Flight(\textbf{TOF}) Depth Camera, mounted on a tripod.}
+    \caption{Creative Senz3D Time-Of-Flight(TOF) Depth Camera, mounted on a tripod.}
     \label{fig:CreativeSenz3D}
 \end{figure}
 
@@ -389,7 +389,7 @@ The pinhole camera model can be used to represent the projector, only the direct
 \\
 \\The correspondences between 2D pixels and 3D world coordinates are found in both \cite{radhwan11} and \cite{yamazaki11} by employing the structured lighting approach which involves projecting gray coded patterns that represent projector rows/columns onto the surface. This approach requires a camera to capture the projected patterns.
 
-An advantage of this approach is that it does not require any other physical items (such as printed checkerboard patterns), neither moving objects around, for calibration.\\
+An advantage of this approach is that it does not require any other physical items (such as printed checkerboard patterns), neither moving objects around, for calibration. However, it does require depth information, as it does not work well with planar objects. This information is almost absent in our case, because the display is almost flat in it's initial state. Even though the parameters could be retrieved by using this method, the final results were never satisfactory(even when using cardboard boxes for generating depth data).\\
 \item Checkerboard Pattern\\
 \\Another approach for calibrating a projector-camera system is to use printed checkerboard patterns, extending from Zhang's method, as discussed in Chapter 3 of \cite{lanman09}. The known checkerboard patterns are projected onto a diffuse rigid object and their distorted appearance is photographed. Since a projector is the inverse of a camera, points on the image plane are mapped to outgoing light rays that pass through the center of projection. About 10-20 images with different positions and pose should be recorded.
 
@@ -403,10 +403,10 @@ In \cite{falcao08} a plane-based calibration of a projector-camera system is des
 \end{itemize}
 
 
-The procamlib (https://code.google.com/p/procamcalib/) software package for Matlab can be used to calibrate the projector-camera system using this approach. The steps are explained in \cite{falcao08}.\\
+The procamlib (https://code.google.com/p/procamcalib/) software package for Matlab can be used to calibrate the projector-camera system using this approach. The steps are explained in \cite{falcao08}. However, both the projected checkerboard and the printed one need to be in view of the camera at the same time. This is not possible with the setup used in this project.\\
 \item 3D Projection Mapping by Using a Reconstructed 3D Object\\
 
-The calibration approach described in \cite{vvvv} used a reconstructed 3D scene in order to calibrate the projector. Several vertices are selected on the reconstruction, to be used as calibration points. These can be selected as to correspond to the area where we are projecting. This technique could not be used, since a fully shaded reconstruction of the deformable cloth was not available for use for a third-party \textit{vvvv} application. At this time, I could not find reconstruction tools for the Creative depth camera(the authors of this approach use the \textit{Microsoft Kinect}). However, some attempts were made to save the mesh in an \textit{.obj} file. However, this was not completed due to lack of time(some faces were connected in a wrong order) and mesh normals would also have to be computed to shade the cloth(so that we are able to see the cloth area in the calibration package, where we would need to place our calibration points).
+The calibration approach described in \cite{vvvv} used a reconstructed 3D scene in order to calibrate the projector. Several vertices are selected on the reconstruction, to be used as calibration points. These can be selected as to correspond to the area where we are projecting. This technique could not be used, since a fully shaded reconstruction of the deformable cloth was not available for use. At this time, I could not find reconstruction tools for the \textit{Creative Senz3D} camera(the authors of this approach use the \textit{Microsoft Kinect}). However, some attempts were made to save the mesh in an \textit{.obj} file. However, this was not completed due to lack of time(some faces were connected in a wrong order) and mesh normals would also have to be computed to shade the cloth(so that we are able to see the cloth area in the calibration package, where we would need to place our calibration points).
 \item openFrameworks Camera-Projector Calibration\\
 
 A software package that calibrates a camera and a projector is available as an \textit{openFrameworks}(a toolkit for C++ applications) addon. The method is demonstrated in a video(see \cite{ofx}). It should be mentioned that this addon has originally been developed by one of the authors of \cite{watanabe08} and later extended. I had some trouble running the code, but after I made some changes it seemed that I successfully calibrated the camera+projector, since, as in the video, the projected dots were correctly rendered, when rotating and moving the checkerboard. However, the output for the rotation part of the extrinsic parameters was only a vector. In OpenGL I needed a rotation matrix. The matrix can be retrieved by using what is known as the \textit{Rodrigues' rotation formula}. I have used a readily available Matlab function that supposedly did the conversion. This was used like a black-box, I did not study how the formula works, as I was short on time. 
@@ -431,10 +431,12 @@ Further more, if the values are calculated using OpenCV's coordinate system, we 
 \label{fig:OpenCVOpenGLCoords}
 \end{figure}
 
-Moreover, as mentioned in an on-line article(see \cite{vuforia}) the pose matrix(effectively the matrix that combines both rotation and translation parameters), is what one could use to draw a virtual object at the target camera location, but, in order to tell how the camera is placed with respect to the target(which is what we need in this case, since the target is the deformable display, and we want to find the camera view which corresponds to the cloth area), the matrix needs to be inverted. These steps have been applied, but the mesh was scaled non-uniformly(skewed) when using the rotation matrix obtained previously. I did not find out why this was the case, and a manual alignment of physical and virtual cameras has been used instead.
+Moreover, as mentioned in an on-line article(see \cite{vuforia}) the pose matrix (effectively the matrix that combines both rotation and translation parameters), is what one could use to draw a virtual object at the target camera location, but, in order to tell how the camera is placed with respect to the target(which is what we need in this case, since the target is the deformable display, and we want to find the camera view which corresponds to the cloth area), the matrix needs to be inverted. These steps have been applied, but the mesh was scaled non-uniformly(skewed) when using the rotation matrix obtained previously. I did not find out why this was the case, and a manual alignment of physical and virtual cameras has been used instead. 
+
+As a final note, the coordinates of the mesh points were computed from the depth data and they would need to be mapped to the color coordinates, or the pose matrix has to be converted so that the calibration is between the depth camera and the projector, not the color camera. The calibration values for both depth and RGB cameras can be obtained from the Intel Perceptual Computing SDK.
 
 \item Manual Adjustment\\
-\\It is also possible to adjust the physical projector and camera so that one can deduce the extrinsic parameters. The intrinsic parameters may also be obtained by looking into the respective product's datasheet and adjusting the value depending on distance, lens size etc. Otherwise, one must use a trial and error approach, and some tests need to be done to confirm that the accuracy is acceptable. Manual adjustment is likely to produce results of inferior quality, compared to the previously mentioned methods.
+\\It is also possible to adjust the physical projector and camera so that one can compute the extrinsic parameters, provided that the intrinsic parameters are known. The latter may also be obtained by looking into the respective product's datasheet and adjusting the value depending on distance, lens size etc, or computed by a trial and error approach. As the trial and error approach was used in this project, some tests need to be done to confirm that the accuracy is acceptable. Manual adjustment is likely to produce results of inferior quality, compared to the previously mentioned methods.
 \end{itemize}
 
 \subsection{Creating a Point Cloud from the Depth Data}
@@ -443,9 +445,9 @@ This step is an intermediary one towards creating a mesh structure on which text
 
 The depth camera retrieves an image of 320x240 depth pixels. A point cloud can be created by using x, y values from 0 to the width and height of the depth image, respectively. The z value is simply equal to the depth, if the depth value is in a certain range(after it has been filtered). If the depth value is invalid, the current point is discarded and will not be rendered.
 
-Further, the point cloud must be updated in real-time. Rendering is being done with OpenGL, and the previous can be accomplished by using simple hardware graphics shader programs and OpenGL's Vertex Buffer Objects(VBO). The OpenGL point cloud also has to be rotated, as it is upside down(unless the depth camera is positioned upside down).
+Further, the point cloud must be updated in real-time. Rendering is being done with OpenGL, and the previous can be accomplished by using simple hardware graphics shader programs and OpenGL's Vertex Buffer Objects(VBO). The OpenGL point cloud also has to be rotated, as it is upside down - unless the depth camera is positioned upside down, which it was in the final setup.
 
-In the following, I will include a subsection with information about the general rendering process, which is applied to render 3D objects with the programmable OpenGL pipeline. The process is similar, whether we wish to render a point cloud, or a 3D mesh, only the vertex attributes(position, color, texture coordinates, normals etc.) which are stored in the VBOs and the programmable shaders will change.
+In the following, I will include a section with information about the general rendering process, which is used to render 3D objects with the programmable OpenGL pipeline. The process is similar whether we wish to render a point cloud, or a 3D mesh - only the vertex attributes(position, color, texture coordinates, normals etc.) which are stored in the VBOs and the programmable shaders will change.
 
 \subsubsection{Rendering}
 
@@ -463,17 +465,17 @@ In the following, I will briefly describe the 3D graphics pipeline, shown in fig
 
 \begin{figure}[hbtp]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/Graphics3D_Pipe.png}
+    \includegraphics[width=1.0\textwidth]{figures/Graphics3D_Pipe2.png}
     \caption{3D Graphics Pipeline}
     \label{fig:GraphicsPipeline}
 \end{figure}
 
 As we can see from the pipeline, the raw vertices are processed by a vertex processor which manipulates vertex related attributes, most generally, position. For example, a vertex shader(a program that runs on this processor) can be used to apply the modelview matrix to an input vertex. Next, the data is rasterized into fragments.
  
-A fragment contains the data necessary to generate a single pixel's worth of a drawing primitive in the frame buffer(the frame buffer is a portion of memory that contains a bitmap that will be sent to the video display - it represents a complete frame of data): raster position, depth and, after the fragment shader stage, it also contains interpolated attributes such as color and texture coordinates as well as a stencil value, an alpha value and the window ID. Note that a fragment only corresponds to a pixel if antialiasing is turned off, otherwise there will be $K$ fragments for a pixel for $Kx$ level antialiasing.
+A fragment contains the data necessary to generate a single pixel's worth of a drawing primitive in the frame buffer(the frame buffer is a portion of memory that contains a bitmap that will be sent to the video display - it represents a complete frame of data): raster position, depth and, after the fragment shader stage, it also contains interpolated attributes such as color and texture coordinates as well as a stencil value, an alpha value and the window ID. Note that a fragment only corresponds to a pixel if antialiasing is turned off, otherwise there will be $K$ fragments for a pixel for $K$x level antialiasing.
 As we can see from the above, the fragment shader receives fragments and processes them, computing color and texture coordinates. This shader can be programmed to color the geometry in any way desired. One can also apply textures and lighting at this stage. Finally, fragment shaders are also useful for visual debugging, as shader programs can usually not be debugged, since they run on the GPU hardware.\\
 
-\subsubsection{Limitations}
+\subsubsection{Point Cloud Density}
 
 Unfortunately, unless the point cloud is of sub-pixel density(which would also require a lot of processing power, due to the very large number of OpenGL primitives), it is easy to see that the target object is in fact made of discrete points(see figure \ref{fig:PointCloud}). This breaks immersion, especially after applying a texture to the object. Due to this, we must then proceed to the following step, triangulation of the points into a 3D mesh.
 
@@ -491,12 +493,11 @@ Unfortunately, unless the point cloud is of sub-pixel density(which would also r
 
 $$point => Viewport^{-1} => Projection^{-1} => ModelView^{-1} => PointInWorldSpace$$
 
-The  matrix should be the identity matrix at this point, since we have not manipulated the points.
 More information about the unprojecting process is available in \cite{sung2013}, although the authors unproject a 2D mesh with a set of sparse depth points. Nevertheless, the authors explain that unprojecting is the inverse process of how normal images are obtained, by projecting rays into a camera. In order to compute the rays, one needs to know the focal length and image center(intrinsic parameters), as well as the distance of the unprojection(ray length, which, in our case, corresponds to the depth for that pixel). They explain that the 3D position for a vertex $v(x,y)$ can be denoted by $p(v)$ and is determined as:
 $$p(v) = t(v) *\vec{r}(v),$$
 where $t(v)$ represents the ray length and $\vec{r}(v)$ represents the ray direction and is equal to $$\vec{r}(v) = (\frac{x - x_{c}}{f},\frac{y-y_{c}}{f},1)^T,$$ where $(x_{c}, y_{c})$ is the principal point or image center and f represents the focal distance.
 
-However, the official library for the depth camera used in this project provides a very useful method that computes the unprojection given the array and number of points. So in the end, that is all we really need to know in order to un project the points, if we are using the \textit{Creative Senz3D} depth camera.
+However, the official library for the depth camera used in this project provides a very useful method that computes the unprojection given the array and number of points. So in the end, that is all we really need to know in order to unproject the points, if we are using the \textit{Creative Senz3D} depth camera.
  
 \subsection{Object Reconstruction by Mesh Triangulation}
 
@@ -616,9 +617,9 @@ For more information about the algorithm itself please consult appendix \ref{app
 \subsection{Projective Texture Mapping}
 \label{sec:ptm}
 
-An article by NVIDIA which also references \cite{segal92}, describes projective texture mapping and how it can be implemented using OpenGL (see \cite{cassNvidia}). A short summary of this is presented below.
+A white paper by \textit{NVIDIA} describes projective texture mapping and how it can be implemented using OpenGL (see \cite{cassNvidia}). They mention that the theoretical foundation for the method is described in \cite{segal92}. The white paper contains more useful information for implementation however; a short summary of this is presented below.
 
-For projective texture mapping we need to use homogeneous texture coordinates. For example, for a projective 2D texture we have the coordinates (s,t,q) where the interpolated homogeneous coordinate is projected to a real 2D texture coordinate by dividing both s and t by q to obtain, (s/q, t/q). The homogeneous texture coordinates have to be assigned per-vertex. The final step implies a range mapping with [0,1] for each coordinate (using a scale and bias, so that the texture coordinates change from [-1,1] to [0,1]). In figure \ref{fig:VirtualProjectorPipeline} the transforms that are applied to a vertex position in order to compute projective texture coordinates are displayed.
+For projective texture mapping, we need to use homogeneous texture coordinates. For example, for a projective 2D texture we have the coordinates (s,t,q) where the interpolated homogeneous coordinate is projected to a real 2D texture coordinate by dividing both s and t by q to obtain, (s/q, t/q). The homogeneous texture coordinates have to be assigned per-vertex. The final step implies a range mapping with [0,1] for each coordinate (using a scale and bias, so that the texture coordinates change from [-1,1] to [0,1]). In figure \ref{fig:VirtualProjectorPipeline} the transforms that are applied to a vertex position in order to compute projective texture coordinates are displayed.
 
 \begin{figure}[hbtp]
     \centering
@@ -627,20 +628,18 @@ For projective texture mapping we need to use homogeneous texture coordinates. F
     \label{fig:VirtualProjectorPipeline}
 \end{figure}
 
-The vertex position in object and eye space is used to generate the texture coordinate. In OpenGL this can be accomplished with the \textit{texgen} facility (generates texture coordinates from vector attributes). In the \textit{object} and \textit{eye linear} modes, the texture coordinate is computed by solving a plane equation at the vertex position. Evaluating a plane equation is equivalent to a 4-component dot product, so the texgen planes form a 4x4 matrix, $T$:
+The vertex position in object and eye space is used to generate the texture coordinate. In OpenGL this can be accomplished with the \textit{texgen} facility (generates texture coordinates from vector attributes). In the \textit{object} and \textit{eye linear} modes, the texture coordinate is computed by solving a plane equation at the vertex position. Evaluating a plane equation is equivalent to a 4-component dot product, so the texgen planes form a 4x4 matrix, $T$, as shown in figure \ref{fig:ProjectiveTextureMapping}.
 
 \begin{figure}[hbtp]
     \centering
     \includegraphics[width=1.0\textwidth]{figures/PTMCoordinates.PNG}
-    \caption{Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space. Courtesy of \cite{cassNvidia}}
+    \caption{Projective Texture Coordinates from a 4x4 matrix and the vertices in object or eye space, where $s, t, r, q$ are the texture coordinates, $v$ represents the vertices in \textit{eye} or \textit{object} space and $T$ is the texgen matrix in eye or object space. Courtesy of \cite{cassNvidia}}
     \label{fig:ProjectiveTextureMapping}
 \end{figure}
 
-where $s, t, r, q$ are the texture coordinates, $v$ are the vertices in \textit{eye} or \textit{object} space and $T$ is the texgen matrix in eye or object space.
-
 \subsubsection{Object Linear Texgen}
 
-The object linear texgen can be represented as shown in figure \ref{fig:ObjectLinearTexgen}, where the first matrix is the scale-bias matrix, $M$ is the model matrix (in our case this should be the model matrix of the deformable display), $V_{p}$ is the view matrix for the projector and $P_{p}$ is the projector's projection matrix.
+The object linear texgen can be represented as shown in figure \ref{fig:ObjectLinearTexgen}, where the first matrix is the scale-bias matrix, $M$ is the model matrix, $V_{p}$ is the view matrix for the projector and $P_{p}$ is the projector's projection matrix.
 
 \begin{figure}[hbtp]
     \centering
@@ -662,7 +661,7 @@ The eye linear texgen can be represented as shown in figure \ref{fig:EyeLinearTe
 
 \subsection{Capturing Dynamic Contents}
 
-Dynamic contents can be obtained by simply rendering textures every frame. The question is how we get these frames into the application. Currently, they must be stored and initialized before the application is started. However, this is a limited approach. In order to create a versatile system, it is required to capture the contents of another application and then pass them to the distortion correction application for rendering. This would allow to load virtually any dynamic application. The window capturing is operating system specific. Finally, an interaction API of the display would have to communicate with the underlying application, sending commands as appropriate. If only custom OpenGL applications are used with the display, than the distortion correction could be added as a library that automatically applies the required steps, to any 3D scene we may have.
+Dynamic contents can be obtained by simply rendering textures every frame. Currently, they must be stored and initialized before the application is started. However, in order to create a versatile system, it is required to capture the contents of another application and then pass them to the distortion correction application for rendering - this could be implemented as future work. The window capturing is operating system specific. Finally, an interaction API of the display would have to communicate with the underlying application, sending commands as appropriate.
 
 \newpage
 \section{System Development and Implementation}
@@ -1969,8 +1968,7 @@ To conclude, a prototype that compensates distortions for deformable displays us
 \section{Resources: Source Code, Video etc.}
 \label{appendix:A}
 
-The DVD contains source code, data from the experiments and report, as well as a short video presentation of the thesis, this report in electronic format and other documents. In addition, the video is also available online at \url{YOUTUBE_LINK_HERE}.
-
+The DVD contains source code, data from the experiments and report, as well as a short video presentation of the thesis, this report in electronic format and other documents. In addition, the video is also available online on \textit{Dropbox}:\\ \url{https://www.dropbox.com/s/0nyrfgbdf554mzc/ThesisVideo.mov} and \textit{Youtube}:\\ \url{http://youtu.be/fXR6QPpeyBE}. In addition, a version of the source code(not cleaned, and contains many extra scenes that are not used in the thesis) is also available on \textit{github} at:\\ \url{https://github.com/avrdan/Thesis-Avrdan/tree/main}.
 
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \include{B}

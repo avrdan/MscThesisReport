@@ -14,19 +14,19 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Approaches to Calibration}{19}
 \contentsline {subsection}{\numberline {3.3}Creating a Point Cloud from the Depth Data}{21}
 \contentsline {subsubsection}{\numberline {3.3.1}Rendering}{22}
-\contentsline {subsubsection}{\numberline {3.3.2}Limitations}{23}
+\contentsline {subsubsection}{\numberline {3.3.2}Point Cloud Density}{23}
 \contentsline {subsubsection}{\numberline {3.3.3}Unprojecting to World Coordinates}{24}
-\contentsline {subsection}{\numberline {3.4}Object Reconstruction by Mesh Triangulation}{24}
+\contentsline {subsection}{\numberline {3.4}Object Reconstruction by Mesh Triangulation}{25}
 \contentsline {subsubsection}{\numberline {3.4.1}Connect a Grid of Points with a Triangle Strip}{26}
 \contentsline {subsubsection}{\numberline {3.4.2}Other Methods for Triangulation}{27}
 \contentsline {paragraph}{Delaunay Triangulation}{27}
-\contentsline {paragraph}{Marching Cubes}{27}
+\contentsline {paragraph}{Marching Cubes}{28}
 \contentsline {paragraph}{The Marching Cubes Algorithm}{28}
-\contentsline {paragraph}{Greedy Triangulation}{29}
-\contentsline {subsection}{\numberline {3.5}Projective Texture Mapping}{30}
-\contentsline {subsubsection}{\numberline {3.5.1}Object Linear Texgen}{32}
-\contentsline {subsubsection}{\numberline {3.5.2}Eye Linear Texgen}{32}
-\contentsline {subsection}{\numberline {3.6}Capturing Dynamic Contents}{32}
+\contentsline {paragraph}{Greedy Triangulation}{30}
+\contentsline {subsection}{\numberline {3.5}Projective Texture Mapping}{31}
+\contentsline {subsubsection}{\numberline {3.5.1}Object Linear Texgen}{33}
+\contentsline {subsubsection}{\numberline {3.5.2}Eye Linear Texgen}{33}
+\contentsline {subsection}{\numberline {3.6}Capturing Dynamic Contents}{33}
 \contentsline {section}{\numberline {4}System Development and Implementation}{34}
 \contentsline {subsection}{\numberline {4.1}Tools and Technologies Used}{34}
 \contentsline {subsection}{\numberline {4.2}Virtual World Setup}{35}
