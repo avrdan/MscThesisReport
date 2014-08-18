@@ -55,6 +55,10 @@ Pose matrix explained.
 \newblock
   \url{https://developer.vuforia.com/resources/dev-guide/pose-matrix-explained}.
 
+\bibitem{procamlib}
+Procamlib - projector-camera calibration tool.
+\newblock \url{https://code.google.com/p/procamcalib/}.
+
 \bibitem{quis}
 Questionnaire for user interation satisfaction.
 \newblock \url{http://lap.umd.edu/quis/}.
@@ -225,14 +229,14 @@ Dr.~Harvey Motulsky.
   \url{http://egret.psychol.cam.ac.uk/statistics/local_copies_of_sources_Cardinal_and_Aitken_ANOVA/errorbars.htm
   }.
 
-\bibitem{navpreet2013}
-Jon~Macey Navpreet Kaur~Pawar.
-\newblock Surface reconstruction from point clouds.
-\newblock August 2013.
-
 \bibitem{park}
 Jongtae Park.
 \newblock A fast, smal-radius gpu median filter.
+
+\bibitem{navpreet2013}
+Navpreet~Kaur Pawar and Jon Macey.
+\newblock Surface reconstruction from point clouds.
+\newblock August 2013.
 
 \bibitem{PCLGreedy}
 PCL.

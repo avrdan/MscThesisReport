@@ -70,7 +70,7 @@
 \contentsline {paragraph}{Overall Preservation of Appearance}{70}
 \contentsline {paragraph}{Consistency}{71}
 \contentsline {paragraph}{Preference}{72}
-\contentsline {subsubsection}{\numberline {6.1.2}Qualitative Analysis}{73}
+\contentsline {subsubsection}{\numberline {6.1.2}Qualitative Analysis}{74}
 \contentsline {paragraph}{Latency}{75}
 \contentsline {paragraph}{Center Point}{75}
 \contentsline {paragraph}{Left Point}{75}
